@@ -20,12 +20,12 @@ public class LoginController {
 	
 	@RequestMapping("/login")
 	public String login() {
-		return "login";
+		return "login/login";
 	}
 	
 	@RequestMapping("/registro")
 	public String registro() {
-		return "registro";
+		return "login/registro";
 	}
 
 }

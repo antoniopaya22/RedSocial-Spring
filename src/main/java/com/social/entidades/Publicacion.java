@@ -41,7 +41,7 @@ public class Publicacion {
 	private Usuario autor;
 	@OneToMany(mappedBy = "post")
 	private Set<Comentario> comentarios = new HashSet<>();
-	@ManyToMany
+	@ManyToMany(mappedBy = "likes_dados")
 	private Set<Usuario> likes = new HashSet<>();
 
 	public Publicacion() {}

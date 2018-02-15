@@ -36,13 +36,14 @@ public class Usuario {
 	private String foto_desc;
 
 	//QUE COÑO HAGO CON LOS AMIGOS? ES UNA RECIPROCA?
+	@ManyToMany
 	private Set<Usuario> amigos = new HashSet<>();
 	@OneToMany(mappedBy = "autor")
 	private Set<Publicacion> post = new HashSet<>();
 	@OneToMany(mappedBy = "autor")
 	private Set<Comentario> comentarios = new HashSet<>();
-	@ManyToMany(mappedBy = "likes")
-	private Set<Publicacion> likes = new HashSet<>();
+	@ManyToMany
+	private Set<Publicacion> likes_dados = new HashSet<>();
 	
 
 
@@ -169,14 +170,16 @@ public class Usuario {
 	}
 	
 	/**
-	 * @return the likes
+	 * @return the likes_dados
 	 */
-	public Set<Publicacion> getLikes() {
-		return likes;
+	public Set<Publicacion> getLikes_dados() {
+		return likes_dados;
 	}
+
 	
 	
 	//===================SETTERS===================
+
 
 	/**
 	 * @param username the username to set
@@ -256,14 +259,16 @@ public class Usuario {
 	}
 	
 	/**
-	 * @param likes the likes to set
+	 * @param likes_dados the likes_dados to set
 	 */
-	public void setLikes(Set<Publicacion> likes) {
-		this.likes = likes;
+	public void setLikes_dados(Set<Publicacion> likes_dados) {
+		this.likes_dados = likes_dados;
 	}
+	
 
 	//===================Hash Code & Equals===================
-	
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -304,7 +309,7 @@ public class Usuario {
 		return "Usuario [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
 				+ ", nombre=" + nombre + ", apellidos=" + apellidos + ", descripcion=" + descripcion + ", foto_perfil="
 				+ foto_perfil + ", foto_desc=" + foto_desc + ", amigos=" + amigos + ", post=" + post + ", comentarios="
-				+ comentarios +", likes="+ likes + "]";
+				+ comentarios +", likes="+ likes_dados + "]";
 	}
 	
 	

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:replace="fragments/head" />
+
+<body class="app sidebar-mini">
+
+	<nav th:replace="fragments/nav" />
+
+	<!-- Contenido -->
+	<main class="app-content">
+
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-comment-o"></i> Comentarios
+			</h1>
+			<p>Start a beautiful journey here</p>
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+			<li class="breadcrumb-item"><a href="#">Blank Page</a></li>
+		</ul>
+	</div>
+
+	<!-- Post -->
+	<div class="row user">
+		<div class="col-md-12">
+			<!-- POST-->
+			<div class="timeline-post">
+				<div class="post-media">
+					<a href="#"><img
+						src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
+					<div class="content">
+						<h5>
+							<a href="#">John Doe</a>
+						</h5>
+						<p class="text-muted">
+							<small>2 January at 9:30</small>
+						</p>
+					</div>
+				</div>
+				<div class="post-content">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip
+						ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+						officia deserunt mollit anim id est laborum.</p>
+				</div>
+				<ul class="post-utility">
+					<li class="likes"><a href="#"><i
+							class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Like</a></li>
+					<li class="shares"><a href="#"><i
+							class="fa fa-fw fa-lg fa-share"></i>Share</a></li>
+					<li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i>
+						5 Comments</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-6 bs-component">
+			<!-- Comentario 1 -->
+			<div class="bs-component">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Comentario 1</h5>
+						</div>
+						<div class="modal-body">
+							<p>Modal body text goes here.</p>
+						</div>
+						<div class="modal-header">
+							<a href="#"><img
+								src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
+							<div class="content">
+								<h5>
+									<a href="#">John Doe</a>
+								</h5>
+								<p class="text-muted">
+									<small>2 January at 9:30</small>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Comentario 2 -->
+			<div class="bs-component">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Comentario 2</h5>
+						</div>
+						<div class="modal-body">
+							<p>Modal body text goes here.</p>
+						</div>
+						<div class="modal-header">
+							<a href="#"><img
+								src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
+							<div class="content">
+								<h5>
+									<a href="#">John Doe</a>
+								</h5>
+								<p class="text-muted">
+									<small>2 January at 9:30</small>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Comentario 3 -->
+			<div class="bs-component">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title">Comentario 3</h5>
+						</div>
+						<div class="modal-body">
+							<p>Modal body text goes here.</p>
+						</div>
+						<div class="modal-header">
+							<a href="#"><img
+								src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
+							<div class="content">
+								<h5>
+									<a href="#">John Doe</a>
+								</h5>
+								<p class="text-muted">
+									<small>2 January at 9:30</small>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<ul class="pagination">
+				<li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+				<li class="page-item active"><a class="page-link" href="#">1</a></li>
+				<li class="page-item"><a class="page-link" href="#">2</a></li>
+				<li class="page-item"><a class="page-link" href="#">3</a></li>
+				<li class="page-item"><a class="page-link" href="#">4</a></li>
+				<li class="page-item"><a class="page-link" href="#">5</a></li>
+				<li class="page-item"><a class="page-link" href="#">»</a></li>
+			</ul>
+		</div>
+
+
+		<!-- Escribir comentario -->
+		<div class="col-md-6">
+			<div class="bs-component">
+				<div class="modal"
+					style="position: relative; top: auto; right: auto; left: auto; bottom: auto; z-index: 1; display: block;">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Escribir comentario</h5>
+							</div>
+							<!-- Poner aqui form -->
+							<div class="modal-body">
+								<p>Modal body text goes here.</p>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-primary" type="button">Save
+									changes</button>
+								<button class="btn btn-secondary" type="button"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	</main>
+
+	<!-- JS -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/plugins/pace.min.js"></script>
+</body>
+</html>
