@@ -35,7 +35,6 @@ public class Usuario {
 	private String foto_perfil;
 	private String foto_desc;
 
-	//QUE COÑO HAGO CON LOS AMIGOS? ES UNA RECIPROCA?
 	@ManyToMany
 	private Set<Usuario> amigos = new HashSet<>();
 	@OneToMany(mappedBy = "autor")
