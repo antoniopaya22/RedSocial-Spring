@@ -3,21 +3,20 @@
  */
 package com.social.controladores;
 
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.social.entidades.Usuario;
+import com.social.servicios.SecurityService;
 import com.social.servicios.UsuarioService;
 
 /**
- * <h1>Login Controller</h1>
- * Controlador que se encarga de dar respuesta
- * a las peticiones de Login, Register, Olvide mi contraseña, o parecidos.
+ * <h1>Login Controller</h1> Controlador que se encarga de dar respuesta a las
+ * peticiones de Login, Register, Olvide mi contraseña, o parecidos.
  * 
  * @author Antonio Paya Gonzalez
  * @author Pablo Diaz Rancaño
@@ -25,35 +24,34 @@ import com.social.servicios.UsuarioService;
  */
 @Controller
 public class LoginController {
-	
+
+	@Autowired
 	private UsuarioService usuarioService;
+
+	@Autowired
+	private SecurityService securityService;
+
 	
-	@RequestMapping("/login")
-	public String login() {
-		return "login/login";
-	}
-	
-	@RequestMapping("/user/login")
-	public String loginUsuario(@PathVariable String usuario,@PathVariable String password) {
-		List<Usuario> usuarios = usuarioService.getUsuarios();
-		Usuario a = usuarios.stream().filter(x -> x.getUsername().equals(usuario) && x.getPassword().equals(password))
-		.findFirst().get();
-		return a==null?"redirect:panel":"redirect:login/registro";
-	}
-	
-	@RequestMapping("/registro")
+	@RequestMapping(value = "/registro", method = RequestMethod.GET)
 	public String registro() {
-		return "login/registro";
+		return "/login/registro";
 	}
 	
 	@RequestMapping(value = "/registro", method = RequestMethod.POST)
-	public String registrarUsuario(@PathVariable String username,@PathVariable String password,@PathVariable String email) {
-		Usuario user = new Usuario();
-		user.setUsername(username);
-		user.setEmail(email);
-		user.setPassword(password);
-		usuarioService.addUsuario(user);
-		return "redirect:/login";
+	public String registro(@ModelAttribute("usuario") Usuario usuario,Model model) {
+		usuarioService.addUsuario(usuario);
+		securityService.autoLogin(usuario.getUsername(), usuario.getPasswordConfirm());
+		return "redirect:panel";
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login(Model model) {
+		return "/login/login";
+	}
+
+	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
+	public String home(Model model) {
+		return "/login/login";
 	}
 
 }

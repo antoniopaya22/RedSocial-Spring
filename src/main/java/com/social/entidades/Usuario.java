@@ -6,12 +6,14 @@ package com.social.entidades;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Transient;
 
 /**
  * <h1>Usuario</h1> Modelo que representa a un usuario del sistema
@@ -26,7 +28,10 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@Column(unique = true)
 	private String username;
+
 	private String password;
 	private String email;
 	private String nombre;
@@ -34,6 +39,10 @@ public class Usuario {
 	private String descripcion;
 	private String foto_perfil;
 	private String foto_desc;
+	private String role;
+
+	@Transient
+	private String passwordConfirm;
 
 	@ManyToMany
 	private Set<Usuario> amigos = new HashSet<>();
@@ -43,15 +52,13 @@ public class Usuario {
 	private Set<Comentario> comentarios = new HashSet<>();
 	@ManyToMany
 	private Set<Publicacion> likes_dados = new HashSet<>();
-	
 
-
-	public Usuario() {}
-	
-	
+	public Usuario() {
+	}
 
 	/**
 	 * Constructor principal de la clase usuario
+	 * 
 	 * @param username
 	 * @param password
 	 * @param email
@@ -66,7 +73,7 @@ public class Usuario {
 	 */
 	public Usuario(String username, String password, String email, String nombre, String apellidos, String descripcion,
 			String foto_perfil, String foto_desc, Set<Usuario> amigos, Set<Publicacion> post,
-			Set<Comentario> comentarios,Set<Publicacion> likes) {
+			Set<Comentario> comentarios, Set<Publicacion> likes) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -81,9 +88,7 @@ public class Usuario {
 		this.comentarios = comentarios;
 	}
 
-
-
-	//===================GETTERS===================
+	// ===================GETTERS===================
 	/**
 	 * @return the id
 	 */
@@ -167,7 +172,7 @@ public class Usuario {
 	public Set<Comentario> getComentarios() {
 		return comentarios;
 	}
-	
+
 	/**
 	 * @return the likes_dados
 	 */
@@ -175,100 +180,139 @@ public class Usuario {
 		return likes_dados;
 	}
 
-	
-	
-	//===================SETTERS===================
-
+	/**
+	 * @return the passwordConfirm
+	 */
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
 
 	/**
-	 * @param username the username to set
+	 * @return the role
+	 */
+	public String getRole() {
+		return role;
+	}
+
+	// ===================SETTERS===================
+
+	/**
+	 * @param role
+	 *            the role to set
+	 */
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	/**
+	 * @param passwordConfirm
+	 *            the passwordConfirm to set
+	 */
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
+	}
+
+	/**
+	 * @param username
+	 *            the username to set
 	 */
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
 	/**
-	 * @param password the password to set
+	 * @param password
+	 *            the password to set
 	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
 	/**
-	 * @param email the email to set
+	 * @param email
+	 *            the email to set
 	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
 	/**
-	 * @param nombre the nombre to set
+	 * @param nombre
+	 *            the nombre to set
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
 	/**
-	 * @param apellidos the apellidos to set
+	 * @param apellidos
+	 *            the apellidos to set
 	 */
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
 
 	/**
-	 * @param descripcion the descripcion to set
+	 * @param descripcion
+	 *            the descripcion to set
 	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
 	/**
-	 * @param foto_perfil the foto_perfil to set
+	 * @param foto_perfil
+	 *            the foto_perfil to set
 	 */
 	public void setFoto_perfil(String foto_perfil) {
 		this.foto_perfil = foto_perfil;
 	}
 
 	/**
-	 * @param foto_desc the foto_desc to set
+	 * @param foto_desc
+	 *            the foto_desc to set
 	 */
 	public void setFoto_desc(String foto_desc) {
 		this.foto_desc = foto_desc;
 	}
 
 	/**
-	 * @param amigos the amigos to set
+	 * @param amigos
+	 *            the amigos to set
 	 */
 	public void setAmigos(Set<Usuario> amigos) {
 		this.amigos = amigos;
 	}
 
 	/**
-	 * @param post the post to set
+	 * @param post
+	 *            the post to set
 	 */
 	public void setPost(Set<Publicacion> post) {
 		this.post = post;
 	}
 
 	/**
-	 * @param comentarios the comentarios to set
+	 * @param comentarios
+	 *            the comentarios to set
 	 */
 	public void setComentarios(Set<Comentario> comentarios) {
 		this.comentarios = comentarios;
 	}
-	
+
 	/**
-	 * @param likes_dados the likes_dados to set
+	 * @param likes_dados
+	 *            the likes_dados to set
 	 */
 	public void setLikes_dados(Set<Publicacion> likes_dados) {
 		this.likes_dados = likes_dados;
 	}
-	
 
-	//===================Hash Code & Equals===================
+	// ===================Hash Code & Equals===================
 
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -279,7 +323,9 @@ public class Usuario {
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -299,8 +345,10 @@ public class Usuario {
 		return true;
 	}
 
-	//===================ToString===================
-	/* (non-Javadoc)
+	// ===================ToString===================
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -308,9 +356,7 @@ public class Usuario {
 		return "Usuario [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
 				+ ", nombre=" + nombre + ", apellidos=" + apellidos + ", descripcion=" + descripcion + ", foto_perfil="
 				+ foto_perfil + ", foto_desc=" + foto_desc + ", amigos=" + amigos + ", post=" + post + ", comentarios="
-				+ comentarios +", likes="+ likes_dados + "]";
+				+ comentarios + ", likes=" + likes_dados + "]";
 	}
-	
-	
 
 }

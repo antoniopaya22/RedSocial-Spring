@@ -35,7 +35,7 @@
 				src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"
 				alt="User Image">
 			<div>
-				<p class="app-sidebar__user-name">Antonio Paya</p>
+				<p class="app-sidebar__user-name" th:inline="text">[[${#httpServletRequest.remoteUser}]]</p>
 				<p class="app-sidebar__user-designation">Frontend Developer</p>
 			</div>
 		</div>

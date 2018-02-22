@@ -20,8 +20,8 @@
 
 				<div class="form-group">
 					<label class="control-label">Usuario o email</label> <input
-						class="form-control" type="text" placeholder="Usuario o Email" autofocus
-						name="usuario" required="true">
+						class="form-control" type="text" placeholder="Usuario o Email"
+						autofocus name="username" required="true">
 				</div>
 
 				<div class="form-group">
@@ -33,7 +33,8 @@
 				<div class="form-group">
 					<div class="utility">
 						<p class="semibold-text mb-2">
-							<a href="/registro" data-toggle="flip">¿No tienes cuenta? Registrate aquí</a>
+							<a href="/registro" data-toggle="flip">¿No tienes cuenta?
+								Registrate aquí</a>
 						</p>
 					</div>
 				</div>
@@ -44,6 +45,8 @@
 					</button>
 				</div>
 
+				<input type="hidden" name="${_csrf.parameterName}"
+					value="${_csrf.token}" />
 			</form>
 
 		</div>

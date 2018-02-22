@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.social.entidades.Usuario;
@@ -27,6 +28,9 @@ public class UsuarioService {
 	@Autowired
 	private UsuariosRepository usuariosRepository;
 
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
 	public List<Usuario> getUsuarios() {
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 		usuariosRepository.findAll().forEach(usuarios::add);
@@ -37,12 +41,17 @@ public class UsuarioService {
 		return usuariosRepository.findOne(id);
 	}
 
-	public void addUsuario(Usuario Usuario) {
-		usuariosRepository.save(Usuario);
+	public void addUsuario(Usuario usuario) {
+		usuario.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
+		usuariosRepository.save(usuario);
 	}
 
 	public void deleteUsuario(Long id) {
 		usuariosRepository.delete(id);
+	}
+
+	public Usuario getUserByUsername(String username) {
+		return usuariosRepository.findByUsername(username);
 	}
 
 }

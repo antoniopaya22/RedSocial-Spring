@@ -13,4 +13,7 @@ import com.social.entidades.Usuario;
  * @author Pablo Diaz Rancaño
  *
  */
-public interface UsuariosRepository extends CrudRepository<Usuario, Long>{}
+public interface UsuariosRepository extends CrudRepository<Usuario, Long>{
+	
+	Usuario findByUsername(String username);
+}
