@@ -16,4 +16,6 @@ import com.social.entidades.Usuario;
 public interface UsuariosRepository extends CrudRepository<Usuario, Long>{
 	
 	Usuario findByUsername(String username);
+
+	Usuario findByEmail(String email);
 }

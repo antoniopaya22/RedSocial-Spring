@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
+ * <h1>RedSocialApplication</h1>
+ * 
  * Clase que inicia la aplicacion de Spring-boot
  * 
  * @author Antonio Paya Gonzalez
