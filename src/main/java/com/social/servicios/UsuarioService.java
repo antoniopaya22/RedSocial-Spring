@@ -4,9 +4,13 @@
 package com.social.servicios;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -58,4 +62,19 @@ public class UsuarioService {
 		return usuariosRepository.findByEmail(email);
 	}
 
+	public Page<Usuario> getUsuarios(Pageable pageable){
+		Page<Usuario> usuarios = usuariosRepository.findAll(pageable);
+		return usuarios;
+	}
+	
+	public Page<Usuario> buscarUsuariosPorNombreOEmail(Pageable pageable, String searchText)
+	{
+		Page<Usuario> usuarios = new PageImpl<Usuario>(new LinkedList<Usuario>());
+		
+		searchText = "%"+searchText+"%";
+		
+		usuarios = usuariosRepository.buscarPorNombreOEmail(pageable, searchText);
+	
+		return usuarios;
+	}
 }
