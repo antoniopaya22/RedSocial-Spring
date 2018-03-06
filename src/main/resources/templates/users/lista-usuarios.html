@@ -13,15 +13,66 @@
 			<h1>
 				<i class="fa fa-users"></i> Lista de usuarios
 			</h1>
-			<p>Lorem ipsum pablo es un paquete</p>
+			
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
 			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
 			<li class="breadcrumb-item"><a href="#">Lista de usuarios</a></li>
 		</ul>
 	</div>
-
-	<!-- Usuario 1 (No agregado como amigo)-->
+ 	
+ 	<div class="row">
+		<div class="col-md-12">
+			<div class="card mb-3 border-primary">
+				<div class="card-body">
+					<h2>Buscar usuarios</h2>
+					<div class="row">
+						<div class="col-md-8">
+							<form class="navbar-form" action="/users/lista-usuarios">
+								<div class="row">
+									<div class="form-group col-md-9">
+										<input name="searchText" type="text" class="form-control" size="80"
+											placeholder="Buscar por nombre o email de usuario">
+									</div>
+									<button type="submit" class="btn btn-default">Buscar usuario</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ 	
+	    
+	<div class="row" th:each="usuario : ${userList}">
+		<div class="col-md-12">
+			<div class="card mb-3 border-primary">
+				<div class="card-body">
+					<div class="row">
+						<div class="col-md-4">
+							<h5>
+								<a href="#" th:text="${usuario.nombreCompleto}">Usuario</a>
+							</h5>
+							<!--  
+							<a href="#"><img
+								src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
+							-->
+						</div>
+						<div class="col-md-8">
+							<h5>Email</h5>
+							<p th:text="${usuario.email}">Email</p>
+							<button class="btn btn-outline-primary" type="button">Enviar
+								peticiÃ³n de amistad</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!--
+	Usuario 1 (No agregado como amigo)
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card mb-3 border-primary">
@@ -39,7 +90,7 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 								Integer posuere erat a ante.</p>
 							<button class="btn btn-outline-primary" type="button">Enviar
-								petición de amistad</button>
+								peticiï¿½n de amistad</button>
 						</div>
 					</div>
 				</div>
@@ -47,7 +98,7 @@
 		</div>
 	</div>
 
-	<!-- Usuario 2 (Agregado como amigo) -->
+	Usuario 2 (Agregado como amigo)
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card mb-3 border-primary">
@@ -65,8 +116,8 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 								Integer posuere erat a ante.</p>
 							<div class="alert alert-dismissible alert-success">
-								<strong>¡Qué bién!</strong> <a class="alert-link" href="#">Usuario</a>
-								y tú sois amigos.
+								<strong>ï¿½Quï¿½ biï¿½n!</strong> <a class="alert-link" href="#">Usuario</a>
+								y tï¿½ sois amigos.
 							</div>
 						</div>
 					</div>
@@ -75,7 +126,7 @@
 		</div>
 	</div>
 
-	<!-- Usuario 3 (No agregado como amigo)-->
+	 Usuario 3 (No agregado como amigo)
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card mb-3 border-primary">
@@ -93,14 +144,17 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 								Integer posuere erat a ante.</p>
 							<button class="btn btn-outline-primary" type="button">Enviar
-								petición de amistad</button>
+								peticiï¿½n de amistad</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	-->
 
+	<footer th:replace="fragments/pagination"/>
+	
 	</main>
 
 	<!-- JS -->

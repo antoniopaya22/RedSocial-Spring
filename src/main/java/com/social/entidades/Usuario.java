@@ -87,6 +87,13 @@ public class Usuario {
 		this.post = post;
 		this.comentarios = comentarios;
 	}
+	
+	public Usuario(String username, String nombre, String apellidos)
+	{
+		this(username, "1234", "a@example.com", nombre, apellidos, "prueba", "foto.jpg", 
+				"fotodesc_jpg", new HashSet<Usuario>(), new HashSet<Publicacion>(), new HashSet<Comentario>(),
+				new HashSet<Publicacion>());
+	}
 
 	// ===================GETTERS===================
 	/**
@@ -357,6 +364,11 @@ public class Usuario {
 				+ ", nombre=" + nombre + ", apellidos=" + apellidos + ", descripcion=" + descripcion + ", foto_perfil="
 				+ foto_perfil + ", foto_desc=" + foto_desc + ", amigos=" + amigos + ", post=" + post + ", comentarios="
 				+ comentarios + ", likes=" + likes_dados + "]";
+	}
+	
+	public String getNombreCompleto()
+	{
+		return nombre + " " + apellidos;
 	}
 
 }
