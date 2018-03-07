@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -52,6 +54,13 @@ public class UsuarioService {
 
 	public void deleteUsuario(Long id) {
 		usuariosRepository.delete(id);
+	}
+	
+	public Usuario getUsuarioActivo() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		Usuario activeUser = getUserByUsername(username);
+		return activeUser;
 	}
 
 	public Usuario getUserByUsername(String username) {

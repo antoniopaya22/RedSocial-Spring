@@ -54,6 +54,7 @@ public class Usuario {
 	private Set<Publicacion> likes_dados = new HashSet<>();
 
 	public Usuario() {
+		this.setFoto_perfil("https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-128.png");
 	}
 
 	/**
@@ -90,7 +91,7 @@ public class Usuario {
 	
 	public Usuario(String username, String nombre, String apellidos)
 	{
-		this(username, "1234", "a@example.com", nombre, apellidos, "prueba", "foto.jpg", 
+		this(username, "1234", "a@example.com", nombre, apellidos, "prueba", "https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-128.png", 
 				"fotodesc_jpg", new HashSet<Usuario>(), new HashSet<Publicacion>(), new HashSet<Comentario>(),
 				new HashSet<Publicacion>());
 	}

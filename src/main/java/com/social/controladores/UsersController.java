@@ -35,7 +35,7 @@ public class UsersController
 		{
 			usuarios = usersService.getUsuarios(pageable);
 		}
-		
+		model.addAttribute("usuarioActivo", usersService.getUsuarioActivo());
 		model.addAttribute("userList", usuarios.getContent());
 		model.addAttribute("page", usuarios);
 		return "/users/lista-usuarios";
