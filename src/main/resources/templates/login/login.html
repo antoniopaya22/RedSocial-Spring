@@ -13,20 +13,20 @@
 		</div>
 
 		<div class="login-box">
-			<form class="login-form" method="post" action="/login">
+			<form class="login-form" method="post" th:action="@{/login}">
 				<h3 class="login-head">
 					<i class="fa fa-lg fa-fw fa-user"></i>Login
 				</h3>
 
 				<div class="form-group">
-					<label class="control-label">Usuario o email</label> <input
-						class="form-control" type="text" placeholder="Usuario o Email"
-						autofocus name="username" required="true">
+					<label class="control-label">Usuario o email</label> 
+					<input class="form-control" type="text" placeholder="Usuario"
+						name="username" required="true" autofocus>
 				</div>
 
 				<div class="form-group">
-					<label class="control-label">Password</label> <input
-						class="form-control" type="password" placeholder="Password"
+					<label class="control-label">Password</label>
+					 <input class="form-control" type="password" placeholder="Password"
 						name="password" required="true">
 				</div>
 
@@ -40,7 +40,7 @@
 				</div>
 
 				<div class="form-group btn-container">
-					<button class="btn btn-primary btn-block">
+					<button class="btn btn-primary btn-block" type="submit">
 						<i class="fa fa-sign-in fa-lg fa-fw"></i>Login
 					</button>
 				</div>

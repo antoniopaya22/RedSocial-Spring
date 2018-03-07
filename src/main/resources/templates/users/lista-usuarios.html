@@ -60,7 +60,7 @@
 						<div class="col-md-8">
 							<h5>Email</h5>
 							<p th:text="${usuario.email}">Email</p>
-							<button class="btn btn-outline-primary" type="button">Enviar
+							<button th:if="${!usuarioActivo.username.equals(usuario.username)}" class="btn btn-outline-primary" type="button">Enviar
 								petición de amistad</button>
 						</div>
 					</div>
