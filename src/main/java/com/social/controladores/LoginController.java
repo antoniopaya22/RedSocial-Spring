@@ -52,7 +52,8 @@ public class LoginController {
 		}
 		usuarioService.addUsuario(usuario);
 		securityService.autoLogin(usuario.getUsername(), usuario.getPasswordConfirm());
-		return "redirect:panel";
+		model.addAttribute("usuarioActivo", usuarioService.getUsuarioActivo());
+		return "/";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)

@@ -3,10 +3,14 @@
  */
 package com.social.controladores;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.social.servicios.PublicacionService;
+import com.social.servicios.UsuarioService;
 
 /**
  * <h1>Panel Controller</h1> 
@@ -20,15 +24,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class PanelController {
-
 	
-	@RequestMapping(value = "/panel", method = RequestMethod.GET)
-	public String panel() {
-		return "/panel";
-	}
+	@Autowired
+	private UsuarioService usuarioService;
+	@Autowired
+	private PublicacionService postService;
 	
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public String home(Model model) {
+		model.addAttribute("usuarioActivo", usuarioService.getUsuarioActivo());
+		model.addAttribute("listPost",postService.getPublicaciones());
 		return "/panel";
 	}
 

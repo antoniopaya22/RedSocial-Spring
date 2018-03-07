@@ -31,18 +31,22 @@
 	<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 	<aside class="app-sidebar">
 		<div class="app-sidebar__user">
-			<img class="app-sidebar__user-avatar"
-				src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"
-				alt="User Image">
+			<img th:if="${usuarioActivo.foto_perfil != null}" class="app-sidebar__user-avatar"
+				th:src="${usuarioActivo.foto_perfil}"
+				alt="User Image" width="48" height="48">
 			<div>
-				<p class="app-sidebar__user-name" th:inline="text">[[${#httpServletRequest.remoteUser}]]</p>
-				<p class="app-sidebar__user-designation">Frontend Developer</p>
+				<p th:if="${usuarioActivo.nombre == null}" class="app-sidebar__user-name" th:inline="text" th:text="${usuarioActivo.username}">Username</p>
+				<p th:if="${usuarioActivo.nombre != null}" class="app-sidebar__user-name" th:inline="text" th:text="${usuarioActivo.nombre}">Nombre</p>
+				<p class="app-sidebar__user-designation" th:text="${usuarioActivo.apellidos}">Apellidos</p>
 			</div>
 		</div>
 		<ul class="app-menu">
-			<li><a class="app-menu__item" href="/panel"><i
+			<li><a class="app-menu__item" href="/"><i
 					class="app-menu__icon fa fa-dashboard"></i><span
 					class="app-menu__label">Panel</span></a></li>
+			<li><a class="app-menu__item" href="/users/lista-usuarios"><i
+					class="app-menu__icon fa fa-users"></i><span
+					class="app-menu__label">Lista de usuarios</span></a></li>
 			<li class="treeview"><a class="app-menu__item" href="#"
 				data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span
 					class="app-menu__label">Mis post</span><i
