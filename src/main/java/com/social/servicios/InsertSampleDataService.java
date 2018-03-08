@@ -122,6 +122,8 @@ public class InsertSampleDataService {
 		usuario6.addAmigo(usuario5);
 		usuario5.addAmigo(usuario6);
 		
+		usuario1.setFoto_desc("https://ih0.redbubble.net/cover.104630.2400x600.jpg");
+		
 		usuariosService.addUsuario(usuario1);
 		usuariosService.addUsuario(usuario2);
 		usuariosService.addUsuario(usuario3);

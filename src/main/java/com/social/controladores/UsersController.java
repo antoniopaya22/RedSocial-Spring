@@ -8,6 +8,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -38,6 +39,15 @@ public class UsersController
 		model.addAttribute("userList", usuarios.getContent());
 		model.addAttribute("page", usuarios);
 		return "/users/lista-usuarios";
+		
+	}
+	
+	@RequestMapping("/users/perfil/{username}")
+	public String getList(Model model,@PathVariable String username)
+	{	
+		model.addAttribute("usuario", usersService.getUserByUsername(username));
+		model.addAttribute("usuarioActivo", usersService.getUsuarioActivo());
+		return "/users/perfil";
 		
 	}
 	

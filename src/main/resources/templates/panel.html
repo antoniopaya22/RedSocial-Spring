@@ -40,7 +40,7 @@
 				<div class="info">
 					<h4>Likes</h4>
 					<p>
-						<b th:text="${usuarioActivo.amigos.size()}">25</b>
+						<b th:text="${usuarioActivo.likes_dados.size()}">25</b>
 					</p>
 				</div>
 			</div>
@@ -51,7 +51,7 @@
 				<div class="info">
 					<h4>Post</h4>
 					<p>
-						<b th:text="${usuarioActivo.likes_dados.size()}">10</b>
+						<b th:text="${usuarioActivo.post.size()}">10</b>
 					</p>
 				</div>
 			</div>
@@ -105,7 +105,7 @@
 								th:src="${post.autor.foto_perfil}" width="48" height="48"></a>
 					<div class="content">
 						<h5>
-							<a th:text="${post.autor.username}" href="#">John Doe</a>
+							<a th:text="${post.autor.username}" th:href="${'/users/perfil/' + post.autor.username}">John Doe</a>
 						</h5>
 						<p class="text-muted">
 							<small th:text="${post.fecha}">2 January at 9:30</small>

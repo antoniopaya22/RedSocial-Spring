@@ -51,8 +51,10 @@
 					<div class="row">
 						<div class="col-md-4">
 							<h5>
-								<a th:if="${usuario.nombre != null}" href="#" th:text="${usuario.nombreCompleto}">Usuario</a>
-								<a th:if="${usuario.nombre == null}" href="#" th:text="${usuario.username}">Usuario</a>
+								<a th:if="${usuario.nombre != null}" th:href="${'/users/perfil/' + usuario.username}"
+									 th:text="${usuario.nombreCompleto}">Usuario</a>
+								<a th:if="${usuario.nombre == null}" th:href="${'/users/perfil/' + usuario.username}"
+									 th:text="${usuario.username}">Usuario</a>
 							</h5>  
 							<a th:if="${usuario.foto_perfil != null}" href="#"><img
 								th:src="${usuario.foto_perfil}" width="48" height="48"></a>
@@ -60,8 +62,12 @@
 						<div class="col-md-8">
 							<h5>Email</h5>
 							<p th:text="${usuario.email}">Email</p>
-							<button th:if="${!usuarioActivo.username.equals(usuario.username)}" class="btn btn-outline-primary" type="button">Enviar
+							<button th:if="${!usuarioActivo.esAmigo(usuario)}" class="btn btn-outline-primary" type="button">Enviar
 								petición de amistad</button>
+							<div class="alert alert-dismissible alert-success" th:if="${usuarioActivo.esAmigo(usuario)}">
+								<strong>¡Qué bién!</strong> <a class="alert-link" href="#" th:text="${usuario.username}">Usuario</a>
+								y tú sois amigos.
+							</div>
 						</div>
 					</div>
 				</div>
@@ -156,10 +162,10 @@
 	</main>
 
 	<!-- JS -->
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/plugins/pace.min.js"></script>
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../js/plugins/pace.min.js"></script>
 </body>
 </html>

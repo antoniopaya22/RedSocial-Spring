@@ -38,7 +38,9 @@ public class Usuario {
 	private String nombre;
 	private String apellidos;
 	private String descripcion;
+	@Column(length=16777216)
 	private String foto_perfil;
+	@Column(length=16777216)
 	private String foto_desc;
 	private String role;
 
@@ -57,7 +59,7 @@ public class Usuario {
 	private Set<Publicacion> likes_dados = new HashSet<>();
 
 	public Usuario() {
-		this.setFoto_perfil("https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-128.png");
+		this.setFoto_perfil("https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png");
 	}
 
 	/**
@@ -94,7 +96,7 @@ public class Usuario {
 	
 	public Usuario(String username, String nombre, String apellidos)
 	{
-		this(username, "1234", "a@example.com", nombre, apellidos, "prueba", "https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-128.png", 
+		this(username, "1234", "a@example.com", nombre, apellidos, "prueba", "https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png", 
 				"fotodesc_jpg", new HashSet<Usuario>(), new HashSet<Publicacion>(), new HashSet<Comentario>(),
 				new HashSet<Publicacion>());
 	}
@@ -319,7 +321,32 @@ public class Usuario {
 	public void setLikes_dados(Set<Publicacion> likes_dados) {
 		this.likes_dados = likes_dados;
 	}
-
+	// ===================Equals===================
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Usuario other = (Usuario) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (username == null) {
+			if (other.username != null)
+				return false;
+		} else if (!username.equals(other.username))
+			return false;
+		return true;
+	}
 
 	// ===================ToString===================
 	/*
@@ -335,6 +362,7 @@ public class Usuario {
 				+ comentarios + ", likes=" + likes_dados + "]";
 	}
 	
+
 	public String getNombreCompleto()
 	{
 		return nombre + " " + apellidos;
@@ -342,6 +370,12 @@ public class Usuario {
 	
 	public void addAmigo(Usuario u) {
 		this.amigos.add(u);
+	}
+	
+	public boolean esAmigo(Usuario u) {
+		if(this.getUsername().equals(u.getUsername()))
+			return false;
+		return amigos.contains(u);
 	}
 
 }

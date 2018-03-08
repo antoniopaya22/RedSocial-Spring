@@ -24,7 +24,7 @@
 				<ul class="dropdown-menu settings-menu dropdown-menu-right">
 					<li><a class="dropdown-item" href="page-user.html"><i
 							class="fa fa-cog fa-lg"></i> Ajustes</a></li>
-					<li><a class="dropdown-item" href="page-user.html"><i
+					<li><a class="dropdown-item" th:href="${'/users/perfil/' + usuarioActivo.username}"><i
 							class="fa fa-user fa-lg"></i> Perfil</a></li>
 					<li><a class="dropdown-item" href="page-login.html"><i
 							class="fa fa-sign-out fa-lg"></i> Cerrar sesión</a></li>
@@ -48,9 +48,6 @@
 			<li><a class="app-menu__item" href="/"><i
 					class="app-menu__icon fa fa-dashboard"></i><span
 					class="app-menu__label">Panel</span></a></li>
-			<li><a class="app-menu__item" href="/users/lista-usuarios"><i
-					class="app-menu__icon fa fa-users"></i><span
-					class="app-menu__label">Lista de usuarios</span></a></li>
 			<li class="treeview"><a class="app-menu__item" href="#"
 				data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span
 					class="app-menu__label">Mis post</span><i
@@ -62,13 +59,21 @@
 							class="icon fa fa-circle-o"></i> Editar post</a></li>
 					<li><a class="treeview-item" href="form-samples.html"><i
 							class="icon fa fa-circle-o"></i> Borrar post</a></li>
-				</ul></li>
-			<li><a class="app-menu__item" href="/users/lista-amigos"><i
-					class="app-menu__icon fa fa-users"></i><span
-					class="app-menu__label">Mis amigos</span></a></li>
-			<li><a class="app-menu__item" href="/users/lista-usuarios"><i
-					class="app-menu__icon fa fa-users"></i><span
-					class="app-menu__label">Lista de usuarios</span></a></li>
+				</ul>
+			</li>
+			<li class="treeview"><a class="app-menu__item" href="#"
+				data-toggle="treeview"><i class="app-menu__icon fa fa-users"></i><span
+					class="app-menu__label">Usuarios</span><i
+					class="treeview-indicator fa fa-angle-right"></i></a>
+				<ul class="treeview-menu">
+					<li><a class="treeview-item" href="/users/lista-usuarios"><i
+							class="icon fa fa-circle-o"></i> Todos los usuarios</a></li>
+					<li><a class="treeview-item" href="/users/lista-amigos"><i
+							class="icon fa fa-circle-o"></i> Mis Amigos</a></li>
+					<li><a class="treeview-item" href="#"><i
+							class="icon fa fa-circle-o"></i> Ver peticiones de amistad</a></li>
+				</ul>
+			</li>
 		</ul>
 	</aside>
 </nav>
