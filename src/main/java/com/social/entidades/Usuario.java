@@ -6,6 +6,7 @@ package com.social.entidades;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -46,9 +47,9 @@ public class Usuario {
 
 	@ManyToMany
 	private Set<Usuario> amigos = new HashSet<>();
-	@OneToMany(mappedBy = "autor")
+	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
 	private Set<Publicacion> post = new HashSet<>();
-	@OneToMany(mappedBy = "autor")
+	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
 	private Set<Comentario> comentarios = new HashSet<>();
 	@ManyToMany
 	private Set<Publicacion> likes_dados = new HashSet<>();
