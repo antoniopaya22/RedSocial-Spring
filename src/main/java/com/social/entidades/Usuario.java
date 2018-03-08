@@ -47,8 +47,10 @@ public class Usuario {
 
 	@ManyToMany
 	private Set<Usuario> amigos = new HashSet<>();
+	
 	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
 	private Set<Publicacion> post = new HashSet<>();
+	
 	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
 	private Set<Comentario> comentarios = new HashSet<>();
 	@ManyToMany
@@ -317,42 +319,6 @@ public class Usuario {
 		this.likes_dados = likes_dados;
 	}
 
-	// ===================Hash Code & Equals===================
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Usuario other = (Usuario) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
-	}
 
 	// ===================ToString===================
 	/*

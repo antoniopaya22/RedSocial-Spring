@@ -6,11 +6,15 @@
 		<a class="app-sidebar__toggle" href="#" data-toggle="sidebar"></a>
 		<!-- Nav Right Menu-->
 		<ul class="app-nav">
-			<li class="app-search"><input class="app-search__input"
-				type="search" placeholder="Buscar publicaciones">
-				<button class="app-search__button">
+			<li class="app-search">
+				<form  action="/">
+					<input class="app-search__input" type="search" name="searchText" placeholder="Buscar publicaciones">
+                	<button class="app-search__button" type="submit">
 					<i class="fa fa-search"></i>
-				</button></li>
+				</button>
+				</form>
+
+			</li>
 			<!--Notification-->
 			<li class="dropdown"><a class="app-nav__item" href="#"
 				data-toggle="dropdown"><i class="fa fa-bell-o fa-lg"></i></a></li>

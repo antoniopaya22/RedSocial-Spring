@@ -35,9 +35,8 @@ public class InsertSampleDataService {
 		Usuario usuario6 = new Usuario("99999988F", "Edward", "Núñez");
 		usuario6.setPassword("123456");
 		
-		Set<Publicacion> post2 = new HashSet<Publicacion>(){
-			{
-				add(new Publicacion(usuario2,new Date(),"Publicacion de prueba",
+		Set<Publicacion> post2 = new HashSet<Publicacion>();
+				post2.add(new Publicacion(usuario2,new Date(),"El sol brilla mucho",
 						"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\r\n" + 
 								"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n" + 
 								"Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\r\n" + 
@@ -46,7 +45,8 @@ public class InsertSampleDataService {
 								"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui\r\n" + 
 								"officia deserunt mollit anim id est laborum.",
 								null,new HashSet<Comentario>(),new HashSet<Usuario>()));
-				add(new Publicacion(usuario2,new Date(),"Publicacion de prueba 3",
+				
+				post2.add(new Publicacion(usuario2,new Date(),"Nos merecemos un 10",
 						"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\r\n" + 
 								"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n" + 
 								"Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\r\n" + 
@@ -55,7 +55,8 @@ public class InsertSampleDataService {
 								"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui\r\n" + 
 								"officia deserunt mollit anim id est laborum.",
 								null,new HashSet<Comentario>(),new HashSet<Usuario>()));
-				add(new Publicacion(usuario2,new Date(),"Publicacion de prueba 6",
+				
+				post2.add(new Publicacion(usuario2,new Date(),"Usando bootstrap",
 						"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\r\n" + 
 								"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n" + 
 								"Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\r\n" + 
@@ -64,13 +65,12 @@ public class InsertSampleDataService {
 								"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui\r\n" + 
 								"officia deserunt mollit anim id est laborum.",
 								null,new HashSet<Comentario>(),new HashSet<Usuario>()));
-			}
-		};
+		
 		usuario2.setPost(post2);
 		
 		usuario3.setPost(new HashSet<Publicacion>() {
 			{
-				add(new Publicacion(usuario3,new Date(),"Publicacion de prueba 2",
+				add(new Publicacion(usuario3,new Date(),"Publicacion de prueba",
 						"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\r\n" + 
 								"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n" + 
 								"Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\r\n" + 
@@ -85,7 +85,7 @@ public class InsertSampleDataService {
 		
 		usuario1.setPost(new HashSet<Publicacion>() {
 			{
-				add(new Publicacion(usuario1,new Date(),"Publicacion de prueba 4",
+				add(new Publicacion(usuario1,new Date(),"Hoy no quiero programar",
 						"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\r\n" + 
 								"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n" + 
 								"Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\r\n" + 
@@ -99,7 +99,7 @@ public class InsertSampleDataService {
 		
 		usuario4.setPost(new HashSet<Publicacion>() {
 			{
-				add(new Publicacion(usuario4,new Date(),"Publicacion de prueba 5",
+				add(new Publicacion(usuario4,new Date(),"Drop tables",
 						"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\r\n" + 
 								"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n" + 
 								"Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\r\n" + 

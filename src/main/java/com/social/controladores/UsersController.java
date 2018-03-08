@@ -21,8 +21,7 @@ public class UsersController
 	private UsuarioService usersService;
 	
 	@RequestMapping("/users/lista-usuarios")
-	public String getList(Model model, Pageable pageable, 
-			@RequestParam(value = "", required=false) String searchText)
+	public String getList(Model model, Pageable pageable, @RequestParam(value = "", required=false) String searchText)
 	{	
 		Page<Usuario> usuarios = new PageImpl<Usuario>(new LinkedList<Usuario>());
 		
