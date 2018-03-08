@@ -6,6 +6,7 @@ package com.social.servicios;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -73,6 +74,13 @@ public class UsuarioService {
 
 	public Page<Usuario> getUsuarios(Pageable pageable){
 		Page<Usuario> usuarios = usuariosRepository.findAll(pageable);
+		return usuarios;
+	}
+	
+	public Page<Usuario> getUsuariosAmigos(Pageable pageable,Usuario u){
+		Page<Usuario> usuarios;
+		List<Usuario> amigos = u.getAmigos().stream().collect(Collectors.toList());
+		usuarios = new PageImpl<Usuario>(amigos);
 		return usuarios;
 	}
 	
