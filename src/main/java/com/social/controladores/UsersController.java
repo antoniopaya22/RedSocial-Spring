@@ -40,4 +40,25 @@ public class UsersController
 		return "/users/lista-usuarios";
 		
 	}
+	
+	@RequestMapping("/users/lista-amigos")
+	public String getAmigos(Model model, Pageable pageable, @RequestParam(value = "", required=false) String searchText)
+	{	
+		Page<Usuario> usuarios = new PageImpl<Usuario>(new LinkedList<Usuario>());
+		
+		if (searchText != null && !searchText.isEmpty()) 
+		{
+			usuarios = usersService
+				.buscarUsuariosPorNombreOEmail(pageable, searchText);
+			
+		} else 
+		{
+			usuarios = usersService.getUsuariosAmigos(pageable,usersService.getUsuarioActivo());
+		}
+		model.addAttribute("usuarioActivo", usersService.getUsuarioActivo());
+		model.addAttribute("userList", usuarios.getContent());
+		model.addAttribute("page", usuarios);
+		return "/users/lista-amigos";
+		
+	}
 }

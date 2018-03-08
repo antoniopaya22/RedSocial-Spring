@@ -45,7 +45,7 @@ public class Usuario {
 	@Transient
 	private String passwordConfirm;
 
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	private Set<Usuario> amigos = new HashSet<>();
 	
 	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
@@ -204,6 +204,7 @@ public class Usuario {
 	public String getRole() {
 		return role;
 	}
+	
 
 	// ===================SETTERS===================
 
@@ -337,6 +338,10 @@ public class Usuario {
 	public String getNombreCompleto()
 	{
 		return nombre + " " + apellidos;
+	}
+	
+	public void addAmigo(Usuario u) {
+		this.amigos.add(u);
 	}
 
 }

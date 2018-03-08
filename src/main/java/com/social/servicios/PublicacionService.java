@@ -12,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.social.entidades.Publicacion;
-import com.social.entidades.Usuario;
 import com.social.repositorios.PublicacionRepository;
 
 /**

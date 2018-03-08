@@ -36,35 +36,35 @@ public class InsertSampleDataService {
 		usuario6.setPassword("123456");
 		
 		Set<Publicacion> post2 = new HashSet<Publicacion>();
-				post2.add(new Publicacion(usuario2,new Date(),"El sol brilla mucho",
-						"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\r\n" + 
-								"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n" + 
-								"Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\r\n" + 
-								"ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\r\n" + 
-								"voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n" + 
-								"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui\r\n" + 
-								"officia deserunt mollit anim id est laborum.",
-								null,new HashSet<Comentario>(),new HashSet<Usuario>()));
-				
-				post2.add(new Publicacion(usuario2,new Date(),"Nos merecemos un 10",
-						"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\r\n" + 
-								"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n" + 
-								"Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\r\n" + 
-								"ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\r\n" + 
-								"voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n" + 
-								"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui\r\n" + 
-								"officia deserunt mollit anim id est laborum.",
-								null,new HashSet<Comentario>(),new HashSet<Usuario>()));
-				
-				post2.add(new Publicacion(usuario2,new Date(),"Usando bootstrap",
-						"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\r\n" + 
-								"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n" + 
-								"Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\r\n" + 
-								"ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\r\n" + 
-								"voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n" + 
-								"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui\r\n" + 
-								"officia deserunt mollit anim id est laborum.",
-								null,new HashSet<Comentario>(),new HashSet<Usuario>()));
+		post2.add(new Publicacion(usuario2,new Date(),"El sol brilla mucho",
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\r\n" + 
+						"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n" + 
+						"Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\r\n" + 
+						"ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\r\n" + 
+						"voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n" + 
+						"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui\r\n" + 
+						"officia deserunt mollit anim id est laborum.",
+						null,new HashSet<Comentario>(),new HashSet<Usuario>()));
+		
+		post2.add(new Publicacion(usuario2,new Date(),"Nos merecemos un 10",
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\r\n" + 
+						"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n" + 
+						"Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\r\n" + 
+						"ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\r\n" + 
+						"voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n" + 
+						"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui\r\n" + 
+						"officia deserunt mollit anim id est laborum.",
+						null,new HashSet<Comentario>(),new HashSet<Usuario>()));
+		
+		post2.add(new Publicacion(usuario2,new Date(),"Usando bootstrap",
+				"Lorem ipsum dolor sit amet, consectetur adipisicing elit,\r\n" + 
+						"sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\r\n" + 
+						"Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\r\n" + 
+						"ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\r\n" + 
+						"voluptate velit esse cillum dolore eu fugiat nulla pariatur.\r\n" + 
+						"Excepteur sint occaecat cupidatat non proident, sunt in culpa qui\r\n" + 
+						"officia deserunt mollit anim id est laborum.",
+						null,new HashSet<Comentario>(),new HashSet<Usuario>()));
 		
 		usuario2.setPost(post2);
 		
@@ -111,13 +111,23 @@ public class InsertSampleDataService {
 			}
 		});
 		
+		usuario1.addAmigo(usuario2);
+		usuario1.addAmigo(usuario3);
+		usuario2.addAmigo(usuario1);
+		usuario3.addAmigo(usuario1);
+		usuario2.addAmigo(usuario3);
+		usuario3.addAmigo(usuario2);
+		usuario4.addAmigo(usuario5);
+		usuario5.addAmigo(usuario4);
+		usuario6.addAmigo(usuario5);
+		usuario5.addAmigo(usuario6);
+		
 		usuariosService.addUsuario(usuario1);
 		usuariosService.addUsuario(usuario2);
 		usuariosService.addUsuario(usuario3);
 		usuariosService.addUsuario(usuario4);
 		usuariosService.addUsuario(usuario5);
 		usuariosService.addUsuario(usuario6);
-		
 		
 	}
 

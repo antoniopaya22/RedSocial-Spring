@@ -26,5 +26,6 @@ public interface UsuariosRepository extends CrudRepository<Usuario, Long>{
 
 	Usuario findByEmail(String email);
 	
-	Page<Usuario> findAll(Pageable pageable); 
+	Page<Usuario> findAll(Pageable pageable);
+	
 }
