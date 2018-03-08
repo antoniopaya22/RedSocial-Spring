@@ -8,8 +8,10 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.social.entidades.Usuario;
@@ -43,10 +45,26 @@ public class UsersController
 	}
 	
 	@RequestMapping("/users/perfil/{username}")
-	public String getList(Model model,@PathVariable String username)
+	public String getPerfil(Model model,@PathVariable String username)
 	{	
 		model.addAttribute("usuario", usersService.getUserByUsername(username));
 		model.addAttribute("usuarioActivo", usersService.getUsuarioActivo());
+		return "/users/perfil";
+		
+	}
+	
+	@RequestMapping(value="/user/edit", method=RequestMethod.POST)
+	public String editUser(Model model,  @ModelAttribute Usuario form)
+	{	
+		Usuario activo = usersService.getUsuarioActivo();
+		if(form.getNombre() != "")activo.setNombre(form.getNombre());
+		if(form.getApellidos() != "")activo.setApellidos(form.getApellidos());
+		if(form.getEmail() != "")activo.setEmail(form.getEmail());
+		if(form.getDescripcion() != "")activo.setDescripcion(form.getDescripcion());
+		
+		usersService.addUsuario(activo);
+		model.addAttribute("usuario", activo);
+		model.addAttribute("usuarioActivo", activo);
 		return "/users/perfil";
 		
 	}
