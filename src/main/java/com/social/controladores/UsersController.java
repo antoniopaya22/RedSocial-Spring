@@ -27,6 +27,7 @@ public class UsersController
 	public String getList(Model model, Pageable pageable, @RequestParam(value = "", required=false) String searchText)
 	{	
 		Page<Usuario> usuarios = new PageImpl<Usuario>(new LinkedList<Usuario>());
+		Usuario usuarioActivo = usersService.getUsuarioActivo();
 		
 		if (searchText != null && !searchText.isEmpty()) 
 		{
@@ -37,8 +38,9 @@ public class UsersController
 		{
 			usuarios = usersService.getUsuarios(pageable);
 		}
-		model.addAttribute("usuarioActivo", usersService.getUsuarioActivo());
+		model.addAttribute("usuarioActivo", usuarioActivo);
 		model.addAttribute("userList", usuarios.getContent());
+		model.addAttribute("usuariosPeticionesEnviadas", usersService.getPeticionesEnviadas( usuarioActivo ));
 		model.addAttribute("page", usuarios);
 		return "/users/lista-usuarios";
 		
@@ -89,4 +91,23 @@ public class UsersController
 		return "/users/lista-amigos";
 		
 	}
+	
+	
+	@RequestMapping("/users/enviarAmistad/{id}")
+	public String addPeticionAmistad(Model model, @PathVariable long id, Pageable pageable, @RequestParam(value = "", required=false) String searchText)
+	{	
+		Usuario u1 = usersService.getUsuarioActivo();
+		Usuario u2 = usersService.getUsuario( id );
+		usersService.addPeticionAmistad(u1, u2);
+		
+		Page<Usuario> usuarios = new PageImpl<Usuario>(new LinkedList<Usuario>());
+		usuarios = usersService
+				.buscarUsuariosPorNombreOEmail(pageable, searchText);
+		
+		model.addAttribute("usuarioActivo", u1);
+		model.addAttribute("userList", usuarios.getContent());
+		model.addAttribute("page", usuarios);
+		return "redirect:/users/lista-usuarios";
+	}
+	
 }
