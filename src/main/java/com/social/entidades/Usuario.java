@@ -378,4 +378,8 @@ public class Usuario {
 		return amigos.contains(u);
 	}
 
+	public void addPost(Publicacion post2) {
+		this.post.add(post2);
+	}
+
 }

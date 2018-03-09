@@ -61,11 +61,8 @@
 						</div>
 						<div class="post-content">
 							<div class="btn-group" th:if="${usuario.equals(usuarioActivo)}">
-								<a class="btn btn-primary" href="#"><i
-									class="fa fa-lg fa-plus"></i></a><a class="btn btn-primary"
-									href="#"><i class="fa fa-lg fa-edit"></i></a><a
-									class="btn btn-primary" href="#"><i
-									class="fa fa-lg fa-trash"></i></a>
+								<a class="btn btn-primary" th:href="${'/post/edit/' + post.id}"><i class="fa fa-lg fa-edit"></i></a>
+								<a class="btn btn-primary" th:href="${'/post/delete/' + post.id}"><i class="fa fa-lg fa-trash"></i></a>
 							</div>
 							<h4 th:text="${post.titulo}"></h4>
 							<p th:text="${post.contenido}">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
