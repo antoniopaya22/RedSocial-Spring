@@ -382,4 +382,9 @@ public class Usuario {
 //	{
 //		
 //	}
+  
+	public void addPost(Publicacion post2) {
+		this.post.add(post2);
+	}
+
 }

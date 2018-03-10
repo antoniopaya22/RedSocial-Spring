@@ -10,14 +10,14 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-edit"></i> Crear nuevo post
+				<i class="fa fa-edit"></i> Editar post
 			</h1>
-			<p>Crea una nueva publicación para compartir con tus amigos</p>
+			<p>Edita esta publicación para compartir con tus amigos</p>
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
 			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
 			<li class="breadcrumb-item">Post</li>
-			<li class="breadcrumb-item"><a href="post/add">Crear nuevo post</a></li>
+			<li class="breadcrumb-item"><a href="post/add">Editar post</a></li>
 		</ul>
 	</div>
 
@@ -28,10 +28,10 @@
 
 			<!-- Crear post -->
 			<div class="tile">
-				<h3 class="tile-title">Crear post</h3>
+				<h3 class="tile-title">Editar post</h3>
 				<div class="tile-body">
 					<!-- Formulario -->
-					<form method="post" th:action="${'/post/add'}">
+					<form method="post" th:action="${'/post/edit/' + post.id}">
 						<div class="form-group">
 							<label class="control-label" for="titulo">Título</label> 
 							<input class="form-control" type="text" placeholder="Título del post" name="titulo">
@@ -49,7 +49,7 @@
 						<button class="btn btn-primary" type="submit">
 							<i class="fa fa-fw fa-lg fa-check-circle"></i>Crear
 						</button>
-						&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="/post/add"><i
+						&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="/post/list"><i
 							class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
 						</div>
 					</form>
