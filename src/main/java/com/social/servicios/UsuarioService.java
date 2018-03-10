@@ -3,18 +3,11 @@
  */
 package com.social.servicios;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -23,7 +16,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.social.entidades.Amistad;
 import com.social.entidades.Usuario;
@@ -50,8 +42,6 @@ public class UsuarioService {
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
-	
-	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	public List<Usuario> getUsuarios() {
 		List<Usuario> usuarios = new ArrayList<Usuario>();
@@ -66,12 +56,10 @@ public class UsuarioService {
 	public void addUsuario(Usuario usuario) {
 		usuario.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
 		usuariosRepository.save(usuario);
-		log.trace("Añadido el usuario: "+usuario);
 	}
 
 	public void deleteUsuario(Long id) {
 		usuariosRepository.delete(id);
-		log.trace("Borrado el usuario: "+this.getUsuario(id));
 	}
 	
 	public Usuario getUsuarioActivo() {
