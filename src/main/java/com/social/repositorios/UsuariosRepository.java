@@ -3,6 +3,8 @@
  */
 package com.social.repositorios;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
@@ -28,4 +30,6 @@ public interface UsuariosRepository extends CrudRepository<Usuario, Long>{
 	
 	Page<Usuario> findAll(Pageable pageable);
 	
+	@Query("SELECT a.usuario2_id FROM Amistad a WHERE a.usuario1_id = ?1")
+	List<Long> findPeticionesEnviadas(long id_usuario);
 }

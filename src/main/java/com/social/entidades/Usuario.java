@@ -373,11 +373,16 @@ public class Usuario {
 	}
 	
 	public boolean esAmigo(Usuario u) {
-		if(this.getUsername().equals(u.getUsername()))
+		if(this.getUsername().equals(u.getUsername())) // Mismos usuarios
 			return false;
 		return amigos.contains(u);
 	}
 
+//	public boolean envioPeticionAmistad(Usuario u)
+//	{
+//		
+//	}
+  
 	public void addPost(Publicacion post2) {
 		this.post.add(post2);
 	}

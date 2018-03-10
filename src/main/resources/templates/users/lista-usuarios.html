@@ -62,10 +62,27 @@
 						<div class="col-md-8">
 							<h5>Email</h5>
 							<p th:text="${usuario.email}">Email</p>
-							<button th:if="${!usuarioActivo.esAmigo(usuario)}" class="btn btn-outline-primary" type="button">Enviar
-								petición de amistad</button>
-							<div class="alert alert-dismissible alert-success" th:if="${usuarioActivo.esAmigo(usuario)}">
-								<strong>¡Qué bién!</strong> <a class="alert-link" href="#" th:text="${usuario.username}">Usuario</a>
+							
+							<!-- Cuando se ha enviado la petición de amistad -->
+							<div class="alert alert-dismissible alert-success" th:if="${usuariosPeticionesEnviadas.contains(usuario.id)}">
+								<strong>Petición de amistad enviada</strong>
+							</div>
+							
+							<!-- Cuando los dos usuarios no son amigos (o son el mismo) -->
+							<a th:if="${!usuarioActivo.esAmigo(usuario) 
+									&& !usuarioActivo.username.equals(usuario.username)
+									&& !usuariosPeticionesEnviadas.contains(usuario.id)}" 
+							class="alert-link" type="button" 
+							id="enviarPeticion" th:href="${'/users/enviarAmistad/' + usuario.id}">
+								<button class="btn btn-outline-primary">Enviar petición de amistad
+								</button>
+							</a>
+							
+							<!-- Cuando los dos usuarios ya son amigos -->
+							<div class="alert alert-dismissible alert-success" th:if="${usuarioActivo.esAmigo(usuario) && 
+										!usuarioActivo.username.equals(usuario.username)
+										&& !usuariosPeticionesEnviadas.contains(usuario.id)}">
+								<strong>¡Qué bien!</strong> <a class="alert-link" href="#" th:text="${usuario.username}">Usuario</a>
 								y tú sois amigos.
 							</div>
 						</div>

@@ -17,7 +17,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.social.entidades.Amistad;
 import com.social.entidades.Usuario;
+import com.social.repositorios.PeticionAmistadRepository;
 import com.social.repositorios.UsuariosRepository;
 
 /**
@@ -34,6 +36,9 @@ public class UsuarioService {
 
 	@Autowired
 	private UsuariosRepository usuariosRepository;
+	
+	@Autowired
+	private PeticionAmistadRepository amistadRepository;
 
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -93,5 +98,28 @@ public class UsuarioService {
 		usuarios = usuariosRepository.buscarPorNombreOEmail(pageable, searchText);
 	
 		return usuarios;
+	}
+	
+	public void addPeticionAmistad(Usuario u1, Usuario u2)
+	{
+		amistadRepository.save( new Amistad( u1.getId(), u2.getId()) );
+	}
+	
+	public void aceptarPeticionAmistad(Usuario u1, Usuario u2)
+	{
+		amistadRepository.delete(u1.getId(), u2.getId());
+		
+		u1.addAmigo( u2 );
+		u2.addAmigo( u1 );
+	}
+	
+	public void rechazarPeticionAmistad(Usuario u1, Usuario u2)
+	{
+		amistadRepository.delete(u1.getId(), u2.getId());
+	}
+	
+	public List<Long> getPeticionesEnviadas(Usuario usuario)
+	{
+		return usuariosRepository.findPeticionesEnviadas( usuario.getId() );
 	}
 }
