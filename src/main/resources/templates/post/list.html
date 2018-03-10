@@ -52,6 +52,10 @@
 						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
 						officia deserunt mollit anim id est laborum.</p>
 				</div>
+				<img th:if="${post.imagen != null}"
+							style="height: 200px; width: 400px; display: block;"
+							th:src="${'../../img/post/'+post.imagen}"
+							alt="Imagen del post">
 				<ul class="post-utility">
 					<li class="likes"><a href="#"><i
 							class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Like</a></li>
