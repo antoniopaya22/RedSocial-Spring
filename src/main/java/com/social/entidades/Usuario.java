@@ -356,10 +356,7 @@ public class Usuario {
 	 */
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
-				+ ", nombre=" + nombre + ", apellidos=" + apellidos + ", descripcion=" + descripcion + ", foto_perfil="
-				+ foto_perfil + ", foto_desc=" + foto_desc + ", amigos=" + amigos + ", post=" + post + ", comentarios="
-				+ comentarios + ", likes=" + likes_dados + "]";
+		return "Usuario-> id:"+id+" username:"+username+" nombre:"+nombre+" apellidos:"+apellidos+" email:"+email;
 	}
 	
 

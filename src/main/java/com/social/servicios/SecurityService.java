@@ -36,8 +36,8 @@ public class SecurityService {
         return null;
     }
 
-    public void autoLogin(String dni, String password) {
-        UserDetails userDetails = userDetailsService.loadUserByUsername(dni);
+    public void autoLogin(String username, String password) {
+        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
         
         UsernamePasswordAuthenticationToken aToken = new UsernamePasswordAuthenticationToken(
         		userDetails, password, userDetails.getAuthorities());
@@ -46,7 +46,7 @@ public class SecurityService {
 
         if (aToken.isAuthenticated()) {
             SecurityContextHolder.getContext().setAuthentication(aToken);
-            logger.debug(String.format("Auto login %s successfully!", dni));
+            logger.debug(String.format("Usuario( %s ) logueado correctamente!", username));
         }
     }
     

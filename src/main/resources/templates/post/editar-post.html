@@ -31,7 +31,7 @@
 				<h3 class="tile-title">Editar post</h3>
 				<div class="tile-body">
 					<!-- Formulario -->
-					<form method="post" th:action="${'/post/edit/' + post.id}">
+					<form method="post" th:action="${'/post/edit/' + post.id}"  enctype="multipart/form-data">
 						<div class="form-group">
 							<label class="control-label" for="titulo">Título</label> 
 							<input class="form-control" type="text" placeholder="Título del post" name="titulo">
@@ -40,10 +40,6 @@
 							<label class="control-label" for="contenido">Contenido</label>
 							<textarea class="form-control" rows="5"
 								placeholder="Contenido de la publicación" name="contenido"></textarea>
-						</div>
-						<div class="form-group">
-							<label class="control-label">Añadir foto</label>
-							<input class="form-control" type="file" name="imagen">
 						</div>
 						<div class="tile-footer">
 						<button class="btn btn-primary" type="submit">
