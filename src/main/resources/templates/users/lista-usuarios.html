@@ -82,8 +82,8 @@
 							<div class="alert alert-dismissible alert-success" th:if="${usuarioActivo.esAmigo(usuario) && 
 										!usuarioActivo.username.equals(usuario.username)
 										&& !usuariosPeticionesEnviadas.contains(usuario.id)}">
-								<strong>¡Qué bien!</strong> <a class="alert-link" href="#" th:text="${usuario.username}">Usuario</a>
-								y tú sois amigos.
+								<strong>¡Qué bien!</strong> <a class="alert-link" th:href="${'/users/perfil/' + usuario.username}"
+								th:text="${usuario.username}">Usuario</a> y tú sois amigos.
 							</div>
 						</div>
 					</div>

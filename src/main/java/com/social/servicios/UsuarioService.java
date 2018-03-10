@@ -122,4 +122,9 @@ public class UsuarioService {
 	{
 		return usuariosRepository.findPeticionesEnviadas( usuario.getId() );
 	}
+	
+	public Page<Usuario> buscarPeticionesAmistad(Pageable pageable, Usuario usuarioActivo)
+	{
+		return amistadRepository.findAllByUsuario2( pageable, usuarioActivo.getId() );
+	}
 }
