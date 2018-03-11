@@ -36,7 +36,7 @@ public class ComentariosController {
 	@Autowired
 	private ComentarioService comService;
 
-	@RequestMapping(value="/post/comentarios/{id}")
+	@RequestMapping(value="/post/comentarios/{id}", method = RequestMethod.GET)
 	public String listComentariosPost(Model modelo,@PathVariable Long id,Pageable pageable) {
 		Publicacion post = postService.getPublicacion(id);
 		Page<Comentario> comentarios = comService.findAllByPost(pageable, id);
@@ -69,6 +69,6 @@ public class ComentariosController {
 		modelo.addAttribute("page",comentarios);
 		modelo.addAttribute("listComent", comentarios.getContent());
 		modelo.addAttribute("usuarioActivo",userService.getUsuarioActivo());
-		return "/post/comentarios";
+		return "redirect:/post/comentarios/"+id;
 	}
 }
