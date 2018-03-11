@@ -384,4 +384,7 @@ public class Usuario {
 		this.post.add(post2);
 	}
 
+	public void addComentario(Comentario com) {
+		this.comentarios.add(com);
+	}
 }

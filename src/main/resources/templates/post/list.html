@@ -59,8 +59,8 @@
 				<ul class="post-utility">
 					<li class="likes"><a href="#"><i
 							class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Like</a></li>
-					<li class="shares"><a href="#"><i
-							class="fa fa-fw fa-lg fa-share"></i>Share</a></li>
+					<li class="shares"><a th:href="${'/post/comentarios/'+post.id}"><i
+							class="fa fa-fw fa-lg fa-comments"></i>Comentar</a></li>
 					<li class="comments" th:text="${post.getNumComentarios()}"><i class="fa fa-fw fa-lg fa-comment-o"></i></li>
 				</ul>
 			</div>

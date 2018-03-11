@@ -200,5 +200,11 @@ public class Publicacion {
 				+ contenido;
 	}
 
+
+
+	public void addComentario(Comentario com) {
+		this.comentarios.add(com);
+	}
+
 	
 }
