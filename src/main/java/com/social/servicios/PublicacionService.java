@@ -9,6 +9,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.social.entidades.Publicacion;
+import com.social.entidades.Usuario;
 import com.social.repositorios.PublicacionRepository;
 
 /**
@@ -77,5 +80,14 @@ public class PublicacionService {
 			e.printStackTrace();
 		}
 		return fileName;
+	}
+
+
+	public Page<Publicacion> getPublicacionesAmigos(Pageable pageable, Usuario activo) {
+		Page<Publicacion> todas_pag = publicacionRepository.findAll(pageable);
+		List<Publicacion> todas = todas_pag.getContent();
+		List<Publicacion> amigos = todas.stream().filter(x -> x.getAutor().getAmigos().contains(activo)).collect(Collectors.toList());
+		Page<Publicacion> post = new PageImpl<Publicacion>(amigos);
+		return post;
 	}
 }

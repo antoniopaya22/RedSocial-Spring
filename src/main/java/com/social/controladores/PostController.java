@@ -47,7 +47,7 @@ public class PostController {
 		postService.addPublicacion(post);
 		model.addAttribute("usuario", activo);
 		model.addAttribute("usuarioActivo", usersService.getUsuarioActivo());
-		return "/users/perfil";
+		return "redirect:/post/list";
 	}
 
 	@RequestMapping(value = "/post/list")
@@ -75,7 +75,7 @@ public class PostController {
 
 		postService.addPublicacion(post);
 		model.addAttribute("usuarioActivo", activo);
-		return "/post/list";
+		return "redirect:/post/list";
 	}
 
 	@RequestMapping(value = "/post/delete/{id}")
@@ -83,6 +83,19 @@ public class PostController {
 		Usuario activo = usersService.getUsuarioActivo();
 		postService.deletePublicacion(id);
 		model.addAttribute("usuarioActivo", activo);
-		return "/post/list";
+		return "redirect:/post/list";
+	}
+	
+	@RequestMapping(value="/post/like/{id}")
+	public String addLike(Model model,@PathVariable Long id){
+		Publicacion post = postService.getPublicacion(id);
+		Usuario activo = usersService.getUsuarioActivo();
+		post.addLike(activo);
+		activo.addLike(post);
+		
+		postService.addPublicacion(post);
+		usersService.addUsuario(activo);
+		model.addAttribute("usuarioActivo", activo);
+		return "redirect:/";
 	}
 }

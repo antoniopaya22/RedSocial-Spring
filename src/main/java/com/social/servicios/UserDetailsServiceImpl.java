@@ -9,6 +9,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -35,11 +36,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		
 		Usuario user = usuariosRepository.findByUsername(username);
+		//System.out.println(user);
 		Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-		grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USUARIO"));
+		grantedAuthorities.add(new SimpleGrantedAuthority(user.getRole()));
 
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+		User u = new User(user.getUsername(), user.getPassword(),
 				grantedAuthorities);
+		return u;
 		
 	}
 }

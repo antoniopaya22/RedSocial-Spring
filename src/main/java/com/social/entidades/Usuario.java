@@ -38,23 +38,24 @@ public class Usuario {
 	private String nombre;
 	private String apellidos;
 	private String descripcion;
-	@Column(length=16777216)
+	@Column(length = 16777216)
 	private String foto_perfil;
-	@Column(length=16777216)
+	@Column(length = 16777216)
 	private String foto_desc;
 	private String role;
 
 	@Transient
 	private String passwordConfirm;
 
-	@ManyToMany(cascade = CascadeType.ALL)
-	private Set<Usuario> amigos = new HashSet<>();
-	
+	@ManyToMany
+	private Set<Usuario> amigos = new HashSet<Usuario>();
+
 	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
 	private Set<Publicacion> post = new HashSet<>();
-	
+
 	@OneToMany(mappedBy = "autor", cascade = CascadeType.ALL)
 	private Set<Comentario> comentarios = new HashSet<>();
+
 	@ManyToMany
 	private Set<Publicacion> likes_dados = new HashSet<>();
 
@@ -93,11 +94,11 @@ public class Usuario {
 		this.post = post;
 		this.comentarios = comentarios;
 	}
-	
-	public Usuario(String username, String nombre, String apellidos)
-	{
-		this(username, "1234", "a@example.com", nombre, apellidos, "prueba", "https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png", 
-				"fotodesc_jpg", new HashSet<Usuario>(), new HashSet<Publicacion>(), new HashSet<Comentario>(),
+
+	public Usuario(String username, String nombre, String apellidos) {
+		this(username, "1234", "a@example.com", nombre, apellidos, "prueba",
+				"https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png", "fotodesc_jpg",
+				new HashSet<Usuario>(), new HashSet<Publicacion>(), new HashSet<Comentario>(),
 				new HashSet<Publicacion>());
 	}
 
@@ -206,7 +207,6 @@ public class Usuario {
 	public String getRole() {
 		return role;
 	}
-	
 
 	// ===================SETTERS===================
 
@@ -322,8 +322,10 @@ public class Usuario {
 		this.likes_dados = likes_dados;
 	}
 	// ===================Equals===================
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -356,35 +358,46 @@ public class Usuario {
 	 */
 	@Override
 	public String toString() {
-		return "Usuario-> id:"+id+" username:"+username+" nombre:"+nombre+" apellidos:"+apellidos+" email:"+email;
+		return "Usuario-> id:" + id + " username:" + username + " nombre:" + nombre + " apellidos:" + apellidos
+				+ " email:" + email;
 	}
-	
 
-	public String getNombreCompleto()
-	{
+	public String getNombreCompleto() {
 		return nombre + " " + apellidos;
 	}
-	
+
 	public void addAmigo(Usuario u) {
 		this.amigos.add(u);
 	}
-	
+
 	public boolean esAmigo(Usuario u) {
-		if(this.getUsername().equals(u.getUsername())) // Mismos usuarios
+		if (this.getUsername().equals(u.getUsername())) // Mismos usuarios
 			return false;
 		return amigos.contains(u);
 	}
 
-//	public boolean envioPeticionAmistad(Usuario u)
-//	{
-//		
-//	}
-  
+	// public boolean envioPeticionAmistad(Usuario u)
+	// {
+	//
+	// }
+
 	public void addPost(Publicacion post2) {
 		this.post.add(post2);
 	}
 
 	public void addComentario(Comentario com) {
 		this.comentarios.add(com);
+	}
+
+	public void addLike(Publicacion u) {
+		this.likes_dados.add(u);
+	}
+
+	public boolean dioLike(Publicacion post) {
+		return this.likes_dados.stream().filter(x -> x.getId().equals(post.getId())).count() > 0 ? true : false;
+	}
+
+	public void deleteAmigo(Usuario usuario) {
+		this.amigos.remove(usuario);
 	}
 }

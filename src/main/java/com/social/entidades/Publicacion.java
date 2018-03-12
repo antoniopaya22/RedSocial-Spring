@@ -206,5 +206,8 @@ public class Publicacion {
 		this.comentarios.add(com);
 	}
 
+	public void addLike(Usuario u) {
+		this.likes.add(u);
+	}
 	
 }
