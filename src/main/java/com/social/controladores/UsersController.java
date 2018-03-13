@@ -110,4 +110,49 @@ public class UsersController
 		return "redirect:/users/lista-usuarios";
 	}
 	
+	@RequestMapping("/users/aceptarPeticion/{id}")
+	public String aceptarPeticion(Model model, @PathVariable long id, Pageable pageable)
+	{	
+		Usuario u1 = usersService.getUsuarioActivo();
+		Usuario u2 = usersService.getUsuario( id );
+		usersService.aceptarPeticionAmistad(u1, u2);
+		
+		return "redirect:/users/lista-peticiones";
+	}
+
+	private void preparaCargaListaPeticiones(Model model, Pageable pageable, Usuario u1) {
+		Page<Usuario> usuarios = new PageImpl<Usuario>(new LinkedList<Usuario>());
+		usuarios = usersService.buscarPeticionesAmistad( pageable, u1 );
+		
+		model.addAttribute("usuarioActivo", usersService.getUsuarioActivo());
+		model.addAttribute("userList", usuarios.getContent());
+		model.addAttribute("page", usuarios);
+	}
+	
+	@RequestMapping("/users/rechazarPeticion/{id}")
+	public String rechazarPeticion(Model model, @PathVariable long id, Pageable pageable)
+	{	
+		Usuario u1 = usersService.getUsuarioActivo();
+		Usuario u2 = usersService.getUsuario( id );
+		usersService.rechazarPeticionAmistad(u1, u2);
+		
+		return "redirect:/users/lista-peticiones";
+	}
+	
+	
+	@RequestMapping("/users/lista-peticiones")
+	public String getPeticiones(Model model, Pageable pageable)
+	{	
+		Page<Usuario> usuarios = new PageImpl<Usuario>(new LinkedList<Usuario>());
+		
+		Usuario usuarioActivo = usersService.getUsuarioActivo();
+		
+		usuarios = usersService.buscarPeticionesAmistad( pageable, usuarioActivo );
+		
+		model.addAttribute("usuarioActivo", usersService.getUsuarioActivo());
+		model.addAttribute("userList", usuarios.getContent());
+		model.addAttribute("page", usuarios);
+		return "/users/peticiones-amistad";
+	}
+	
 }

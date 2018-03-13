@@ -24,7 +24,7 @@
 				<ul class="dropdown-menu settings-menu dropdown-menu-right">
 					<li><a class="dropdown-item" th:href="${'/users/perfil/' + usuarioActivo.username}"><i
 							class="fa fa-user fa-lg"></i> Perfil</a></li>
-					<li><a class="dropdown-item" href="page-login.html"><i
+					<li><a class="dropdown-item" href="/logout" id="logout"><i
 							class="fa fa-sign-out fa-lg"></i> Cerrar sesión</a></li>
 				</ul></li>
 		</ul>
@@ -68,7 +68,7 @@
 							class="icon fa fa-circle-o"></i> Todos los usuarios</a></li>
 					<li><a class="treeview-item" href="/users/lista-amigos"><i
 							class="icon fa fa-circle-o"></i> Mis Amigos</a></li>
-					<li><a class="treeview-item" href="#"><i
+					<li><a class="treeview-item" href="/users/lista-peticiones"><i
 							class="icon fa fa-circle-o"></i> Ver peticiones de amistad</a></li>
 				</ul>
 			</li>
