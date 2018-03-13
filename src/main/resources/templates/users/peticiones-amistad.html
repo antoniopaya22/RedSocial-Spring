@@ -47,8 +47,10 @@
 							<h5>Descripción</h5>
 							<p>El usuario <a class="alert-link" th:href="${'/users/perfil/' + usuario.username}" 
 								th:text="${usuario.username}">Usuario</a> quiere ser tu amig@</p>
-							<button class="btn btn-success" type="button">Aceptar
-								invitación</button>
+							<a class="alert-link" type="button" th:href="${'/users/aceptarPeticion/' + usuario.id}">
+								<button class="btn btn-success" type="button">Aceptar
+									invitación</button>
+							</a>
 							<button class="btn btn-danger" type="button">Rechazar
 								invitación</button>
 						</div>
@@ -63,10 +65,10 @@
 	</main>
 
 	<!-- JS -->
-	<script src="../js/jquery-3.2.1.min.js"></script>
-	<script src="../js/popper.min.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/main.js"></script>
-	<script src="../js/plugins/pace.min.js"></script>
+	<script src="../../js/jquery-3.2.1.min.js"></script>
+	<script src="../../js/popper.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/main.js"></script>
+	<script src="../../js/plugins/pace.min.js"></script>
 </body>
 </html>

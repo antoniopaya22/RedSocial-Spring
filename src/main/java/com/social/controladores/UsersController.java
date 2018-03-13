@@ -110,6 +110,23 @@ public class UsersController
 		return "redirect:/users/lista-usuarios";
 	}
 	
+	@RequestMapping("/users/aceptarPeticion/{id}")
+	public String aceptarPeticion(Model model, @PathVariable long id, Pageable pageable, @RequestParam(value = "", required=false) String searchText)
+	{	
+		Usuario u1 = usersService.getUsuarioActivo();
+		Usuario u2 = usersService.getUsuario( id );
+		usersService.aceptarPeticionAmistad(u1, u2);
+		
+		Page<Usuario> usuarios = new PageImpl<Usuario>(new LinkedList<Usuario>());
+		usuarios = usersService
+				.buscarUsuariosPorNombreOEmail(pageable, searchText);
+		
+		model.addAttribute("usuarioActivo", u1);
+		model.addAttribute("userList", usuarios.getContent());
+		model.addAttribute("page", usuarios);
+		return "/users/peticiones-amistad";
+	}
+	
 	
 	@RequestMapping("/users/lista-peticiones")
 	public String getPeticiones(Model model, Pageable pageable)

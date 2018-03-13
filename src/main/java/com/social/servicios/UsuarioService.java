@@ -107,7 +107,7 @@ public class UsuarioService {
 	
 	public void aceptarPeticionAmistad(Usuario u1, Usuario u2)
 	{
-		amistadRepository.delete(u1.getId(), u2.getId());
+		amistadRepository.delete(u2.getId(), u1.getId()); // el usuario 2 acepta la petición del 1
 		
 		u1.addAmigo( u2 );
 		u2.addAmigo( u1 );
@@ -115,7 +115,7 @@ public class UsuarioService {
 	
 	public void rechazarPeticionAmistad(Usuario u1, Usuario u2)
 	{
-		amistadRepository.delete(u1.getId(), u2.getId());
+		amistadRepository.delete(u2.getId(), u1.getId());
 	}
 	
 	public List<Long> getPeticionesEnviadas(Usuario usuario)

@@ -53,7 +53,7 @@ public class LoginController {
 		usuarioService.addUsuario(usuario);
 		securityService.autoLogin(usuario.getUsername(), usuario.getPasswordConfirm());
 		model.addAttribute("usuarioActivo", usuarioService.getUsuarioActivo());
-		return "/";
+		return "redirect:/";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
