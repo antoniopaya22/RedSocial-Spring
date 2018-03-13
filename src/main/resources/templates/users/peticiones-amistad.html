@@ -25,7 +25,7 @@
 	<div th:if="${#lists.isEmpty(userList)}" class="row">
 		<div class="col-md-12">
 			<div class="alert alert-warning">
-				<strong>¡Vaya! No tienes a ningún usuario agregado.</strong>
+				<strong>¡Vaya! No tienes ninguna petición de amistad pendiente.</strong>
 			</div>
 		</div>
 	</div> 
@@ -51,8 +51,10 @@
 								<button class="btn btn-success" type="button">Aceptar
 									invitación</button>
 							</a>
+							<a class="alert-link" type="button" th:href="${'/users/rechazarPeticion/' + usuario.id}">
 							<button class="btn btn-danger" type="button">Rechazar
 								invitación</button>
+							</a>
 						</div>
 					</div>
 				</div>

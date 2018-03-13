@@ -100,23 +100,34 @@ public class UsuarioService {
 		return usuarios;
 	}
 	
+	
 	public void addPeticionAmistad(Usuario u1, Usuario u2)
 	{
 		amistadRepository.save( new Amistad( u1.getId(), u2.getId()) );
 	}
 	
+	
 	public void aceptarPeticionAmistad(Usuario u1, Usuario u2)
 	{
 		amistadRepository.delete(u2.getId(), u1.getId()); // el usuario 2 acepta la petición del 1
 		
+		modificarAmistadUsuarios( u1, u2 );
+	}
+	
+	private void modificarAmistadUsuarios( Usuario u1, Usuario u2 )
+	{
 		u1.addAmigo( u2 );
 		u2.addAmigo( u1 );
+		
+		addUsuario( u1 );
+		addUsuario( u2 );
 	}
 	
 	public void rechazarPeticionAmistad(Usuario u1, Usuario u2)
 	{
 		amistadRepository.delete(u2.getId(), u1.getId());
 	}
+	
 	
 	public List<Long> getPeticionesEnviadas(Usuario usuario)
 	{
