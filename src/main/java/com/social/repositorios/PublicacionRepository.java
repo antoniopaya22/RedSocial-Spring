@@ -22,5 +22,6 @@ public interface PublicacionRepository extends CrudRepository<Publicacion, Long>
 	Page<Publicacion> findAll(Pageable pageable);
 
 	@Query("SELECT u FROM Publicacion u WHERE (LOWER(u.titulo) LIKE LOWER(?1) OR LOWER(u.contenido) LIKE LOWER(?1))")
-	Page<Publicacion> buscarPostPorTituloYContenido(Pageable pageable, String searchText); 
+	Page<Publicacion> buscarPostPorTituloYContenido(Pageable pageable, String searchText);
+
 }

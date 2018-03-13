@@ -18,22 +18,31 @@ public class InsertSampleDataService {
 
 	@Autowired
 	private UsuarioService usuariosService;
+	
+	@Autowired
+	private RolesService rolesService;
 
 	@PostConstruct
 	public void init() 
 	{
 		Usuario usuario1 = new Usuario("99999990A", "Pedro", "Díaz");
 		usuario1.setPassword("123456");
+		usuario1.setRole(rolesService.getRoles()[0]);
 		Usuario usuario2 = new Usuario("99999991B", "Lucas", "Núñez");
 		usuario2.setPassword("123456");
+		usuario2.setRole(rolesService.getRoles()[0]);
 		Usuario usuario3 = new Usuario("99999992C", "María", "Rodríguez");
 		usuario3.setPassword("123456");
+		usuario3.setRole(rolesService.getRoles()[0]);
 		Usuario usuario4 = new Usuario("99999993D", "Marta", "Almonte");
 		usuario4.setPassword("123456");
+		usuario4.setRole(rolesService.getRoles()[0]);
 		Usuario usuario5 = new Usuario("99999977E", "Pelayo", "Valdes");
 		usuario5.setPassword("123456");
+		usuario5.setRole(rolesService.getRoles()[0]);
 		Usuario usuario6 = new Usuario("99999988F", "Edward", "Núñez");
 		usuario6.setPassword("123456");
+		usuario6.setRole(rolesService.getRoles()[1]);
 		
 		Set<Publicacion> post2 = new HashSet<Publicacion>();
 		post2.add(new Publicacion(usuario2,new Date(),"El sol brilla mucho",
@@ -111,6 +120,15 @@ public class InsertSampleDataService {
 			}
 		});
 		
+		usuario1.setFoto_desc("https://ih0.redbubble.net/cover.104630.2400x600.jpg");
+		
+		usuariosService.addUsuario(usuario1);
+		usuariosService.addUsuario(usuario2);
+		usuariosService.addUsuario(usuario3);
+		usuariosService.addUsuario(usuario4);
+		usuariosService.addUsuario(usuario5);
+		usuariosService.addUsuario(usuario6);
+		
 		usuario1.addAmigo(usuario2);
 		usuario1.addAmigo(usuario3);
 		usuario2.addAmigo(usuario1);
@@ -122,7 +140,12 @@ public class InsertSampleDataService {
 		usuario6.addAmigo(usuario5);
 		usuario5.addAmigo(usuario6);
 		
-		usuario1.setFoto_desc("https://ih0.redbubble.net/cover.104630.2400x600.jpg");
+		usuario1.setPassword("123456");
+		usuario2.setPassword("123456");
+		usuario3.setPassword("123456");
+		usuario4.setPassword("123456");
+		usuario5.setPassword("123456");
+		usuario6.setPassword("123456");
 		
 		usuariosService.addUsuario(usuario1);
 		usuariosService.addUsuario(usuario2);
@@ -130,7 +153,6 @@ public class InsertSampleDataService {
 		usuariosService.addUsuario(usuario4);
 		usuariosService.addUsuario(usuario5);
 		usuariosService.addUsuario(usuario6);
-		
 	}
 
 }

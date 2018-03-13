@@ -196,9 +196,18 @@ public class Publicacion {
 	 */
 	@Override
 	public String toString() {
-		return "Publicacion [id=" + id + ", autor=" + autor + ", fecha=" + fecha + ", titulo=" + titulo + ", contenido="
-				+ contenido + ", imagen=" + imagen + ", comentarios=" + comentarios + ", likes=" + likes + "]";
+		return "Publicacion -> id:" + id + " autor:" + autor + " fecha:" + fecha + " titulo:" + titulo + " contenido:"
+				+ contenido;
 	}
 
+
+
+	public void addComentario(Comentario com) {
+		this.comentarios.add(com);
+	}
+
+	public void addLike(Usuario u) {
+		this.likes.add(u);
+	}
 	
 }

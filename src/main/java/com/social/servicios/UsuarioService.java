@@ -6,6 +6,7 @@ package com.social.servicios;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +60,8 @@ public class UsuarioService {
 	}
 
 	public void deleteUsuario(Long id) {
+		Set<Usuario> amigos = getUsuario(id).getAmigos();
+		amigos.forEach(x -> x.deleteAmigo(getUsuario(id)));
 		usuariosRepository.delete(id);
 	}
 	
@@ -133,7 +136,7 @@ public class UsuarioService {
 	{
 		return usuariosRepository.findPeticionesEnviadas( usuario.getId() );
 	}
-	
+  
 	public Page<Usuario> buscarPeticionesAmistad(Pageable pageable, Usuario usuarioActivo)
 	{
 		return amistadRepository.findAllByUsuario2( pageable, usuarioActivo.getId() );

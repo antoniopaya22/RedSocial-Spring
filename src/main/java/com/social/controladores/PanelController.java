@@ -48,7 +48,7 @@ public class PanelController {
 			
 		} else 
 		{
-			publicaciones = postService.getPublicaciones(pageable);
+			publicaciones = postService.getPublicacionesAmigos(pageable,usuarioService.getUsuarioActivo());
 		}
 		
 		model.addAttribute("usuarioActivo", usuarioService.getUsuarioActivo());

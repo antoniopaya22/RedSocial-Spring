@@ -3,15 +3,26 @@
  */
 package com.social.servicios;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.social.entidades.Publicacion;
+import com.social.entidades.Usuario;
 import com.social.repositorios.PublicacionRepository;
 
 /**
@@ -28,6 +39,8 @@ public class PublicacionService {
 
 	@Autowired
 	private PublicacionRepository publicacionRepository;
+	
+	private final Logger log = LoggerFactory.getLogger(this.getClass());
 
 	public Page<Publicacion> getPublicaciones(Pageable pageable) {
 		Page<Publicacion> publicaciones = publicacionRepository.findAll(pageable);
@@ -38,12 +51,14 @@ public class PublicacionService {
 		return publicacionRepository.findOne(id);
 	}
 
-	public void addPublicacion(Publicacion Usuario) {
-		publicacionRepository.save(Usuario);
+	public void addPublicacion(Publicacion post) {
+		publicacionRepository.save(post);
+		log.trace("Añadida la publicacion: "+post);
 	}
 
 	public void deletePublicacion(Long id) {
 		publicacionRepository.delete(id);
+		log.trace("Eliminada la publicacion: "+this.getPublicacion(id));
 	}
 
 	public Page<Publicacion> buscarPostPorTituloYContenido(Pageable pageable, String searchText) {
@@ -54,5 +69,25 @@ public class PublicacionService {
 		publicacion = publicacionRepository.buscarPostPorTituloYContenido(pageable, searchText);
 	
 		return publicacion;
+	}
+	
+	public String addImagen(MultipartFile imagen,Publicacion post) {
+		String fileName = post.getId()+".png";
+		try {
+			InputStream is = imagen.getInputStream();
+			Files.copy(is, Paths.get("src/main/resources/static/img/post/"+fileName), StandardCopyOption.REPLACE_EXISTING);			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return fileName;
+	}
+
+
+	public Page<Publicacion> getPublicacionesAmigos(Pageable pageable, Usuario activo) {
+		Page<Publicacion> todas_pag = publicacionRepository.findAll(pageable);
+		List<Publicacion> todas = todas_pag.getContent();
+		List<Publicacion> amigos = todas.stream().filter(x -> x.getAutor().getAmigos().contains(activo)).collect(Collectors.toList());
+		Page<Publicacion> post = new PageImpl<Publicacion>(amigos);
+		return post;
 	}
 }

@@ -32,4 +32,5 @@ public interface UsuariosRepository extends CrudRepository<Usuario, Long>{
 	
 	@Query("SELECT a.usuario2 FROM Amistad a WHERE a.usuario1 = ?1")
 	List<Long> findPeticionesEnviadas(long id_usuario);
+	
 }
