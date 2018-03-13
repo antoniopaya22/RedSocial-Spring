@@ -103,6 +103,26 @@ public class UsuarioService {
 		return usuarios;
 	}
 	
+	public Page<Usuario> buscarUsuariosAmigosPorNombreOEmail(Pageable pageable, Usuario u, String stxt)
+	{
+		Page<Usuario> usuarios;
+		
+		List<Usuario> amigos = u.getAmigos().stream()
+											.filter( (usuario) -> 
+											{ 
+												if (usuario.getNombre().contains( stxt )
+													|| usuario.getEmail().contains( stxt ))
+													return true;
+												
+												return false;
+											} )
+											.collect(Collectors.toList());
+	
+		usuarios = new PageImpl<Usuario>( amigos );
+		
+		return usuarios;
+	}
+	
 	
 	public void addPeticionAmistad(Usuario u1, Usuario u2)
 	{

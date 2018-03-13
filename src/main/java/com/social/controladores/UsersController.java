@@ -75,11 +75,12 @@ public class UsersController
 	public String getAmigos(Model model, Pageable pageable, @RequestParam(value = "", required=false) String searchText)
 	{	
 		Page<Usuario> usuarios = new PageImpl<Usuario>(new LinkedList<Usuario>());
+		Usuario usuarioActivo = usersService.getUsuarioActivo();
 		
 		if (searchText != null && !searchText.isEmpty()) 
 		{
 			usuarios = usersService
-				.buscarUsuariosPorNombreOEmail(pageable, searchText);
+				.buscarUsuariosAmigosPorNombreOEmail(pageable, usuarioActivo, searchText);
 			
 		} else 
 		{
