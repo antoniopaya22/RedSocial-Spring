@@ -140,19 +140,12 @@ public class InsertSampleDataService {
 		usuario6.addAmigo(usuario5);
 		usuario5.addAmigo(usuario6);
 		
-		usuario1.setPassword("123456");
-		usuario2.setPassword("123456");
-		usuario3.setPassword("123456");
-		usuario4.setPassword("123456");
-		usuario5.setPassword("123456");
-		usuario6.setPassword("123456");
-		
-		usuariosService.addUsuario(usuario1);
-		usuariosService.addUsuario(usuario2);
-		usuariosService.addUsuario(usuario3);
-		usuariosService.addUsuario(usuario4);
-		usuariosService.addUsuario(usuario5);
-		usuariosService.addUsuario(usuario6);
+		usuariosService.updateUsuario(usuario1);
+		usuariosService.updateUsuario(usuario2);
+		usuariosService.updateUsuario(usuario3);
+		usuariosService.updateUsuario(usuario4);
+		usuariosService.updateUsuario(usuario5);
+		usuariosService.updateUsuario(usuario6);
 	}
 
 }

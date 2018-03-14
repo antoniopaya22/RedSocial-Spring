@@ -58,6 +58,10 @@ public class UsuarioService {
 		usuario.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
 		usuariosRepository.save(usuario);
 	}
+	
+	public void updateUsuario(Usuario u) {
+		usuariosRepository.save(u);
+	}
 
 	public void deleteUsuario(Long id) {
 		Set<Usuario> amigos = getUsuario(id).getAmigos();
@@ -141,9 +145,8 @@ public class UsuarioService {
 	{
 		u1.addAmigo( u2 );
 		u2.addAmigo( u1 );
-		
-		addUsuario( u1 );
-		addUsuario( u2 );
+		updateUsuario(u1);
+		updateUsuario(u2);
 	}
 	
 	public void rechazarPeticionAmistad(Usuario u1, Usuario u2)

@@ -38,10 +38,13 @@
 					<div class="row">
 						<div class="col-md-4">
 							<h5>
-								<a href="#" th:text="${usuario.nombreCompleto}">Usuario</a>
-							</h5>
-							<a href="#"><img
-								src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
+								<a th:if="${usuario.nombre != null}" th:href="${'/users/perfil/' + usuario.username}"
+									 th:text="${usuario.nombreCompleto}">Usuario</a>
+								<a th:if="${usuario.nombre == null}" th:href="${'/users/perfil/' + usuario.username}"
+									 th:text="${usuario.username}">Usuario</a>
+							</h5>  
+							<a th:if="${usuario.foto_perfil != null}" href="#"><img
+								th:src="${usuario.foto_perfil}" width="48" height="48"></a>
 						</div>
 						<div class="col-md-8">
 							<h5>Descripción</h5>
