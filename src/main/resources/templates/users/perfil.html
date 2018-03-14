@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:replace="fragments/head" />
+<body class="app sidebar-mini">
+
+	<nav th:replace="fragments/nav" />
+
+	<!-- Contenido -->
+
+	<main class="app-content">
+
+	<div class="row user">
+
+		<!-- Cabecera -->
+		<div class="col-md-12">
+			<div class="profile">
+				<div class="info">
+					<img class="user-img" th:src="${usuario.foto_perfil}" width="128" height="128">
+					<h4 th:if="${usuario.nombre != null}" th:text="${usuario.nombreCompleto}">John Doe</h4>
+					<h4 th:if="${usuario.nombre == null}" th:text="${usuario.username}">John Doe</h4>
+					<p th:if="${usuario.descripcion != null}" th:text="${usuario.descripcion}">FrontEnd Developer</p>
+				</div>
+				<div class="cover-image" th:if="${usuario.foto_desc != null}"
+					th:style="'background-image:url(' + ${usuario.foto_desc} + ');'" 
+					width="1200" height="300"></div>
+				<div class="cover-image" th:if="${usuario.foto_desc == null}"
+					style="background-image: url(http://www.makabayanhosting.com/home/wp-content/uploads/2012/12/Webhosting-Internet-13-1200x300.jpg)" 
+					width="1200" height="300"></div>
+			</div>
+		</div>
+
+		<!-- Menu lateral -->
+		<div class="col-md-3">
+			<div class="tile p-0">
+				<ul class="nav flex-column nav-tabs user-tabs">
+					<li class="nav-item"><a class="nav-link active"
+						href="#user-timeline" data-toggle="tab">Publicaciones</a></li>
+					<li th:if="${usuario.equals(usuarioActivo)}" class="nav-item"><a class="nav-link" href="#user-settings"
+						data-toggle="tab">Editar datos personales</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="col-md-9">
+			<div class="tab-content">
+				<div class="tab-pane active" id="user-timeline">
+
+					<!-- POST 1-->
+					<div class="timeline-post" th:each="post : ${usuario.post}">
+						<div class="post-media">
+							<a th:if="${post.autor.foto_perfil != null}" href="#"><img
+								th:src="${post.autor.foto_perfil}" width="48" height="48"></a>
+							<div class="content">
+								<h5>
+									<a th:text="${post.autor.username}" th:href="${'/users/perfil/' + post.autor.username}">John Doe</a>
+								</h5>
+								<p class="text-muted">
+									<small th:text="${post.fecha}">2 January at 9:30</small>
+								</p>
+							</div>
+						</div>
+						<div class="post-content">
+							<div class="btn-group" th:if="${usuario.equals(usuarioActivo)}">
+								<a class="btn btn-primary" th:href="${'/post/edit/' + post.id}"><i class="fa fa-lg fa-edit"></i></a>
+								<a class="btn btn-primary" th:href="${'/post/delete/' + post.id}"><i class="fa fa-lg fa-trash"></i></a>
+							</div>
+							<h4 th:text="${post.titulo}"></h4>
+							<p th:text="${post.contenido}">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip
+								ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+								voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+								Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+								officia deserunt mollit anim id est laborum.</p>
+						</div>
+						<img th:if="${post.imagen != null}"
+							style="height: 200px; width: 400px; display: block;"
+							th:src="${'../../img/post/'+post.imagen}"
+							alt="Imagen del post">
+						<ul class="post-utility">
+							<li th:if="${!usuarioActivo.dioLike(post)}" class="likes"><a th:href="${'/post/like/'+post.id}"><i
+									class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Like</a></li>
+							<li th:if="${usuarioActivo.dioLike(post)}" class="likes"><i
+									class="fa fa-fw fa-lg fa-thumbs-o-up" style="color:blue"></i>Te gusta este post</li>
+							<li class="shares"><a th:href="${'/post/comentarios/'+post.id}"><i
+									class="fa fa-fw fa-lg fa-comments"></i>Comentar</a></li>
+							<li class="comments" th:text="${post.getNumComentarios()}"><i class="fa fa-fw fa-lg fa-comment-o"></i></li>
+						</ul>
+					</div>
+
+				</div>
+
+				<!-- EDITAR DATOS PERSONALES -->
+				<div class="tab-pane fade" id="user-settings">
+					<div class="tile user-settings">
+						<h4 class="line-head">Editar datos personales</h4>
+
+						<!-- Formulario -->
+						<form method="post" th:action="${'/user/edit'}">
+							<div class="row mb-4">
+								<div class="col-md-4">
+									<label for="nombre">Nombre</label> 
+									<input class="form-control" type="text" name="nombre">
+								</div>
+								<div class="col-md-4">
+									<label for="apellidos">Apellidos</label> 
+									<input class="form-control" type="text" name="apellidos">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-8 mb-4">
+									<label for="email">Email</label> 
+									<input class="form-control" type="text" name="email">
+								</div>
+								<div class="clearfix"></div>
+								<div class="col-md-8 mb-4">
+									<label for="desc">Descripción breve</label> 
+									<input class="form-control"type="text" name="descripcion">
+								</div>
+							</div>
+							<div class="row mb-10">
+								<div class="col-md-12">
+									<button class="btn btn-primary" type="submit">
+										<i class="fa fa-fw fa-lg fa-check-circle"></i> Guardar
+									</button>
+								</div>
+							</div>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	</main>
+	<!-- JS -->
+	<script src="../../js/jquery-3.2.1.min.js"></script>
+	<script src="../../js/popper.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/main.js"></script>
+	<script src="../../js/plugins/pace.min.js"></script>
+</body>
+</html>

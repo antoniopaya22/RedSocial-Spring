@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:replace="fragments/head" />
+
+<body class="app sidebar-mini">
+
+	<nav th:replace="fragments/nav" />
+
+	<!-- Contenido -->
+	<main class="app-content">
+
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-comment-o"></i> Comentarios
+			</h1>
+			<p th:text="${'Post: '+post.titulo}">Post: Titulo</p>
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+			<li class="breadcrumb-item"><a href="#">Comentarios</a></li>
+		</ul>
+	</div>
+
+	<!-- Post -->
+	<div class="row user">
+		<div class="col-md-12">
+			<div class="timeline-post">
+				<div class="post-media">
+					<a th:if="${post.autor.foto_perfil != null}" href="#"><img
+								th:src="${post.autor.foto_perfil}" width="48" height="48"></a>
+					<div class="content">
+						<h5>
+							<a th:text="${post.autor.username}" th:href="${'/users/perfil/' + post.autor.username}">John Doe</a>
+						</h5>
+						<p class="text-muted">
+							<small th:text="${post.fecha}">2 January at 9:30</small>
+						</p>
+					</div>
+				</div>
+				<div class="post-content">
+					<h4 th:text="${post.titulo}"></h4>
+					<p th:text="${post.contenido}">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+						sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+						Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip
+						ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+						voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+						Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+						officia deserunt mollit anim id est laborum.</p>
+				</div>
+				<img th:if="${post.imagen != null}"
+							style="height: 200px; width: 400px; display: block;"
+							th:src="${'../../img/post/'+post.imagen}"
+							alt="Imagen del post">
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6 bs-component" th:each="comentario : ${listComent}">
+			<!-- Comentario 1 -->
+			<div class="bs-component">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" th:text="${comentario.titulo}">Comentario 1</h5>
+						</div>
+						<div class="modal-body">
+							<p th:text="${comentario.contenido}">Modal body text goes here.</p>
+						</div>
+						<div class="modal-header">
+							<a th:if="${comentario.autor.foto_perfil != null}" href="#"><img
+								th:src="${comentario.autor.foto_perfil}" width="48" height="48"></a>
+							<div class="content">
+								<h5>
+									<a th:text="${comentario.autor.username}" 
+										th:href="${'/users/perfil/' + comentario.autor.username}">John Doe</a>
+								</h5>
+								<p class="text-muted">
+									<small th:text="${comentario.fecha}">2 January at 9:30</small>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+	<footer th:replace="fragments/pagination"/>
+	
+	<div class="row">
+		<div clas="col-md-12">
+			<!-- Escribir comentario -->
+			<div class="bs-component">
+				<div class="modal"
+					style="position: relative; top: auto; right: auto; left: auto; bottom: auto; z-index: 1; display: block;">
+					<div class="modal-dialog" role="document">
+						<form class="modal-content" method="post" th:action="${'/post/comentario/add/'+post.id}">
+							<div class="modal-header">
+								<input class="form-control" type="text" placeholder="Título del comentario" name="titulo"
+									required="true">
+							</div>
+							<div class="modal-body">
+								<textarea class="form-control" rows="5"
+									placeholder="Contenido del comentario" name="contenido" required="true"></textarea>
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-primary" type="submit">
+									<i class="fa fa-fw fa-lg fa-check-circle"></i>Enviar
+								</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i
+								class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	</main>
+
+	<!-- JS -->
+	<script src="../../js/jquery-3.2.1.min.js"></script>
+	<script src="../../js/popper.min.js"></script>
+	<script src="../../js/bootstrap.min.js"></script>
+	<script src="../../js/main.js"></script>
+	<script src="../../js/plugins/pace.min.js"></script>
+</body>
+</html>

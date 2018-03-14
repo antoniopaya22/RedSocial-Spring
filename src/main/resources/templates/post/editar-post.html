@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head th:replace="fragments/head" />
+<body class="app sidebar-mini">
+
+	<nav th:replace="fragments/nav" />
+
+	<!-- Contenido -->
+	<main class="app-content"> <!-- Header -->
+	<div class="app-title">
+		<div>
+			<h1>
+				<i class="fa fa-edit"></i> Editar post
+			</h1>
+			<p>Edita esta publicación para compartir con tus amigos</p>
+		</div>
+		<ul class="app-breadcrumb breadcrumb">
+			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+			<li class="breadcrumb-item">Post</li>
+			<li class="breadcrumb-item"><a href="post/add">Editar post</a></li>
+		</ul>
+	</div>
+
+
+	<div class="row">
+
+		<div class="col-md-12">
+
+			<!-- Crear post -->
+			<div class="tile">
+				<h3 class="tile-title">Editar post</h3>
+				<div class="tile-body">
+					<!-- Formulario -->
+					<form method="post" th:action="${'/post/edit/' + post.id}"  enctype="multipart/form-data">
+						<div class="form-group">
+							<label class="control-label" for="titulo">Título</label> 
+							<input class="form-control" type="text" placeholder="Título del post" name="titulo">
+						</div>
+						<div class="form-group">
+							<label class="control-label" for="contenido">Contenido</label>
+							<textarea class="form-control" rows="5"
+								placeholder="Contenido de la publicación" name="contenido"></textarea>
+						</div>
+						<div class="tile-footer">
+						<button class="btn btn-primary" type="submit">
+							<i class="fa fa-fw fa-lg fa-check-circle"></i>Crear
+						</button>
+						&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="/post/list"><i
+							class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+						</div>
+					</form>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	</main>
+
+	<!-- JS -->
+	<script src="../js/jquery-3.2.1.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/main.js"></script>
+	<script src="../js/plugins/pace.min.js"></script>
+</body>
+</html>

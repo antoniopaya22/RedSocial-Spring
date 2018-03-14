@@ -1,0 +1,80 @@
+<!-- Nav-->
+<nav>
+	<header class="app-header">
+		<a class="app-header__logo" href="/">Red Social</a>
+		<!-- Sidebar toggle button-->
+		<a class="app-sidebar__toggle" href="#" data-toggle="sidebar"></a>
+		<!-- Nav Right Menu-->
+		<ul class="app-nav">
+			<li class="app-search">
+				<form  action="/">
+					<input class="app-search__input" type="search" name="searchText" placeholder="Buscar publicaciones">
+                	<button class="app-search__button" type="submit">
+					<i class="fa fa-search"></i>
+				</button>
+				</form>
+
+			</li>
+			<!--Notification-->
+			<li class="dropdown"><a class="app-nav__item" href="#"
+				data-toggle="dropdown"><i class="fa fa-bell-o fa-lg"></i></a></li>
+			<!-- User Menu-->
+			<li class="dropdown"><a class="app-nav__item" href="#"
+				data-toggle="dropdown"><i class="fa fa-user fa-lg"></i></a>
+				<ul class="dropdown-menu settings-menu dropdown-menu-right">
+					<li><a class="dropdown-item" th:href="${'/users/perfil/' + usuarioActivo.username}"><i
+							class="fa fa-user fa-lg"></i> Perfil</a></li>
+					<li><a class="dropdown-item" href="/logout" id="logout"><i
+							class="fa fa-sign-out fa-lg"></i> Cerrar sesión</a></li>
+				</ul></li>
+		</ul>
+	</header>
+	<!-- Sidebar menu-->
+	<div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+	<aside class="app-sidebar">
+		<div class="app-sidebar__user">
+			<img th:if="${usuarioActivo.foto_perfil != null}" class="app-sidebar__user-avatar"
+				th:src="${usuarioActivo.foto_perfil}"
+				alt="User Image" width="48" height="48">
+			<div>
+				<p th:if="${usuarioActivo.nombre == null}" class="app-sidebar__user-name" th:inline="text" th:text="${usuarioActivo.username}">Username</p>
+				<p th:if="${usuarioActivo.nombre != null}" class="app-sidebar__user-name" th:inline="text" th:text="${usuarioActivo.nombre}">Nombre</p>
+				<p class="app-sidebar__user-designation" th:text="${usuarioActivo.apellidos}">Apellidos</p>
+			</div>
+		</div>
+		<ul class="app-menu">
+			<li><a class="app-menu__item" href="/"><i
+					class="app-menu__icon fa fa-dashboard"></i><span
+					class="app-menu__label">Panel</span></a></li>
+			<li class="treeview"><a class="app-menu__item" href="#" sec:authorize="hasRole('ROLE_USUARIO')"
+				data-toggle="treeview"><i class="app-menu__icon fa fa-edit"></i><span
+					class="app-menu__label">Mis post</span><i
+					class="treeview-indicator fa fa-angle-right"></i></a>
+				<ul class="treeview-menu">
+					<li><a class="treeview-item" href="/post/add"><i
+							class="icon fa fa-circle-o"></i> Crear nuevo post</a></li>
+					<li><a class="treeview-item" href="/post/list"><i
+							class="icon fa fa-circle-o"></i> Editar post</a></li>
+					<li><a class="treeview-item" href="/post/list"><i
+							class="icon fa fa-circle-o"></i> Borrar post</a></li>
+				</ul>
+			</li>
+			<li class="treeview"><a class="app-menu__item" href="#" 
+				data-toggle="treeview"><i class="app-menu__icon fa fa-users"></i><span
+					class="app-menu__label">Usuarios</span><i
+					class="treeview-indicator fa fa-angle-right"></i></a>
+				<ul class="treeview-menu">
+					<li><a class="treeview-item" href="/users/lista-usuarios"><i
+							class="icon fa fa-circle-o"></i> Todos los usuarios</a></li>
+					<li><a class="treeview-item" href="/users/lista-amigos"><i
+							class="icon fa fa-circle-o"></i> Mis Amigos</a></li>
+					<li><a class="treeview-item" href="/users/lista-peticiones"><i
+							class="icon fa fa-circle-o"></i> Ver peticiones de amistad</a></li>
+				</ul>
+			</li>
+			<li><a class="app-menu__item" href="/admin/list" sec:authorize="hasRole('ROLE_ADMIN')"><i
+					class="app-menu__icon fa fa-wrench"></i><span
+					class="app-menu__label">Administrar usuarios</span></a></li>
+		</ul>
+	</aside>
+</nav>
