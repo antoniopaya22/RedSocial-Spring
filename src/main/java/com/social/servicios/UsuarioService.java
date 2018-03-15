@@ -59,6 +59,11 @@ public class UsuarioService {
 		usuariosRepository.save(usuario);
 	}
 	
+	public void addNuevoUsuario(Usuario usuario) {
+		usuario.setRole( "ROLE_USUARIO" );
+		addUsuario( usuario );
+	}
+	
 	public void updateUsuario(Usuario u) {
 		usuariosRepository.save(u);
 	}

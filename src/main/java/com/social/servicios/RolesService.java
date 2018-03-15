@@ -3,7 +3,7 @@ package com.social.servicios;
 import org.springframework.stereotype.Service;
 
 /**
- * 
+ * @author Pablo Díaz Rancaño
  * @author Antonio Paya Gonzalez
  *
  */

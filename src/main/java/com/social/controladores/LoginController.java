@@ -41,7 +41,7 @@ public class LoginController {
 	@RequestMapping(value = "/registro", method = RequestMethod.GET)
 	public String registro(Model model) {
 		model.addAttribute("usuario", new Usuario());
-		return "/login/registro";
+		return "login/registro";
 	}
 	
 	@RequestMapping(value = "/registro", method = RequestMethod.POST)
@@ -50,7 +50,7 @@ public class LoginController {
 		if(result.hasErrors()) {
 			return "login/registro";
 		}
-		usuarioService.addUsuario(usuario);
+		usuarioService.addNuevoUsuario(usuario);
 		securityService.autoLogin(usuario.getUsername(), usuario.getPasswordConfirm());
 		model.addAttribute("usuarioActivo", usuarioService.getUsuarioActivo());
 		return "redirect:/";

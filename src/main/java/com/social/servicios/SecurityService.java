@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;;
 
 /**
+ * @author Pablo Díaz Rancaño
  * @author Antonio Paya Gonzalez
  *
  */
