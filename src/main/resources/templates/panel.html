@@ -13,11 +13,11 @@
 			<h1 th:text="#{Panel.panel}">
 				<i class="fa fa-dashboard"></i> Panel
 			</h1>
-			<p>Aquí puedes ver todos los post</p>
+			<p th:text="#{Panel.desc}">Aquí puedes ver todos los post</p>
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
 			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Panel</a></li>
+			<li class="breadcrumb-item"><a href="#" th:text="#{Panel.panel}">Panel</a></li>
 		</ul>
 	</div>
 
@@ -27,7 +27,7 @@
 			<div class="widget-small primary coloured-icon">
 				<i class="icon fa fa-users fa-3x"></i>
 				<div class="info">
-					<h4>Amigos</h4>
+					<h4 th:text="#{Panel.amigos}">Amigos</h4>
 					<p>
 						<b th:text="${usuarioActivo.amigos.size()}">5</b>
 					</p>
@@ -60,7 +60,7 @@
 			<div class="widget-small danger coloured-icon">
 				<i class="icon fa fa-comment fa-3x"></i>
 				<div class="info">
-					<h4>Comentarios</h4>
+					<h4 th:text="#{Panel.comentarios}">Comentarios</h4>
 					<p>
 						<b th:text="${usuarioActivo.comentarios.size()}">500</b>
 					</p>
@@ -73,18 +73,19 @@
 	
 	<div class="row">
 		<div class="col-md-4">
-			<h2>Buscar Publicaciones</h2>
+			<h2 th:text="#{Panel.buscarPost}">Buscar Publicaciones</h2>
 		</div>
 		<div class="col-md-8">
 				<form class="navbar-form" action="/">
 					<div class="sender row">
 						<div class="col-md-6">
 							<input name="searchText" type="text" class="form-control" size="80"
-								placeholder="Buscar por título">
+								th:placeholder="#{Panel.buscarTitulo}">
 						</div>
                 		<div class="col-md-6">
-                			<button class="btn btn-primary" type="submit"><i class="fa fa-lg fa-fw fa fa-search"></i> Buscar</button>
-                			<button class="btn btn-secondary" href="#">Resetear</button>
+                			<button class="btn btn-primary" type="submit"><i class="fa fa-lg fa-fw fa fa-search"></i>
+                				 <span th:text="#{Panel.buscar}">Buscar</span></button>
+                			<button class="btn btn-secondary" href="#" th:text="#{Panel.reset}">Resetear</button>
                 		</div>
               		</div>
 				</form>
@@ -130,10 +131,11 @@
 					<li th:if="${!usuarioActivo.dioLike(post)}" class="likes"><a th:href="${'/post/like/'+post.id}"><i
 							class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Like</a></li>
 					<li th:if="${usuarioActivo.dioLike(post)}" class="likes"><i
-							class="fa fa-fw fa-lg fa-thumbs-o-up" style="color:blue"></i>Te gusta este post</li>
+							class="fa fa-fw fa-lg fa-thumbs-o-up" style="color:blue"></i><span th:text="#{Panel.teGusta}">Te gusta este post</span></li>
 					<li class="shares"><a th:href="${'/post/comentarios/'+post.id}"><i
-							class="fa fa-fw fa-lg fa-comments"></i>Comentar</a></li>
-					<li class="comments" th:text="${post.getNumComentarios()}"><i class="fa fa-fw fa-lg fa-comment-o"></i></li>
+							class="fa fa-fw fa-lg fa-comments"></i><span th:text="#{Panel.comentar}">Comentar</span></a></li>
+					<li class="comments"><i class="fa fa-fw fa-lg fa-comment-o"></i> <span th:text="${post.getNumComentarios()}"></span>
+						<span th:text="#{Panel.comentarios}"></span></li>
 				</ul>
 			</div>
 		</div>

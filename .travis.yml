@@ -1,9 +1,9 @@
 language: java
 jdk:
 - oraclejdk8
-after_success:
-- bash <(curl -s https://codecov.io/bash)
-before_script:
-- "export DISPLAY=:99.0"
-- "sh -e /etc/init.d/xvfb start"
-- sleep 3 # give xvfb some time to start
+# would just use default install/script but the ./mvnw script errors on travis
+# obviously this only works for maven builds right now...
+install:
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+script:
+- mvn test
