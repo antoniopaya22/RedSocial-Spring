@@ -155,6 +155,9 @@ public class UsuarioService {
 	public void rechazarPeticionAmistad(Usuario u1, Usuario u2)
 	{
 		amistadRepository.delete(u2.getId(), u1.getId());
+		
+		if (amistadRepository.findPeticiones( u1.getId(), u2.getId() ).size() != 0)
+			amistadRepository.delete( u1.getId(), u2.getId() );
 	}
 	
 	

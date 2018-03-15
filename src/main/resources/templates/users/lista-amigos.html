@@ -11,30 +11,32 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-users"></i> Lista de amigos
+				<i class="fa fa-users"></i>
+				<span th:text="#{Usuarios.listaAmigos.listaAmigos}">Lista de amigos</span> 
 			</h1>
 			
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
 			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Lista de usuarios amigos</a></li>
+			<li class="breadcrumb-item"><a href="#" th:text="#{Usuarios.listaAmigos.listaAmigos}">Lista de amigos</a></li>
 		</ul>
 	</div>
  	
  	<div class="row">
 		<div class="col-md-4">
-			<h2>Buscar amigos</h2>
+			<h2 th:text="#{Usuarios.listaAmigos.buscarAmigos}">Buscar amigos</h2>
 		</div>
 		<div class="col-md-8">
 				<form class="navbar-form" action="/users/lista-amigos">
 					<div class="sender row">
 						<div class="col-md-6">
 							<input name="searchText" type="text" class="form-control" size="80"
-								placeholder="Buscar por nombre o email de usuario">
+								th:placeholder="#{Usuarios.lista.buscarUsuariosCampo}">
 						</div>
                 		<div class="col-md-6">
-                			<button class="btn btn-primary" type="submit"><i class="fa fa-lg fa-fw fa fa-search"></i> Buscar</button>
-                			<button class="btn btn-secondary" href="#">Resetear</button>
+                			<button class="btn btn-primary" type="submit">
+                			<i class="fa fa-lg fa-fw fa fa-search"></i> <span th:text="#{Usuarios.lista.buscarBoton}">Buscar</span></button>
+                			<button class="btn btn-secondary" href="#" th:text="#{Usuarios.lista.resetBoton}">Resetear</button>
                 		</div>
               		</div>
 				</form>
