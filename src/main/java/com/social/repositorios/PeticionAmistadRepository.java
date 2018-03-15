@@ -17,7 +17,7 @@ public interface PeticionAmistadRepository extends CrudRepository<Amistad, Long>
 {
 	@Transactional
 	@Modifying
-	@Query("DELETE FROM Amistad a WHERE a.usuario1 = ?1 AND a.usuario2= ?2")
+	@Query("DELETE FROM Amistad a WHERE a.usuario1 = ?1 AND a.usuario2= ?2") 
 	void delete(long id_u1, long id_u2);
 	
 	@Query("SELECT u FROM Usuario u WHERE u.id IN( "

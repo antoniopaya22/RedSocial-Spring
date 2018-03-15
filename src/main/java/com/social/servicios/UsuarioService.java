@@ -24,7 +24,7 @@ import com.social.repositorios.PeticionAmistadRepository;
 import com.social.repositorios.UsuariosRepository;
 
 /**
- * <h1>UsuarioService</h1>
+ * <h1>UsuarioService</h1> 
  * 
  * Servicio que se encarga de realizar las operaciones con usuarios
  * 
