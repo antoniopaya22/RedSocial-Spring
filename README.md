@@ -5,6 +5,8 @@
 
 *Red social realizada con [Spring boot](https://projects.spring.io/spring-boot/)  para la asignatura de SDI*
 
+*Repositorio con las pruebas hechas con Selenium -> [RedSocial-SDI-Test](https://github.com/antonioalfa22/RedSocial-SDI-Test)*
+
 ## Descripción
 
 Esta aplicación se trata de una red social en la que los usuarios pueden registrarse, crear publicaciones, enviar
