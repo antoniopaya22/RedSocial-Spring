@@ -120,15 +120,6 @@ public class UsersController
 		
 		return "redirect:/users/lista-peticiones";
 	}
-
-	private void preparaCargaListaPeticiones(Model model, Pageable pageable, Usuario u1) {
-		Page<Usuario> usuarios = new PageImpl<Usuario>(new LinkedList<Usuario>());
-		usuarios = usersService.buscarPeticionesAmistad( pageable, u1 );
-		
-		model.addAttribute("usuarioActivo", usersService.getUsuarioActivo());
-		model.addAttribute("userList", usuarios.getContent());
-		model.addAttribute("page", usuarios);
-	}
 	
 	@RequestMapping("/users/rechazarPeticion/{id}")
 	public String rechazarPeticion(Model model, @PathVariable long id, Pageable pageable)

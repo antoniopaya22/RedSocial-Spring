@@ -24,7 +24,7 @@ import com.social.repositorios.PeticionAmistadRepository;
 import com.social.repositorios.UsuariosRepository;
 
 /**
- * <h1>UsuarioService</h1>
+ * <h1>UsuarioService</h1> 
  * 
  * Servicio que se encarga de realizar las operaciones con usuarios
  * 
@@ -57,6 +57,10 @@ public class UsuarioService {
 	public void addUsuario(Usuario usuario) {
 		usuario.setPassword(bCryptPasswordEncoder.encode(usuario.getPassword()));
 		usuariosRepository.save(usuario);
+	}
+	
+	public void updateUsuario(Usuario u) {
+		usuariosRepository.save(u);
 	}
 
 	public void deleteUsuario(Long id) {
@@ -134,6 +138,9 @@ public class UsuarioService {
 	{
 		amistadRepository.delete(u2.getId(), u1.getId()); // el usuario 2 acepta la petición del 1
 		
+		if (amistadRepository.findPeticiones( u1.getId(), u2.getId() ).size() != 0)
+			amistadRepository.delete( u1.getId(), u2.getId() );
+		
 		modificarAmistadUsuarios( u1, u2 );
 	}
 	
@@ -141,14 +148,16 @@ public class UsuarioService {
 	{
 		u1.addAmigo( u2 );
 		u2.addAmigo( u1 );
-		
-		addUsuario( u1 );
-		addUsuario( u2 );
+		updateUsuario(u1);
+		updateUsuario(u2);
 	}
 	
 	public void rechazarPeticionAmistad(Usuario u1, Usuario u2)
 	{
 		amistadRepository.delete(u2.getId(), u1.getId());
+		
+		if (amistadRepository.findPeticiones( u1.getId(), u2.getId() ).size() != 0)
+			amistadRepository.delete( u1.getId(), u2.getId() );
 	}
 	
 	

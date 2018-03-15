@@ -3,7 +3,7 @@
 <head th:replace="fragments/head" />
 <body class="app sidebar-mini">
 
-	<nav th:replace="fragments/nav" />
+	<nav th:replace="fragments/nav" /> 
 	
 	<!-- Contenido -->
 	<main class="app-content">
@@ -11,30 +11,32 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-users"></i> Lista de usuarios
+				<i class="fa fa-users"></i> 
+				<span th:text="#{Usuarios.lista.listaUsuarios}">Lista de usuarios</span>
 			</h1>
 			
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
 			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Lista de usuarios</a></li>
+			<li class="breadcrumb-item"><a href="#" th:text="#{Usuarios.lista.listaUsuarios}">Lista de usuarios</a></li>
 		</ul>
 	</div>
  	
  	<div class="row">
 		<div class="col-md-4">
-			<h2>Buscar usuarios</h2>
+			<h2 th:text="#{Usuarios.lista.buscarUsuarios}">Buscar usuarios</h2>
 		</div>
 		<div class="col-md-8">
 				<form class="navbar-form" action="/users/lista-usuarios">
 					<div class="sender row">
 						<div class="col-md-6">
 							<input name="searchText" type="text" class="form-control" size="80"
-								placeholder="Buscar por nombre o email de usuario">
+								th:placeholder="#{Usuarios.lista.buscarUsuariosCampo}">
 						</div>
                 		<div class="col-md-6">
-                			<button class="btn btn-primary" type="submit"><i class="fa fa-lg fa-fw fa fa-search"></i> Buscar</button>
-                			<button class="btn btn-secondary" href="#">Resetear</button>
+                			<button class="btn btn-primary" type="submit"><i class="fa fa-lg fa-fw fa fa-search"></i> 
+                			<span th:text="#{Usuarios.lista.buscarBoton}">Buscar</span></button>
+                			<button class="btn btn-secondary" href="#" th:text="#{Usuarios.lista.resetBoton}">Resetear</button>
                 		</div>
               		</div>
 				</form>
@@ -65,7 +67,7 @@
 							
 							<!-- Cuando se ha enviado la peticiÃ³n de amistad -->
 							<div class="alert alert-dismissible alert-success" th:if="${usuariosPeticionesEnviadas.contains(usuario.id)}">
-								<strong>PeticiÃ³n de amistad enviada</strong>
+								<strong th:text="#{Usuarios.lista.peticionYaEnviada}">Petición de amistad enviada</strong>
 							</div>
 							
 							<!-- Cuando los dos usuarios no son amigos (o son el mismo) -->
@@ -74,7 +76,7 @@
 									&& !usuariosPeticionesEnviadas.contains(usuario.id)}" 
 							class="alert-link" type="button" 
 							id="enviarPeticion" th:href="${'/users/enviarAmistad/' + usuario.id}">
-								<button class="btn btn-outline-primary">Enviar peticiÃ³n de amistad
+								<button class="btn btn-outline-primary" th:text="#{Usuarios.lista.enviarPeticion}">Enviar petición de amistad
 								</button>
 							</a>
 							
@@ -82,8 +84,8 @@
 							<div class="alert alert-dismissible alert-success" th:if="${usuarioActivo.esAmigo(usuario) && 
 										!usuarioActivo.username.equals(usuario.username)
 										&& !usuariosPeticionesEnviadas.contains(usuario.id)}">
-								<strong>Â¡QuÃ© bien!</strong> <a class="alert-link" th:href="${'/users/perfil/' + usuario.username}"
-								th:text="${usuario.username}">Usuario</a> y tÃº sois amigos.
+								<strong th:text="#{Usuarios.lista.queBien}">¡Qué bien!</strong> <a class="alert-link" th:href="${'/users/perfil/' + usuario.username}"
+								th:text="${usuario.username}">Usuario</a> <span th:text="#{Usuarios.lista.usuarioYTu}"> y tú sois amigos.</span> 
 							</div>
 						</div>
 					</div>
@@ -91,88 +93,6 @@
 			</div>
 		</div>
 	</div>
-	
-	<!--
-	Usuario 1 (No agregado como amigo)
-	<div class="row">
-		<div class="col-md-12">
-			<div class="card mb-3 border-primary">
-				<div class="card-body">
-					<div class="row">
-						<div class="col-md-4">
-							<h5>
-								<a href="#">Usuario 1</a>
-							</h5>
-							<a href="#"><img
-								src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
-						</div>
-						<div class="col-md-8">
-							<h5>Descripcion</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Integer posuere erat a ante.</p>
-							<button class="btn btn-outline-primary" type="button">Enviar
-								peticiï¿½n de amistad</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	Usuario 2 (Agregado como amigo)
-	<div class="row">
-		<div class="col-md-12">
-			<div class="card mb-3 border-primary">
-				<div class="card-body">
-					<div class="row">
-						<div class="col-md-4">
-							<h5>
-								<a href="#">Usuario 1</a>
-							</h5>
-							<a href="#"><img
-								src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
-						</div>
-						<div class="col-md-8">
-							<h5>Descripcion</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Integer posuere erat a ante.</p>
-							<div class="alert alert-dismissible alert-success">
-								<strong>ï¿½Quï¿½ biï¿½n!</strong> <a class="alert-link" href="#">Usuario</a>
-								y tï¿½ sois amigos.
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	 Usuario 3 (No agregado como amigo)
-	<div class="row">
-		<div class="col-md-12">
-			<div class="card mb-3 border-primary">
-				<div class="card-body">
-					<div class="row">
-						<div class="col-md-4">
-							<h5>
-								<a href="#">Usuario 1</a>
-							</h5>
-							<a href="#"><img
-								src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
-						</div>
-						<div class="col-md-8">
-							<h5>Descripcion</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Integer posuere erat a ante.</p>
-							<button class="btn btn-outline-primary" type="button">Enviar
-								peticiï¿½n de amistad</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	-->
 
 	<footer th:replace="fragments/pagination"/>
 	
@@ -184,5 +104,6 @@
 	<script src="../js/bootstrap.min.js"></script>
 	<script src="../js/main.js"></script>
 	<script src="../js/plugins/pace.min.js"></script>
+	<script src="../js/languajes.js"></script>
 </body>
 </html>

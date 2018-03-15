@@ -186,7 +186,7 @@ public class Publicacion {
 	}
 	
 	public String getNumComentarios() {
-		return " "+this.comentarios.size()+" Comentarios";
+		return " "+this.comentarios.size();
 	}
 	
 

@@ -5,8 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import com.social.servicios.UsuarioService;
-
 @Entity
 public class Amistad 
 {

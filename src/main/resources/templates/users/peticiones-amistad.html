@@ -11,21 +11,21 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-users"></i> Invitaciones de amistad
+				<i class="fa fa-users"></i> 
+				<span th:text="#{Usuarios.peticiones.peticionesTitulo}">Peticiones de amistad</span>
 			</h1>
-			<p>AquÃ­ podrÃ¡s aceptar y rechazar peticiones de amistad</p>
+			<p th:text="#{Usuarios.peticiones.peticionesTituloDesc}">Aquí podrás aceptar y rechazar peticiones de amistad</p>
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
 			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Lista de
-					Invitaciones de amistad</a></li>
+			<li class="breadcrumb-item"><a href="#" th:text="#{Usuarios.peticiones.peticionesTitulo}">Peticiones de amistad</a></li>
 		</ul>
 	</div>
 
 	<div th:if="${#lists.isEmpty(userList)}" class="row">
 		<div class="col-md-12">
 			<div class="alert alert-warning">
-				<strong>Â¡Vaya! No tienes ninguna peticiÃ³n de amistad pendiente.</strong>
+				<strong th:text="#{Usuarios.peticiones.sinPeticiones}">¡Vaya! No tienes ninguna petición de amistad pendiente.</strong>
 			</div>
 		</div>
 	</div> 
@@ -38,22 +38,26 @@
 					<div class="row">
 						<div class="col-md-4">
 							<h5>
-								<a href="#" th:text="${usuario.nombreCompleto}">Usuario</a>
-							</h5>
-							<a href="#"><img
-								src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg"></a>
+								<a th:if="${usuario.nombre != null}" th:href="${'/users/perfil/' + usuario.username}"
+									 th:text="${usuario.nombreCompleto}">Usuario</a>
+								<a th:if="${usuario.nombre == null}" th:href="${'/users/perfil/' + usuario.username}"
+									 th:text="${usuario.username}">Usuario</a>
+							</h5>  
+							<a th:if="${usuario.foto_perfil != null}" href="#"><img
+								th:src="${usuario.foto_perfil}" width="48" height="48"></a>
 						</div>
 						<div class="col-md-8">
-							<h5>DescripciÃ³n</h5>
-							<p>El usuario <a class="alert-link" th:href="${'/users/perfil/' + usuario.username}" 
-								th:text="${usuario.username}">Usuario</a> quiere ser tu amig@</p>
+							<h5 th:text="#{Usuarios.peticiones.descripcion}">Descripción</h5>
+							<p> <span th:text="#{Usuarios.peticiones.elUsuario}">El usuario </span>
+							<a class="alert-link" th:href="${'/users/perfil/' + usuario.username}" 
+								th:text="${usuario.username}">Usuario</a> <span th:text="#{Usuarios.peticiones.quiereSer}"> quiere ser tu amig@</span></p>
 							<a class="alert-link" type="button" th:href="${'/users/aceptarPeticion/' + usuario.id}">
-								<button class="btn btn-success" type="button">Aceptar
-									invitaciÃ³n</button>
+								<button class="btn btn-success" type="button" th:text="#{Usuarios.peticiones.aceptar}">Aceptar
+									invitación</button>
 							</a>
 							<a class="alert-link" type="button" th:href="${'/users/rechazarPeticion/' + usuario.id}">
-							<button class="btn btn-danger" type="button">Rechazar
-								invitaciÃ³n</button>
+							<button class="btn btn-danger" type="button" th:text="#{Usuarios.peticiones.rechazar}">Rechazar
+								invitación</button>
 							</a>
 						</div>
 					</div>
@@ -72,5 +76,6 @@
 	<script src="../../js/bootstrap.min.js"></script>
 	<script src="../../js/main.js"></script>
 	<script src="../../js/plugins/pace.min.js"></script>
+	<script src="../../js/languajes.js"></script>
 </body>
 </html>
