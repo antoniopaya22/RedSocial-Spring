@@ -84,7 +84,7 @@ public class AdminController {
 		String passwd = u.getPassword();
 		Usuario intento = usersService.getUserByUsername(username);
 		if(intento == null || !intento.getRole().equals(rolesService.getRoles()[1]))
-			return "redirect:/admin/login";
+			return "redirect:/login/error";
 		securityService.autoLogin(username, passwd);
 		return "redirect:/";
 	}

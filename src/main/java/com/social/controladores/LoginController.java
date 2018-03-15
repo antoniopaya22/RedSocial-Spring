@@ -62,4 +62,10 @@ public class LoginController {
 	}
 
 
+	@RequestMapping(value = "/login/error", method = RequestMethod.GET)
+	public String loginError(Model model) {
+		String txt = "Username o password incorrectos o el usuario no tiene privilegios suficientes";
+		model.addAttribute("error",txt);
+		return "/login/error";
+	}
 }
