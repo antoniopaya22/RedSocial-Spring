@@ -1,13 +1,11 @@
 # Red Social SDI
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8fd426065496482e9138d81312c74542)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=antonioalfa22/RedSocial-SDI&amp;utm_campaign=Badge_Grade)
-
 *Red social realizada con [Spring boot](https://projects.spring.io/spring-boot/)  para la asignatura de SDI*
 
 ## Descripción
 
 Esta aplicación se trata de una red social en la que los usuarios pueden registrarse, crear publicaciones, enviar
-invitaciones de amistad, listar usuarios registrados y el resto de opciones que comúnmente se pueden hacer en
+invitaciones de amistad, listar usuarios registrados y el resto de opciones que comúnmente se pueden hacer en 
 una red social.
 
 ## Autores
@@ -26,3 +24,5 @@ una red social.
 ### Ejecución
 
 > Escribir aquí la guía para una ejecución correcta
+
+

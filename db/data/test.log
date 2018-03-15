@@ -1,4 +1,4 @@
-/*C92*/SET SCHEMA PUBLIC
+/*C31*/SET SCHEMA PUBLIC
 alter table comentario drop constraint FK1gcyoyuhavbjdhqr9hbulwa69
 alter table comentario drop constraint FKefv85lfutis7gg5eq0x8buy3f
 alter table publicacion drop constraint FK65302w6x7qq03upexu8lel7l8
@@ -26,23 +26,266 @@ alter table usuario_amigos add constraint FK78dfuay1npvomfdwyjk49iu8h foreign ke
 alter table usuario_amigos add constraint FKp8dunt6mjj9t1ncb1f15v3yv9 foreign key (usuario_id) references usuario
 alter table usuario_likes_dados add constraint FK1pilflrsasvtx2t6xxs6ygck foreign key (likes_dados_id) references publicacion
 alter table usuario_likes_dados add constraint FKjpk07m8yjwmycltwvk6qqevvm foreign key (likes_id) references usuario
-INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$LRoby6tuospUFxGVgxv1g.WjWPS264bFrFe9RWpCLgFho24KhAiAa','ROLE_USUARIO','pedro')
-INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-14 14:06:22.611000',NULL,'Hoy no quiero programar',1)
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$elwhnnSyZn7bGC1L/6.i1uu0qeFXZV0TtNQ.IzmC9aMb3uZlSK3ie','ROLE_USUARIO','pedro')
+INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:16:14.227000',NULL,'Hoy no quiero programar',1)
 COMMIT
-INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$VVVdtSjPlt5/ErU//LWsFeBOXNG.9Xvrmqjg2lQiiNT5qLlSnPEDO','ROLE_USUARIO','lucas')
-INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-14 14:06:22.611000',NULL,'Nos merecemos un 10',2)
-INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-14 14:06:22.611000',NULL,'El sol brilla mucho',2)
-INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-14 14:06:22.611000',NULL,'Usando bootstrap',2)
+INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$dxoIaKTDKEkhaezbBvH.MupfvzgdpWh5009JydBsyEumD8391KOQq','ROLE_USUARIO','lucas')
+INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:16:14.227000',NULL,'Usando bootstrap',2)
+INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:16:14.227000',NULL,'El sol brilla mucho',2)
+INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:16:14.227000',NULL,'Nos merecemos un 10',2)
 COMMIT
-INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$N2DZGK3yBVR4/Jmy4xLLWOpQ8aYISPwF/d6p1f57PURjuT/SeNYIm','ROLE_USUARIO','maria')
-INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-14 14:06:22.611000',NULL,'Publicacion de prueba',3)
+INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$FdA4sAJweRc/PrY2FlUc5umR523H7RSiJL/yuyPUDp/7pWBD/Q3Ge','ROLE_USUARIO','maria')
+INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:16:14.227000',NULL,'Publicacion de prueba',3)
 COMMIT
-INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$qCCQzUTRHiWKX0eEsP3Y2.HlY1ctQsUrhnVB61w9bq0jTbY2s6KyO','ROLE_USUARIO','marta')
-INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-14 14:06:22.611000',NULL,'Drop tables',4)
+INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$uaARNFCaBJW4K.GaB6rtZuqC.Wcez5JIbT9aF20DfRphaqLelS/Ai','ROLE_USUARIO','marta')
+INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:16:14.227000',NULL,'Drop tables',4)
 COMMIT
-INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$HuTosLO7H6XmttqQARiUbe/SR7Sye/Rg0.tYtEEpfWa77CQIjCAYe','ROLE_USUARIO','pelayo')
+INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$RDCWJ4QMAp2LKfdE/iTEGOEjAiiu/UiHP9tusQxV.KBtE4QlosCq6','ROLE_USUARIO','pelayo')
 COMMIT
-INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$zt8iVeQ9U1pn7Yqp7h/mhu7nzBK/17hpfNeV2tXJm6iwjNMW3TSam','ROLE_ADMIN','edward')
+INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$5QLNbE9xBlhOaeEYd7vxj.wQGKybLFGY0NUxW6SI7elsFv7VvjO7K','ROLE_ADMIN','edward')
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(1,2)
+INSERT INTO USUARIO_AMIGOS VALUES(1,3)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(2,1)
+INSERT INTO USUARIO_AMIGOS VALUES(2,3)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(3,2)
+INSERT INTO USUARIO_AMIGOS VALUES(3,1)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(4,5)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(5,6)
+INSERT INTO USUARIO_AMIGOS VALUES(5,4)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(6,5)
+COMMIT
+DISCONNECT
+/*C30*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C29*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C28*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C27*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C26*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C25*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C24*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C23*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C22*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C41*/SET SCHEMA PUBLIC
+alter table comentario drop constraint FK1gcyoyuhavbjdhqr9hbulwa69
+alter table comentario drop constraint FKefv85lfutis7gg5eq0x8buy3f
+alter table publicacion drop constraint FK65302w6x7qq03upexu8lel7l8
+alter table usuario_amigos drop constraint FK78dfuay1npvomfdwyjk49iu8h
+alter table usuario_amigos drop constraint FKp8dunt6mjj9t1ncb1f15v3yv9
+alter table usuario_likes_dados drop constraint FK1pilflrsasvtx2t6xxs6ygck
+alter table usuario_likes_dados drop constraint FKjpk07m8yjwmycltwvk6qqevvm
+drop table amistad if exists
+drop table comentario if exists
+drop table publicacion if exists
+drop table usuario if exists
+drop table usuario_amigos if exists
+drop table usuario_likes_dados if exists
+create table amistad (id bigint generated by default as identity (start with 1), usuario1 bigint not null, usuario2 bigint not null, primary key (id))
+create table comentario (id bigint generated by default as identity (start with 1), contenido varchar(255), fecha timestamp, titulo varchar(255), autor_id bigint, post_id bigint, primary key (id))
+create table publicacion (id bigint generated by default as identity (start with 1), contenido varchar(16777216), fecha timestamp, imagen varchar(255), titulo varchar(255), autor bigint, primary key (id))
+create table usuario (id bigint generated by default as identity (start with 1), apellidos varchar(255), descripcion varchar(255), email varchar(255), foto_desc varchar(16777216), foto_perfil varchar(16777216), nombre varchar(255), password varchar(255), role varchar(255), username varchar(255), primary key (id))
+create table usuario_amigos (usuario_id bigint not null, amigos_id bigint not null, primary key (usuario_id, amigos_id))
+create table usuario_likes_dados (likes_id bigint not null, likes_dados_id bigint not null, primary key (likes_id, likes_dados_id))
+alter table usuario add constraint UK_863n1y3x0jalatoir4325ehal unique (username)
+alter table comentario add constraint FK1gcyoyuhavbjdhqr9hbulwa69 foreign key (autor_id) references usuario
+alter table comentario add constraint FKefv85lfutis7gg5eq0x8buy3f foreign key (post_id) references publicacion
+alter table publicacion add constraint FK65302w6x7qq03upexu8lel7l8 foreign key (autor) references usuario
+alter table usuario_amigos add constraint FK78dfuay1npvomfdwyjk49iu8h foreign key (amigos_id) references usuario
+alter table usuario_amigos add constraint FKp8dunt6mjj9t1ncb1f15v3yv9 foreign key (usuario_id) references usuario
+alter table usuario_likes_dados add constraint FK1pilflrsasvtx2t6xxs6ygck foreign key (likes_dados_id) references publicacion
+alter table usuario_likes_dados add constraint FKjpk07m8yjwmycltwvk6qqevvm foreign key (likes_id) references usuario
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$QDmQ11v/8//ooYcBSsTovul9sAH0ijNmKROL5NpnOy2dZHIzMMqF2','ROLE_USUARIO','pedro')
+INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:18:03.611000',NULL,'Hoy no quiero programar',1)
+COMMIT
+INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$5xWVoNc92Ihj8wwgK7MitOiR64d8zspYnC9kRMq0P2PMWMjIInDP6','ROLE_USUARIO','lucas')
+INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:18:03.611000',NULL,'Nos merecemos un 10',2)
+INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:18:03.611000',NULL,'El sol brilla mucho',2)
+INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:18:03.611000',NULL,'Usando bootstrap',2)
+COMMIT
+INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$aL/0ODBuBh.4BS2DO76DQubJxz4adrmy/HcwAEe8SvwIsjgKfri2O','ROLE_USUARIO','maria')
+INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:18:03.611000',NULL,'Publicacion de prueba',3)
+COMMIT
+INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$dpGCMmBOmhJ7LAXS9cWXpey7BJMOu2uOEQHg6KHUxNCBCjythXbM2','ROLE_USUARIO','marta')
+INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:18:03.611000',NULL,'Drop tables',4)
+COMMIT
+INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$MvtqSdMsKOQikyjJXCY1X.pnhHWk/YmSYNQaKq0fK7ONpK7055pZK','ROLE_USUARIO','pelayo')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$4hPBILvzcD70GXdi4cqw7ubHAS0XvVvKhNKXD7gbzRMht1zYGNRaW','ROLE_ADMIN','edward')
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(1,2)
+INSERT INTO USUARIO_AMIGOS VALUES(1,3)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(2,3)
+INSERT INTO USUARIO_AMIGOS VALUES(2,1)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(3,1)
+INSERT INTO USUARIO_AMIGOS VALUES(3,2)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(4,5)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(5,6)
+INSERT INTO USUARIO_AMIGOS VALUES(5,4)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(6,5)
+COMMIT
+DISCONNECT
+/*C40*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C39*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C38*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C37*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C36*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C35*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C34*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C33*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C32*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C51*/SET SCHEMA PUBLIC
+alter table comentario drop constraint FK1gcyoyuhavbjdhqr9hbulwa69
+alter table comentario drop constraint FKefv85lfutis7gg5eq0x8buy3f
+alter table publicacion drop constraint FK65302w6x7qq03upexu8lel7l8
+alter table usuario_amigos drop constraint FK78dfuay1npvomfdwyjk49iu8h
+alter table usuario_amigos drop constraint FKp8dunt6mjj9t1ncb1f15v3yv9
+alter table usuario_likes_dados drop constraint FK1pilflrsasvtx2t6xxs6ygck
+alter table usuario_likes_dados drop constraint FKjpk07m8yjwmycltwvk6qqevvm
+drop table amistad if exists
+drop table comentario if exists
+drop table publicacion if exists
+drop table usuario if exists
+drop table usuario_amigos if exists
+drop table usuario_likes_dados if exists
+create table amistad (id bigint generated by default as identity (start with 1), usuario1 bigint not null, usuario2 bigint not null, primary key (id))
+create table comentario (id bigint generated by default as identity (start with 1), contenido varchar(255), fecha timestamp, titulo varchar(255), autor_id bigint, post_id bigint, primary key (id))
+create table publicacion (id bigint generated by default as identity (start with 1), contenido varchar(16777216), fecha timestamp, imagen varchar(255), titulo varchar(255), autor bigint, primary key (id))
+create table usuario (id bigint generated by default as identity (start with 1), apellidos varchar(255), descripcion varchar(255), email varchar(255), foto_desc varchar(16777216), foto_perfil varchar(16777216), nombre varchar(255), password varchar(255), role varchar(255), username varchar(255), primary key (id))
+create table usuario_amigos (usuario_id bigint not null, amigos_id bigint not null, primary key (usuario_id, amigos_id))
+create table usuario_likes_dados (likes_id bigint not null, likes_dados_id bigint not null, primary key (likes_id, likes_dados_id))
+alter table usuario add constraint UK_863n1y3x0jalatoir4325ehal unique (username)
+alter table comentario add constraint FK1gcyoyuhavbjdhqr9hbulwa69 foreign key (autor_id) references usuario
+alter table comentario add constraint FKefv85lfutis7gg5eq0x8buy3f foreign key (post_id) references publicacion
+alter table publicacion add constraint FK65302w6x7qq03upexu8lel7l8 foreign key (autor) references usuario
+alter table usuario_amigos add constraint FK78dfuay1npvomfdwyjk49iu8h foreign key (amigos_id) references usuario
+alter table usuario_amigos add constraint FKp8dunt6mjj9t1ncb1f15v3yv9 foreign key (usuario_id) references usuario
+alter table usuario_likes_dados add constraint FK1pilflrsasvtx2t6xxs6ygck foreign key (likes_dados_id) references publicacion
+alter table usuario_likes_dados add constraint FKjpk07m8yjwmycltwvk6qqevvm foreign key (likes_id) references usuario
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$krMK3Sugr5FlVwvi18e4O.UPOYjCIir2w65P7WTQXepMMT/F1LYv6','ROLE_USUARIO','pedro')
+INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:18:56.696000',NULL,'Hoy no quiero programar',1)
+COMMIT
+INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$DuuAye/U2FwKgRSWvX9b1.yeHVrK9lvIlsT2TEKFXsL.Y73Ru0hfq','ROLE_USUARIO','lucas')
+INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:18:56.696000',NULL,'Usando bootstrap',2)
+INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:18:56.696000',NULL,'Nos merecemos un 10',2)
+INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:18:56.696000',NULL,'El sol brilla mucho',2)
+COMMIT
+INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$Jqm2pKM3gp28gAv.lVaBG.fy6QkdTQmhOdyb.44.Wg51Ko781uW1G','ROLE_USUARIO','maria')
+INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:18:56.696000',NULL,'Publicacion de prueba',3)
+COMMIT
+INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$dnPgBMtpJb.EVBAFU/2IiuZU./ep2k57a1mFINblywrCuMNwLvICW','ROLE_USUARIO','marta')
+INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:18:56.696000',NULL,'Drop tables',4)
+COMMIT
+INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$j9f.hkLJhsNx68vegNs5R..4RRu7wgwn2NOPkL1fLPyqLHefg6XBK','ROLE_USUARIO','pelayo')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$wWkOdCgmvSAOKOeV5MsfRORdBGs322NbQko5hLH1cT.GDDl7WlbHK','ROLE_ADMIN','edward')
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(1,2)
+INSERT INTO USUARIO_AMIGOS VALUES(1,3)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(2,3)
+INSERT INTO USUARIO_AMIGOS VALUES(2,1)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(3,1)
+INSERT INTO USUARIO_AMIGOS VALUES(3,2)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(4,5)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(5,6)
+INSERT INTO USUARIO_AMIGOS VALUES(5,4)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(6,5)
+COMMIT
+DISCONNECT
+/*C50*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C49*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C48*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C47*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C46*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C45*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C44*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C43*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C42*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C61*/SET SCHEMA PUBLIC
+alter table comentario drop constraint FK1gcyoyuhavbjdhqr9hbulwa69
+alter table comentario drop constraint FKefv85lfutis7gg5eq0x8buy3f
+alter table publicacion drop constraint FK65302w6x7qq03upexu8lel7l8
+alter table usuario_amigos drop constraint FK78dfuay1npvomfdwyjk49iu8h
+alter table usuario_amigos drop constraint FKp8dunt6mjj9t1ncb1f15v3yv9
+alter table usuario_likes_dados drop constraint FK1pilflrsasvtx2t6xxs6ygck
+alter table usuario_likes_dados drop constraint FKjpk07m8yjwmycltwvk6qqevvm
+drop table amistad if exists
+drop table comentario if exists
+drop table publicacion if exists
+drop table usuario if exists
+drop table usuario_amigos if exists
+drop table usuario_likes_dados if exists
+create table amistad (id bigint generated by default as identity (start with 1), usuario1 bigint not null, usuario2 bigint not null, primary key (id))
+create table comentario (id bigint generated by default as identity (start with 1), contenido varchar(255), fecha timestamp, titulo varchar(255), autor_id bigint, post_id bigint, primary key (id))
+create table publicacion (id bigint generated by default as identity (start with 1), contenido varchar(16777216), fecha timestamp, imagen varchar(255), titulo varchar(255), autor bigint, primary key (id))
+create table usuario (id bigint generated by default as identity (start with 1), apellidos varchar(255), descripcion varchar(255), email varchar(255), foto_desc varchar(16777216), foto_perfil varchar(16777216), nombre varchar(255), password varchar(255), role varchar(255), username varchar(255), primary key (id))
+create table usuario_amigos (usuario_id bigint not null, amigos_id bigint not null, primary key (usuario_id, amigos_id))
+create table usuario_likes_dados (likes_id bigint not null, likes_dados_id bigint not null, primary key (likes_id, likes_dados_id))
+alter table usuario add constraint UK_863n1y3x0jalatoir4325ehal unique (username)
+alter table comentario add constraint FK1gcyoyuhavbjdhqr9hbulwa69 foreign key (autor_id) references usuario
+alter table comentario add constraint FKefv85lfutis7gg5eq0x8buy3f foreign key (post_id) references publicacion
+alter table publicacion add constraint FK65302w6x7qq03upexu8lel7l8 foreign key (autor) references usuario
+alter table usuario_amigos add constraint FK78dfuay1npvomfdwyjk49iu8h foreign key (amigos_id) references usuario
+alter table usuario_amigos add constraint FKp8dunt6mjj9t1ncb1f15v3yv9 foreign key (usuario_id) references usuario
+alter table usuario_likes_dados add constraint FK1pilflrsasvtx2t6xxs6ygck foreign key (likes_dados_id) references publicacion
+alter table usuario_likes_dados add constraint FKjpk07m8yjwmycltwvk6qqevvm foreign key (likes_id) references usuario
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$xX5bu0hhvuoYAI1WCX5TuOYX1Wlv9she1g3mQjmAoNroI.qYprbga','ROLE_USUARIO','pedro')
+INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:25:02.259000',NULL,'Hoy no quiero programar',1)
+COMMIT
+INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$jeWlAYJrqjBGm9PYpPaCM./Jm5nTIY0zR6cckqHZiujMz5HLbKbWS','ROLE_USUARIO','lucas')
+INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:25:02.259000',NULL,'Nos merecemos un 10',2)
+INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:25:02.259000',NULL,'El sol brilla mucho',2)
+INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:25:02.259000',NULL,'Usando bootstrap',2)
+COMMIT
+INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$p/Af6F5fek/BLmqXWza49ecFr2PC9dCTM4JfkL6tltlYuuYWrJFFK','ROLE_USUARIO','maria')
+INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:25:02.259000',NULL,'Publicacion de prueba',3)
+COMMIT
+INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$G0Tn1UfTXD1K3bZ07aS49.DYCdS2op.Xtbh4VSx8d6AcVWEiWMw66','ROLE_USUARIO','marta')
+INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:25:02.259000',NULL,'Drop tables',4)
+COMMIT
+INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$RdMOd5xwDzUUSpvNMs9usOhVUPhAIUdFbGRvHciI/iUN58bjOtsXS','ROLE_USUARIO','pelayo')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$vnGQBzl7VTHIznXwKJC.z.W8ZL4LB6twHGa8KarvasvJvpZCvufQm','ROLE_ADMIN','edward')
 COMMIT
 INSERT INTO USUARIO_AMIGOS VALUES(1,3)
 INSERT INTO USUARIO_AMIGOS VALUES(1,2)
@@ -60,31 +303,249 @@ INSERT INTO USUARIO_AMIGOS VALUES(5,4)
 COMMIT
 INSERT INTO USUARIO_AMIGOS VALUES(6,5)
 COMMIT
-DELETE FROM PUBLICACION WHERE ID=1
-INSERT INTO PUBLICACION VALUES(1,'','2018-03-14 14:06:22.611000',NULL,'Titulo de articulo',1)
+DISCONNECT
+/*C60*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C59*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C58*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C57*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C56*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C55*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C54*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C53*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C52*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C71*/SET SCHEMA PUBLIC
+alter table comentario drop constraint FK1gcyoyuhavbjdhqr9hbulwa69
+alter table comentario drop constraint FKefv85lfutis7gg5eq0x8buy3f
+alter table publicacion drop constraint FK65302w6x7qq03upexu8lel7l8
+alter table usuario_amigos drop constraint FK78dfuay1npvomfdwyjk49iu8h
+alter table usuario_amigos drop constraint FKp8dunt6mjj9t1ncb1f15v3yv9
+alter table usuario_likes_dados drop constraint FK1pilflrsasvtx2t6xxs6ygck
+alter table usuario_likes_dados drop constraint FKjpk07m8yjwmycltwvk6qqevvm
+drop table amistad if exists
+drop table comentario if exists
+drop table publicacion if exists
+drop table usuario if exists
+drop table usuario_amigos if exists
+drop table usuario_likes_dados if exists
+create table amistad (id bigint generated by default as identity (start with 1), usuario1 bigint not null, usuario2 bigint not null, primary key (id))
+create table comentario (id bigint generated by default as identity (start with 1), contenido varchar(255), fecha timestamp, titulo varchar(255), autor_id bigint, post_id bigint, primary key (id))
+create table publicacion (id bigint generated by default as identity (start with 1), contenido varchar(16777216), fecha timestamp, imagen varchar(255), titulo varchar(255), autor bigint, primary key (id))
+create table usuario (id bigint generated by default as identity (start with 1), apellidos varchar(255), descripcion varchar(255), email varchar(255), foto_desc varchar(16777216), foto_perfil varchar(16777216), nombre varchar(255), password varchar(255), role varchar(255), username varchar(255), primary key (id))
+create table usuario_amigos (usuario_id bigint not null, amigos_id bigint not null, primary key (usuario_id, amigos_id))
+create table usuario_likes_dados (likes_id bigint not null, likes_dados_id bigint not null, primary key (likes_id, likes_dados_id))
+alter table usuario add constraint UK_863n1y3x0jalatoir4325ehal unique (username)
+alter table comentario add constraint FK1gcyoyuhavbjdhqr9hbulwa69 foreign key (autor_id) references usuario
+alter table comentario add constraint FKefv85lfutis7gg5eq0x8buy3f foreign key (post_id) references publicacion
+alter table publicacion add constraint FK65302w6x7qq03upexu8lel7l8 foreign key (autor) references usuario
+alter table usuario_amigos add constraint FK78dfuay1npvomfdwyjk49iu8h foreign key (amigos_id) references usuario
+alter table usuario_amigos add constraint FKp8dunt6mjj9t1ncb1f15v3yv9 foreign key (usuario_id) references usuario
+alter table usuario_likes_dados add constraint FK1pilflrsasvtx2t6xxs6ygck foreign key (likes_dados_id) references publicacion
+alter table usuario_likes_dados add constraint FKjpk07m8yjwmycltwvk6qqevvm foreign key (likes_id) references usuario
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$tBDumK8ow.N3X715.8Iu/eBZLvxLLhFyEAD5GZq01r1JG9adOV38W','ROLE_USUARIO','pedro')
+INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:26:11.669000',NULL,'Hoy no quiero programar',1)
 COMMIT
-DELETE FROM PUBLICACION WHERE ID=1
-INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.','2018-03-14 14:06:22.611000',NULL,'Titulo de articulo',1)
+INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$cJC1CfekGXYbv.sNsNsAVuESe0pz.T5P7K44KmEnUWgba7Djznu1i','ROLE_USUARIO','lucas')
+INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:26:11.669000',NULL,'Nos merecemos un 10',2)
+INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:26:11.669000',NULL,'El sol brilla mucho',2)
+INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:26:11.669000',NULL,'Usando bootstrap',2)
 COMMIT
-INSERT INTO USUARIO_LIKES_DADOS VALUES(1,2)
+INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$ydDYVjthnFYEoeoO3.eAWeY5Kcs9HPnOEyq/cMcq3np0X1dlaTbLK','ROLE_USUARIO','maria')
+INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:26:11.669000',NULL,'Publicacion de prueba',3)
 COMMIT
-DELETE FROM USUARIO WHERE ID=1
-INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$bo69q0gZcCHiwduosfLA1uQXPHMD0FpsQWYSv.6YcNocjiG.3ADre','ROLE_USUARIO','pedro')
+INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$weT/5fXT0uIXxjKQIOGITeHU1SUlC.l4BGQvWNlVnjPyiNpfrGSD2','ROLE_USUARIO','marta')
+INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:26:11.669000',NULL,'Drop tables',4)
 COMMIT
-INSERT INTO COMENTARIO VALUES(1,'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. ','2018-03-14 15:29:47.760000','Comentario de ejemplo',1,1)
+INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$.UrTxF5ryoZKKdKiSRr0AuCkJnzYwAB9P6Z7dYEXoQ276KuI8gR4y','ROLE_USUARIO','pelayo')
 COMMIT
-INSERT INTO PUBLICACION VALUES(7,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','2018-03-14 15:35:38.163000',NULL,'Articulo de Ejemplo',1)
+INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$whtQMmeXE7BSk3NLLfXBru8akOaYhdlSvr5r/UwFaY63eaVBKL6tW','ROLE_ADMIN','edward')
 COMMIT
-DELETE FROM USUARIO WHERE ID=1
-INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$OkvaS.h27ZTV.CE1I7oXIO.jinJRdJzj5S/T1yTp4EcDcabDc.5Xy','ROLE_USUARIO','pedro')
+INSERT INTO USUARIO_AMIGOS VALUES(1,3)
+INSERT INTO USUARIO_AMIGOS VALUES(1,2)
 COMMIT
-DELETE FROM PUBLICACION WHERE ID=7
-INSERT INTO PUBLICACION VALUES(7,'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.','2018-03-14 15:35:38.163000','7.png','Articulo de Ejemplo',1)
+INSERT INTO USUARIO_AMIGOS VALUES(2,1)
+INSERT INTO USUARIO_AMIGOS VALUES(2,3)
 COMMIT
-INSERT INTO AMISTAD VALUES(1,1,4)
+INSERT INTO USUARIO_AMIGOS VALUES(3,2)
+INSERT INTO USUARIO_AMIGOS VALUES(3,1)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(4,5)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(5,6)
+INSERT INTO USUARIO_AMIGOS VALUES(5,4)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(6,5)
 COMMIT
 DISCONNECT
+/*C70*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C69*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C68*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C67*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C66*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C65*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C64*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C63*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C62*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C81*/SET SCHEMA PUBLIC
+alter table comentario drop constraint FK1gcyoyuhavbjdhqr9hbulwa69
+alter table comentario drop constraint FKefv85lfutis7gg5eq0x8buy3f
+alter table publicacion drop constraint FK65302w6x7qq03upexu8lel7l8
+alter table usuario_amigos drop constraint FK78dfuay1npvomfdwyjk49iu8h
+alter table usuario_amigos drop constraint FKp8dunt6mjj9t1ncb1f15v3yv9
+alter table usuario_likes_dados drop constraint FK1pilflrsasvtx2t6xxs6ygck
+alter table usuario_likes_dados drop constraint FKjpk07m8yjwmycltwvk6qqevvm
+drop table amistad if exists
+drop table comentario if exists
+drop table publicacion if exists
+drop table usuario if exists
+drop table usuario_amigos if exists
+drop table usuario_likes_dados if exists
+create table amistad (id bigint generated by default as identity (start with 1), usuario1 bigint not null, usuario2 bigint not null, primary key (id))
+create table comentario (id bigint generated by default as identity (start with 1), contenido varchar(255), fecha timestamp, titulo varchar(255), autor_id bigint, post_id bigint, primary key (id))
+create table publicacion (id bigint generated by default as identity (start with 1), contenido varchar(16777216), fecha timestamp, imagen varchar(255), titulo varchar(255), autor bigint, primary key (id))
+create table usuario (id bigint generated by default as identity (start with 1), apellidos varchar(255), descripcion varchar(255), email varchar(255), foto_desc varchar(16777216), foto_perfil varchar(16777216), nombre varchar(255), password varchar(255), role varchar(255), username varchar(255), primary key (id))
+create table usuario_amigos (usuario_id bigint not null, amigos_id bigint not null, primary key (usuario_id, amigos_id))
+create table usuario_likes_dados (likes_id bigint not null, likes_dados_id bigint not null, primary key (likes_id, likes_dados_id))
+alter table usuario add constraint UK_863n1y3x0jalatoir4325ehal unique (username)
+alter table comentario add constraint FK1gcyoyuhavbjdhqr9hbulwa69 foreign key (autor_id) references usuario
+alter table comentario add constraint FKefv85lfutis7gg5eq0x8buy3f foreign key (post_id) references publicacion
+alter table publicacion add constraint FK65302w6x7qq03upexu8lel7l8 foreign key (autor) references usuario
+alter table usuario_amigos add constraint FK78dfuay1npvomfdwyjk49iu8h foreign key (amigos_id) references usuario
+alter table usuario_amigos add constraint FKp8dunt6mjj9t1ncb1f15v3yv9 foreign key (usuario_id) references usuario
+alter table usuario_likes_dados add constraint FK1pilflrsasvtx2t6xxs6ygck foreign key (likes_dados_id) references publicacion
+alter table usuario_likes_dados add constraint FKjpk07m8yjwmycltwvk6qqevvm foreign key (likes_id) references usuario
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$1yFbO8kiHLAB.IWgSlYgRe4Mt1jwl0QpaNPzdV2LRdl.lycYpFgaC','ROLE_USUARIO','pedro')
+INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:29:56.907000',NULL,'Hoy no quiero programar',1)
+COMMIT
+INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$ndgDgAMaUhrC.rztifNwWOBpvSygD5NX1bFaJ8viFogPTFQO0pWRa','ROLE_USUARIO','lucas')
+INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:29:56.907000',NULL,'Nos merecemos un 10',2)
+INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:29:56.907000',NULL,'El sol brilla mucho',2)
+INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:29:56.907000',NULL,'Usando bootstrap',2)
+COMMIT
+INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$xnalzlFGby4Oqt68MGtyOueOFc81wdD9BfH3RbnhcZPxzWwM1Pw/q','ROLE_USUARIO','maria')
+INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:29:56.907000',NULL,'Publicacion de prueba',3)
+COMMIT
+INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$ffetIn3BHQgkhvyHYPKGYOWdc97yV9OMKGUQXpD1XhzoxalbkhkZK','ROLE_USUARIO','marta')
+INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:29:56.907000',NULL,'Drop tables',4)
+COMMIT
+INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$UKBYUJ/VRFD0kb.lKAOiiu57OG80Yu9c3.vsVdbL/CcJWKvWprs.i','ROLE_USUARIO','pelayo')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$1iqeBkxtT8T3fCM3eZmFqedMz4TucLREZbYGvKYx6zeuvRTO3XKqK','ROLE_ADMIN','edward')
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(1,3)
+INSERT INTO USUARIO_AMIGOS VALUES(1,2)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(2,3)
+INSERT INTO USUARIO_AMIGOS VALUES(2,1)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(3,1)
+INSERT INTO USUARIO_AMIGOS VALUES(3,2)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(4,5)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(5,6)
+INSERT INTO USUARIO_AMIGOS VALUES(5,4)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(6,5)
+COMMIT
+DISCONNECT
+/*C80*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C79*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C78*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C77*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C76*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C75*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C74*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C73*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C72*/SET SCHEMA PUBLIC
+DISCONNECT
 /*C91*/SET SCHEMA PUBLIC
+alter table comentario drop constraint FK1gcyoyuhavbjdhqr9hbulwa69
+alter table comentario drop constraint FKefv85lfutis7gg5eq0x8buy3f
+alter table publicacion drop constraint FK65302w6x7qq03upexu8lel7l8
+alter table usuario_amigos drop constraint FK78dfuay1npvomfdwyjk49iu8h
+alter table usuario_amigos drop constraint FKp8dunt6mjj9t1ncb1f15v3yv9
+alter table usuario_likes_dados drop constraint FK1pilflrsasvtx2t6xxs6ygck
+alter table usuario_likes_dados drop constraint FKjpk07m8yjwmycltwvk6qqevvm
+drop table amistad if exists
+drop table comentario if exists
+drop table publicacion if exists
+drop table usuario if exists
+drop table usuario_amigos if exists
+drop table usuario_likes_dados if exists
+create table amistad (id bigint generated by default as identity (start with 1), usuario1 bigint not null, usuario2 bigint not null, primary key (id))
+create table comentario (id bigint generated by default as identity (start with 1), contenido varchar(255), fecha timestamp, titulo varchar(255), autor_id bigint, post_id bigint, primary key (id))
+create table publicacion (id bigint generated by default as identity (start with 1), contenido varchar(16777216), fecha timestamp, imagen varchar(255), titulo varchar(255), autor bigint, primary key (id))
+create table usuario (id bigint generated by default as identity (start with 1), apellidos varchar(255), descripcion varchar(255), email varchar(255), foto_desc varchar(16777216), foto_perfil varchar(16777216), nombre varchar(255), password varchar(255), role varchar(255), username varchar(255), primary key (id))
+create table usuario_amigos (usuario_id bigint not null, amigos_id bigint not null, primary key (usuario_id, amigos_id))
+create table usuario_likes_dados (likes_id bigint not null, likes_dados_id bigint not null, primary key (likes_id, likes_dados_id))
+alter table usuario add constraint UK_863n1y3x0jalatoir4325ehal unique (username)
+alter table comentario add constraint FK1gcyoyuhavbjdhqr9hbulwa69 foreign key (autor_id) references usuario
+alter table comentario add constraint FKefv85lfutis7gg5eq0x8buy3f foreign key (post_id) references publicacion
+alter table publicacion add constraint FK65302w6x7qq03upexu8lel7l8 foreign key (autor) references usuario
+alter table usuario_amigos add constraint FK78dfuay1npvomfdwyjk49iu8h foreign key (amigos_id) references usuario
+alter table usuario_amigos add constraint FKp8dunt6mjj9t1ncb1f15v3yv9 foreign key (usuario_id) references usuario
+alter table usuario_likes_dados add constraint FK1pilflrsasvtx2t6xxs6ygck foreign key (likes_dados_id) references publicacion
+alter table usuario_likes_dados add constraint FKjpk07m8yjwmycltwvk6qqevvm foreign key (likes_id) references usuario
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$1H8VC9/V5/anM3WQS.6duuPC8OiXTtKweq7bwIkPfvZYoxtiDHRQi','ROLE_USUARIO','pedro')
+INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:33:44.367000',NULL,'Hoy no quiero programar',1)
+COMMIT
+INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$ts16JJOHZcYdzFeluLES2.6Ssw9Rd0TiyWf0nAaGJZ2/eehBW7X/2','ROLE_USUARIO','lucas')
+INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:33:44.367000',NULL,'Nos merecemos un 10',2)
+INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:33:44.367000',NULL,'Usando bootstrap',2)
+INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:33:44.367000',NULL,'El sol brilla mucho',2)
+COMMIT
+INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$w3WnSGVCIgeUr6ENg0EgxOzVaG1GPmhZhuckM23jycZhktue4bT0C','ROLE_USUARIO','maria')
+INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:33:44.367000',NULL,'Publicacion de prueba',3)
+COMMIT
+INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$wAPywCcXATnlTGhkuguhoe01L14grUIDRAQq1DHKoMlbf67Z3qsRS','ROLE_USUARIO','marta')
+INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:33:44.367000',NULL,'Drop tables',4)
+COMMIT
+INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$g0SoVM1EbZ.Rci.p1Yz.YumYYkXh.O0iHquAwIPSr/s0UJs598Lja','ROLE_USUARIO','pelayo')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$fEVOXZYhoDKS1WSh6mUN8elIkCHAykfrf.93LOogunwCmFnaHUQa.','ROLE_ADMIN','edward')
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(1,2)
+INSERT INTO USUARIO_AMIGOS VALUES(1,3)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(2,1)
+INSERT INTO USUARIO_AMIGOS VALUES(2,3)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(3,1)
+INSERT INTO USUARIO_AMIGOS VALUES(3,2)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(4,5)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(5,4)
+INSERT INTO USUARIO_AMIGOS VALUES(5,6)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(6,5)
+COMMIT
 DISCONNECT
 /*C90*/SET SCHEMA PUBLIC
 DISCONNECT
@@ -102,7 +563,9 @@ DISCONNECT
 DISCONNECT
 /*C83*/SET SCHEMA PUBLIC
 DISCONNECT
-/*C102*/SET SCHEMA PUBLIC
+/*C82*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C101*/SET SCHEMA PUBLIC
 alter table comentario drop constraint FK1gcyoyuhavbjdhqr9hbulwa69
 alter table comentario drop constraint FKefv85lfutis7gg5eq0x8buy3f
 alter table publicacion drop constraint FK65302w6x7qq03upexu8lel7l8
@@ -130,46 +593,56 @@ alter table usuario_amigos add constraint FK78dfuay1npvomfdwyjk49iu8h foreign ke
 alter table usuario_amigos add constraint FKp8dunt6mjj9t1ncb1f15v3yv9 foreign key (usuario_id) references usuario
 alter table usuario_likes_dados add constraint FK1pilflrsasvtx2t6xxs6ygck foreign key (likes_dados_id) references publicacion
 alter table usuario_likes_dados add constraint FKjpk07m8yjwmycltwvk6qqevvm foreign key (likes_id) references usuario
-INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$VYMtgxpUuwsk0RbwdIqXnu9lWeBkFq4xY20oTz99RrqE9wLnVWpz.','ROLE_USUARIO','pedro')
-INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-14 15:58:37.331000',NULL,'Hoy no quiero programar',1)
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$UWvy3EgHiwB3NUEUZTLZT.SGL0GVcVIIXXcQZfgzlimGYvaO7PWxq','ROLE_USUARIO','pedro')
+INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:34:36.224000',NULL,'Hoy no quiero programar',1)
 COMMIT
-INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$tmgsk1IJ.EXD3W6DjwR9iu9xH38Lil7B3/aJZlSXmqe/14YYuvDmC','ROLE_USUARIO','lucas')
-INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-14 15:58:37.331000',NULL,'Usando bootstrap',2)
-INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-14 15:58:37.331000',NULL,'Nos merecemos un 10',2)
-INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-14 15:58:37.331000',NULL,'El sol brilla mucho',2)
+INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$ESJYsuCDH.lIKLc0YyOM2u0JtMUxx3FhIcwJnNsNgrTtM0Ps7d/ri','ROLE_USUARIO','lucas')
+INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:34:36.224000',NULL,'Nos merecemos un 10',2)
+INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:34:36.224000',NULL,'El sol brilla mucho',2)
+INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:34:36.224000',NULL,'Usando bootstrap',2)
 COMMIT
-INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$kc4iVsJOeWOF/x3UNkTiXeUrDDenV5htBh/o.aFUkY/VqrsIITgMS','ROLE_USUARIO','maria')
-INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-14 15:58:37.331000',NULL,'Publicacion de prueba',3)
+INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$QqyD5FXNg/9KgwunzSUQCOup1Povfad6TRWncAt3TUHuVVMK0Ww9.','ROLE_USUARIO','maria')
+INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:34:36.224000',NULL,'Publicacion de prueba',3)
 COMMIT
-INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$6GoFPEDG.AK5u5HYdcNWsujQb1FA3euVff076Yvtu1Ac73AVw2hze','ROLE_USUARIO','marta')
-INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-14 15:58:37.331000',NULL,'Drop tables',4)
+INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$ckyWQMvMXoV/gGr/Xmk0Hu77KIoeBV6Ug2ux4Fyhlk9sgpp2tBAKy','ROLE_USUARIO','marta')
+INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:34:36.225000',NULL,'Drop tables',4)
 COMMIT
-INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$XQy62HhYtJe6oTh440jMh.VoVuvmBDYCA1KSwsY5K9IbZYCyCwGOS','ROLE_USUARIO','pelayo')
+INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$Nvo/xbLXkyalD9R1SPiJWuU2LQPh.uu8GieLyGAptILfPaWZtvca2','ROLE_USUARIO','pelayo')
 COMMIT
-INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$2jKDMrfrLiVeFyWV4t/PreTQ9d1PGEiP.KnNHCuHomJmJLiC4Jw6C','ROLE_ADMIN','edward')
+INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$bGkM4box5rqYRvDSGjoWQ.loKEXeBT5kwTCfa1dllLbXesVwkXOKC','ROLE_ADMIN','edward')
 COMMIT
 INSERT INTO USUARIO_AMIGOS VALUES(1,2)
 INSERT INTO USUARIO_AMIGOS VALUES(1,3)
 COMMIT
-INSERT INTO USUARIO_AMIGOS VALUES(2,1)
 INSERT INTO USUARIO_AMIGOS VALUES(2,3)
+INSERT INTO USUARIO_AMIGOS VALUES(2,1)
 COMMIT
-INSERT INTO USUARIO_AMIGOS VALUES(3,2)
 INSERT INTO USUARIO_AMIGOS VALUES(3,1)
+INSERT INTO USUARIO_AMIGOS VALUES(3,2)
 COMMIT
 INSERT INTO USUARIO_AMIGOS VALUES(4,5)
 COMMIT
-INSERT INTO USUARIO_AMIGOS VALUES(5,4)
 INSERT INTO USUARIO_AMIGOS VALUES(5,6)
+INSERT INTO USUARIO_AMIGOS VALUES(5,4)
 COMMIT
 INSERT INTO USUARIO_AMIGOS VALUES(6,5)
 COMMIT
-INSERT INTO AMISTAD VALUES(1,4,1)
+INSERT INTO PUBLICACION VALUES(7,'gvhj','2018-03-15 09:35:02.812000',NULL,'Titulo de articulo',1)
 COMMIT
-DELETE FROM AMISTAD WHERE ID=1
+DELETE FROM USUARIO WHERE ID=1
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$V5M7149AG0ZgkY3RhQMBRudTFjMfsxUeLtgEWnYgBdWNWKEv.lOJm','ROLE_USUARIO','pedro')
 COMMIT
-DISCONNECT
-/*C101*/SET SCHEMA PUBLIC
+DELETE FROM PUBLICACION WHERE ID=7
+INSERT INTO PUBLICACION VALUES(7,'gvhj','2018-03-15 09:35:02.812000','7.png','Titulo de articulo',1)
+COMMIT
+INSERT INTO PUBLICACION VALUES(8,'a','2018-03-15 09:35:40.601000',NULL,'b',1)
+COMMIT
+DELETE FROM USUARIO WHERE ID=1
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$l1QJ7ZZb7BXONlwKzuTzBud72XTGvWyaOweEJ8jjifWmdg4IEH/vG','ROLE_USUARIO','pedro')
+COMMIT
+DELETE FROM PUBLICACION WHERE ID=8
+INSERT INTO PUBLICACION VALUES(8,'a','2018-03-15 09:35:40.601000','8.png','b',1)
+COMMIT
 DISCONNECT
 /*C100*/SET SCHEMA PUBLIC
 DISCONNECT
@@ -187,3 +660,310 @@ DISCONNECT
 DISCONNECT
 /*C93*/SET SCHEMA PUBLIC
 DISCONNECT
+/*C92*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C111*/SET SCHEMA PUBLIC
+alter table comentario drop constraint FK1gcyoyuhavbjdhqr9hbulwa69
+alter table comentario drop constraint FKefv85lfutis7gg5eq0x8buy3f
+alter table publicacion drop constraint FK65302w6x7qq03upexu8lel7l8
+alter table usuario_amigos drop constraint FK78dfuay1npvomfdwyjk49iu8h
+alter table usuario_amigos drop constraint FKp8dunt6mjj9t1ncb1f15v3yv9
+alter table usuario_likes_dados drop constraint FK1pilflrsasvtx2t6xxs6ygck
+alter table usuario_likes_dados drop constraint FKjpk07m8yjwmycltwvk6qqevvm
+drop table amistad if exists
+drop table comentario if exists
+drop table publicacion if exists
+drop table usuario if exists
+drop table usuario_amigos if exists
+drop table usuario_likes_dados if exists
+create table amistad (id bigint generated by default as identity (start with 1), usuario1 bigint not null, usuario2 bigint not null, primary key (id))
+create table comentario (id bigint generated by default as identity (start with 1), contenido varchar(255), fecha timestamp, titulo varchar(255), autor_id bigint, post_id bigint, primary key (id))
+create table publicacion (id bigint generated by default as identity (start with 1), contenido varchar(16777216), fecha timestamp, imagen varchar(255), titulo varchar(255), autor bigint, primary key (id))
+create table usuario (id bigint generated by default as identity (start with 1), apellidos varchar(255), descripcion varchar(255), email varchar(255), foto_desc varchar(16777216), foto_perfil varchar(16777216), nombre varchar(255), password varchar(255), role varchar(255), username varchar(255), primary key (id))
+create table usuario_amigos (usuario_id bigint not null, amigos_id bigint not null, primary key (usuario_id, amigos_id))
+create table usuario_likes_dados (likes_id bigint not null, likes_dados_id bigint not null, primary key (likes_id, likes_dados_id))
+alter table usuario add constraint UK_863n1y3x0jalatoir4325ehal unique (username)
+alter table comentario add constraint FK1gcyoyuhavbjdhqr9hbulwa69 foreign key (autor_id) references usuario
+alter table comentario add constraint FKefv85lfutis7gg5eq0x8buy3f foreign key (post_id) references publicacion
+alter table publicacion add constraint FK65302w6x7qq03upexu8lel7l8 foreign key (autor) references usuario
+alter table usuario_amigos add constraint FK78dfuay1npvomfdwyjk49iu8h foreign key (amigos_id) references usuario
+alter table usuario_amigos add constraint FKp8dunt6mjj9t1ncb1f15v3yv9 foreign key (usuario_id) references usuario
+alter table usuario_likes_dados add constraint FK1pilflrsasvtx2t6xxs6ygck foreign key (likes_dados_id) references publicacion
+alter table usuario_likes_dados add constraint FKjpk07m8yjwmycltwvk6qqevvm foreign key (likes_id) references usuario
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$rPkJRAau0nc6I5G7SHM3QuYDIB9GA4qsLx/HV.nvbaHVwsTDlxDLu','ROLE_USUARIO','pedro')
+INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:38:01.095000',NULL,'Hoy no quiero programar',1)
+COMMIT
+INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$YWMfTMXv7oZTnHKGk07PauDNXJSv3CXVn1OyKzIAn7B8RopDjTSE2','ROLE_USUARIO','lucas')
+INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:38:01.095000',NULL,'Nos merecemos un 10',2)
+INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:38:01.095000',NULL,'Usando bootstrap',2)
+INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:38:01.095000',NULL,'El sol brilla mucho',2)
+COMMIT
+INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$PLHj3q9RqV3J4yhytAeCkOYk.6T0If855eK6W2R7.SUhQLV/AdbFC','ROLE_USUARIO','maria')
+INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:38:01.095000',NULL,'Publicacion de prueba',3)
+COMMIT
+INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$/R/Q/EDURhFK0QZeSc/KiuL1OBT0fTMcG3Dm15x.djn2azeGNqA8.','ROLE_USUARIO','marta')
+INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:38:01.095000',NULL,'Drop tables',4)
+COMMIT
+INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$/42VRuIzoaccwTeDhvO1fOvRmAaLHi1Emqjpq1gRpiOzz9IP8V6cm','ROLE_USUARIO','pelayo')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$wrT4IA16x98ekvAF1nIMLuqdGAfG9pMJkx65hhfqj8XcdYfoG7KS2','ROLE_ADMIN','edward')
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(1,3)
+INSERT INTO USUARIO_AMIGOS VALUES(1,2)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(2,1)
+INSERT INTO USUARIO_AMIGOS VALUES(2,3)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(3,2)
+INSERT INTO USUARIO_AMIGOS VALUES(3,1)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(4,5)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(5,4)
+INSERT INTO USUARIO_AMIGOS VALUES(5,6)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(6,5)
+COMMIT
+DISCONNECT
+/*C110*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C109*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C108*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C107*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C106*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C105*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C104*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C103*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C102*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C121*/SET SCHEMA PUBLIC
+alter table comentario drop constraint FK1gcyoyuhavbjdhqr9hbulwa69
+alter table comentario drop constraint FKefv85lfutis7gg5eq0x8buy3f
+alter table publicacion drop constraint FK65302w6x7qq03upexu8lel7l8
+alter table usuario_amigos drop constraint FK78dfuay1npvomfdwyjk49iu8h
+alter table usuario_amigos drop constraint FKp8dunt6mjj9t1ncb1f15v3yv9
+alter table usuario_likes_dados drop constraint FK1pilflrsasvtx2t6xxs6ygck
+alter table usuario_likes_dados drop constraint FKjpk07m8yjwmycltwvk6qqevvm
+drop table amistad if exists
+drop table comentario if exists
+drop table publicacion if exists
+drop table usuario if exists
+drop table usuario_amigos if exists
+drop table usuario_likes_dados if exists
+create table amistad (id bigint generated by default as identity (start with 1), usuario1 bigint not null, usuario2 bigint not null, primary key (id))
+create table comentario (id bigint generated by default as identity (start with 1), contenido varchar(255), fecha timestamp, titulo varchar(255), autor_id bigint, post_id bigint, primary key (id))
+create table publicacion (id bigint generated by default as identity (start with 1), contenido varchar(16777216), fecha timestamp, imagen varchar(255), titulo varchar(255), autor bigint, primary key (id))
+create table usuario (id bigint generated by default as identity (start with 1), apellidos varchar(255), descripcion varchar(255), email varchar(255), foto_desc varchar(16777216), foto_perfil varchar(16777216), nombre varchar(255), password varchar(255), role varchar(255), username varchar(255), primary key (id))
+create table usuario_amigos (usuario_id bigint not null, amigos_id bigint not null, primary key (usuario_id, amigos_id))
+create table usuario_likes_dados (likes_id bigint not null, likes_dados_id bigint not null, primary key (likes_id, likes_dados_id))
+alter table usuario add constraint UK_863n1y3x0jalatoir4325ehal unique (username)
+alter table comentario add constraint FK1gcyoyuhavbjdhqr9hbulwa69 foreign key (autor_id) references usuario
+alter table comentario add constraint FKefv85lfutis7gg5eq0x8buy3f foreign key (post_id) references publicacion
+alter table publicacion add constraint FK65302w6x7qq03upexu8lel7l8 foreign key (autor) references usuario
+alter table usuario_amigos add constraint FK78dfuay1npvomfdwyjk49iu8h foreign key (amigos_id) references usuario
+alter table usuario_amigos add constraint FKp8dunt6mjj9t1ncb1f15v3yv9 foreign key (usuario_id) references usuario
+alter table usuario_likes_dados add constraint FK1pilflrsasvtx2t6xxs6ygck foreign key (likes_dados_id) references publicacion
+alter table usuario_likes_dados add constraint FKjpk07m8yjwmycltwvk6qqevvm foreign key (likes_id) references usuario
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$/v40zd7yUs7Gk5O0EcIXruUEqCG4udqcbPwaVi0FdJO6hlcGWUHWC','ROLE_USUARIO','pedro')
+INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:38:40.706000',NULL,'Hoy no quiero programar',1)
+COMMIT
+INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$MyQTVBNktIykQ0kuutbVn.QtbubRRB5tbtmNC58hcDJFxUzeI2qfO','ROLE_USUARIO','lucas')
+INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:38:40.706000',NULL,'El sol brilla mucho',2)
+INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:38:40.706000',NULL,'Usando bootstrap',2)
+INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:38:40.706000',NULL,'Nos merecemos un 10',2)
+COMMIT
+INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$NPZBMBqp0HyPddtCPzswM.81tGiIpZ.UoYbBblGVbwObOqu5MFTqC','ROLE_USUARIO','maria')
+INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:38:40.706000',NULL,'Publicacion de prueba',3)
+COMMIT
+INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$X7JrYOxvfs64FXmnS.i8neYSiQvhXR1MFxRO8hLMpht.TjtrwwlEW','ROLE_USUARIO','marta')
+INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:38:40.706000',NULL,'Drop tables',4)
+COMMIT
+INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$X1rewLAsp5Zty9w5XFORTuWTa6n7XRbUyB.jnHTfYQKz72zuVmSV.','ROLE_USUARIO','pelayo')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$LkeCTtbYriyFyUK0SlRX.eByKwSdctL7RU7Is5MsOaTkNAnCmkoGS','ROLE_ADMIN','edward')
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(1,2)
+INSERT INTO USUARIO_AMIGOS VALUES(1,3)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(2,3)
+INSERT INTO USUARIO_AMIGOS VALUES(2,1)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(3,1)
+INSERT INTO USUARIO_AMIGOS VALUES(3,2)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(4,5)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(5,6)
+INSERT INTO USUARIO_AMIGOS VALUES(5,4)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(6,5)
+COMMIT
+DISCONNECT
+/*C120*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C119*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C118*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C117*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C116*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C115*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C114*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C113*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C112*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C131*/SET SCHEMA PUBLIC
+alter table comentario drop constraint FK1gcyoyuhavbjdhqr9hbulwa69
+alter table comentario drop constraint FKefv85lfutis7gg5eq0x8buy3f
+alter table publicacion drop constraint FK65302w6x7qq03upexu8lel7l8
+alter table usuario_amigos drop constraint FK78dfuay1npvomfdwyjk49iu8h
+alter table usuario_amigos drop constraint FKp8dunt6mjj9t1ncb1f15v3yv9
+alter table usuario_likes_dados drop constraint FK1pilflrsasvtx2t6xxs6ygck
+alter table usuario_likes_dados drop constraint FKjpk07m8yjwmycltwvk6qqevvm
+drop table amistad if exists
+drop table comentario if exists
+drop table publicacion if exists
+drop table usuario if exists
+drop table usuario_amigos if exists
+drop table usuario_likes_dados if exists
+create table amistad (id bigint generated by default as identity (start with 1), usuario1 bigint not null, usuario2 bigint not null, primary key (id))
+create table comentario (id bigint generated by default as identity (start with 1), contenido varchar(255), fecha timestamp, titulo varchar(255), autor_id bigint, post_id bigint, primary key (id))
+create table publicacion (id bigint generated by default as identity (start with 1), contenido varchar(16777216), fecha timestamp, imagen varchar(255), titulo varchar(255), autor bigint, primary key (id))
+create table usuario (id bigint generated by default as identity (start with 1), apellidos varchar(255), descripcion varchar(255), email varchar(255), foto_desc varchar(16777216), foto_perfil varchar(16777216), nombre varchar(255), password varchar(255), role varchar(255), username varchar(255), primary key (id))
+create table usuario_amigos (usuario_id bigint not null, amigos_id bigint not null, primary key (usuario_id, amigos_id))
+create table usuario_likes_dados (likes_id bigint not null, likes_dados_id bigint not null, primary key (likes_id, likes_dados_id))
+alter table usuario add constraint UK_863n1y3x0jalatoir4325ehal unique (username)
+alter table comentario add constraint FK1gcyoyuhavbjdhqr9hbulwa69 foreign key (autor_id) references usuario
+alter table comentario add constraint FKefv85lfutis7gg5eq0x8buy3f foreign key (post_id) references publicacion
+alter table publicacion add constraint FK65302w6x7qq03upexu8lel7l8 foreign key (autor) references usuario
+alter table usuario_amigos add constraint FK78dfuay1npvomfdwyjk49iu8h foreign key (amigos_id) references usuario
+alter table usuario_amigos add constraint FKp8dunt6mjj9t1ncb1f15v3yv9 foreign key (usuario_id) references usuario
+alter table usuario_likes_dados add constraint FK1pilflrsasvtx2t6xxs6ygck foreign key (likes_dados_id) references publicacion
+alter table usuario_likes_dados add constraint FKjpk07m8yjwmycltwvk6qqevvm foreign key (likes_id) references usuario
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$AwJLWL8HP/yHpgaXAeHmOuzmlR73MSQN4hNn5hMJQeK7vDMCdxdMK','ROLE_USUARIO','pedro')
+INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:40:41.851000',NULL,'Hoy no quiero programar',1)
+COMMIT
+INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$BdlRIH6RYlNzwuxzTd4Yze/etRcLhHvoBGBjYQljw92rtsLJSY4NG','ROLE_USUARIO','lucas')
+INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:40:41.851000',NULL,'El sol brilla mucho',2)
+INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:40:41.851000',NULL,'Usando bootstrap',2)
+INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:40:41.851000',NULL,'Nos merecemos un 10',2)
+COMMIT
+INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$lLOp5H8l0ahpuz3RHcDQWegMWyo897szALI07yhLoSy6IgUb.gE4W','ROLE_USUARIO','maria')
+INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:40:41.851000',NULL,'Publicacion de prueba',3)
+COMMIT
+INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$a/2TqswcHPOyq3BmRAkwOu/sedwa11BYuWrPycwcw..6MeVj.cara','ROLE_USUARIO','marta')
+INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:40:41.851000',NULL,'Drop tables',4)
+COMMIT
+INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$JJZfI.wO2NPDTHE4GTF2.ezVlgmN8sE2uGiBmrRIoquVfMUUrVUKS','ROLE_USUARIO','pelayo')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$.RuOvxGUc.UGNxO4XLktu.NbkmnPRtlETAuxgNvEB5S3Mo7oFZDU6','ROLE_ADMIN','edward')
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(1,2)
+INSERT INTO USUARIO_AMIGOS VALUES(1,3)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(2,3)
+INSERT INTO USUARIO_AMIGOS VALUES(2,1)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(3,1)
+INSERT INTO USUARIO_AMIGOS VALUES(3,2)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(4,5)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(5,6)
+INSERT INTO USUARIO_AMIGOS VALUES(5,4)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(6,5)
+COMMIT
+DISCONNECT
+/*C130*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C129*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C128*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C127*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C126*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C125*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C124*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C123*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C122*/SET SCHEMA PUBLIC
+DISCONNECT
+/*C141*/SET SCHEMA PUBLIC
+alter table comentario drop constraint FK1gcyoyuhavbjdhqr9hbulwa69
+alter table comentario drop constraint FKefv85lfutis7gg5eq0x8buy3f
+alter table publicacion drop constraint FK65302w6x7qq03upexu8lel7l8
+alter table usuario_amigos drop constraint FK78dfuay1npvomfdwyjk49iu8h
+alter table usuario_amigos drop constraint FKp8dunt6mjj9t1ncb1f15v3yv9
+alter table usuario_likes_dados drop constraint FK1pilflrsasvtx2t6xxs6ygck
+alter table usuario_likes_dados drop constraint FKjpk07m8yjwmycltwvk6qqevvm
+drop table amistad if exists
+drop table comentario if exists
+drop table publicacion if exists
+drop table usuario if exists
+drop table usuario_amigos if exists
+drop table usuario_likes_dados if exists
+create table amistad (id bigint generated by default as identity (start with 1), usuario1 bigint not null, usuario2 bigint not null, primary key (id))
+create table comentario (id bigint generated by default as identity (start with 1), contenido varchar(255), fecha timestamp, titulo varchar(255), autor_id bigint, post_id bigint, primary key (id))
+create table publicacion (id bigint generated by default as identity (start with 1), contenido varchar(16777216), fecha timestamp, imagen varchar(255), titulo varchar(255), autor bigint, primary key (id))
+create table usuario (id bigint generated by default as identity (start with 1), apellidos varchar(255), descripcion varchar(255), email varchar(255), foto_desc varchar(16777216), foto_perfil varchar(16777216), nombre varchar(255), password varchar(255), role varchar(255), username varchar(255), primary key (id))
+create table usuario_amigos (usuario_id bigint not null, amigos_id bigint not null, primary key (usuario_id, amigos_id))
+create table usuario_likes_dados (likes_id bigint not null, likes_dados_id bigint not null, primary key (likes_id, likes_dados_id))
+alter table usuario add constraint UK_863n1y3x0jalatoir4325ehal unique (username)
+alter table comentario add constraint FK1gcyoyuhavbjdhqr9hbulwa69 foreign key (autor_id) references usuario
+alter table comentario add constraint FKefv85lfutis7gg5eq0x8buy3f foreign key (post_id) references publicacion
+alter table publicacion add constraint FK65302w6x7qq03upexu8lel7l8 foreign key (autor) references usuario
+alter table usuario_amigos add constraint FK78dfuay1npvomfdwyjk49iu8h foreign key (amigos_id) references usuario
+alter table usuario_amigos add constraint FKp8dunt6mjj9t1ncb1f15v3yv9 foreign key (usuario_id) references usuario
+alter table usuario_likes_dados add constraint FK1pilflrsasvtx2t6xxs6ygck foreign key (likes_dados_id) references publicacion
+alter table usuario_likes_dados add constraint FKjpk07m8yjwmycltwvk6qqevvm foreign key (likes_id) references usuario
+INSERT INTO USUARIO VALUES(1,'D\u00edaz','prueba','a@example.com','https://ih0.redbubble.net/cover.104630.2400x600.jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pedro','$2a$10$hyPr6d2egXsPbNjyFv2Y1O2orbThqrGGFDIt6bs2PPYc47Yw8qkT.','ROLE_USUARIO','pedro')
+INSERT INTO PUBLICACION VALUES(1,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:42:12.167000',NULL,'Hoy no quiero programar',1)
+COMMIT
+INSERT INTO USUARIO VALUES(2,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Lucas','$2a$10$b/MR3M3lB0Zz3SYqSFNrfusFTiQBxb8Hz2QaS2VFq1SishOoho0se','ROLE_USUARIO','lucas')
+INSERT INTO PUBLICACION VALUES(2,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:42:12.166000',NULL,'Nos merecemos un 10',2)
+INSERT INTO PUBLICACION VALUES(3,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:42:12.166000',NULL,'El sol brilla mucho',2)
+INSERT INTO PUBLICACION VALUES(4,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:42:12.166000',NULL,'Usando bootstrap',2)
+COMMIT
+INSERT INTO USUARIO VALUES(3,'Rodr\u00edguez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Mar\u00eda','$2a$10$KvsYf8oH.3tn1MVBEROlw.fpY3rAW5xB.1H.FrbwK.RUNtJBc.J2O','ROLE_USUARIO','maria')
+INSERT INTO PUBLICACION VALUES(5,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:42:12.166000',NULL,'Publicacion de prueba',3)
+COMMIT
+INSERT INTO USUARIO VALUES(4,'Almonte','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Marta','$2a$10$.8nV6zmCC1NPbS2Rf0UEZ.Bg4e4LSnz3ANYG22wZAP9uhbPwev7Le','ROLE_USUARIO','marta')
+INSERT INTO PUBLICACION VALUES(6,'Lorem ipsum dolor sit amet, consectetur adipisicing elit,\u000d\u000ased do eiusmod tempor incididunt ut labore et dolore magna aliqua.\u000d\u000aUt enim ad minim veniam, quis tion ullamco laboris nisi ut aliquip\u000d\u000aex ea commodo consequat. Duis aute irure dolor in reprehenderit in\u000d\u000avoluptate velit esse cillum dolore eu fugiat nulla pariatur.\u000d\u000aExcepteur sint occaecat cupidatat non proident, sunt in culpa qui\u000d\u000aofficia deserunt mollit anim id est laborum.','2018-03-15 09:42:12.167000',NULL,'Drop tables',4)
+COMMIT
+INSERT INTO USUARIO VALUES(5,'Valdes','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Pelayo','$2a$10$wEixOYM2agVLZid2gp/3geVHw70AKV3nV4TLTG8D6AH4c6pjjej3u','ROLE_USUARIO','pelayo')
+COMMIT
+INSERT INTO USUARIO VALUES(6,'N\u00fa\u00f1ez','prueba','a@example.com','fotodesc_jpg','https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png','Edward','$2a$10$7c7ZWuSuAtwpfrM9ssORQ.jdiLHpW8Pu/or9k07AaGQkkaBkvJYeK','ROLE_ADMIN','edward')
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(1,3)
+INSERT INTO USUARIO_AMIGOS VALUES(1,2)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(2,3)
+INSERT INTO USUARIO_AMIGOS VALUES(2,1)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(3,1)
+INSERT INTO USUARIO_AMIGOS VALUES(3,2)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(4,5)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(5,6)
+INSERT INTO USUARIO_AMIGOS VALUES(5,4)
+COMMIT
+INSERT INTO USUARIO_AMIGOS VALUES(6,5)
+COMMIT

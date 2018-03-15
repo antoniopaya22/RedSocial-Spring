@@ -15,12 +15,22 @@
 				</form>
 
 			</li>
-			<!--Notification-->
+			<!-- Lenguaje Menu-->
 			<li class="dropdown"><a class="app-nav__item" href="#"
-				data-toggle="dropdown"><i class="fa fa-bell-o fa-lg"></i></a></li>
+				data-toggle="dropdown"><i class="fa fa-globe fa-lg"></i> Idioma</a>
+				<ul id="languageDropdownMenuButton" class="dropdown-menu settings-menu dropdown-menu-right">
+					<li><a class="dropdown-item" id="btnEnglish" value="EN"><img
+		                        th:src="@{/img/en.png}"
+		                        style="border: 0; float: left; margin-right: 15px" weight="24px" height="24px"/> 
+		                        <button class="btn btn-outline-primary btn-sm">Inglés</a></li>
+					<li><a class="dropdown-item" id="btnSpanish" value="ES"><img
+		                        th:src="@{/img/es.png}"
+		                        style="border: 0; float: left; margin-right: 15px" weight="24px" height="24px"/> 
+		                        <button class="btn btn-outline-primary btn-sm">Español</button></a></li>
+				</ul></li>
 			<!-- User Menu-->
 			<li class="dropdown"><a class="app-nav__item" href="#"
-				data-toggle="dropdown"><i class="fa fa-user fa-lg"></i></a>
+				data-toggle="dropdown"><i class="fa fa-user fa-lg"></i> Perfil</a>
 				<ul class="dropdown-menu settings-menu dropdown-menu-right">
 					<li><a class="dropdown-item" th:href="${'/users/perfil/' + usuarioActivo.username}"><i
 							class="fa fa-user fa-lg"></i> Perfil</a></li>
