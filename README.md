@@ -21,14 +21,58 @@ una red social.
 
 ## Manual de uso
 
-### Creación del proyecto
-
-1. Clonar el proyecto mediante Git en una carpeta local [RedSocial-SDI](https://github.com/antonioalfa22/RedSocial-SDI.git).
-2. Importar el proyecto clonado a Eclipse, Intellij o el IDE que se utilice.
-3. Actualizar dependencias con Maven.
-
 ### Ejecución
 
-> Escribir aquí la guía para una ejecución correcta
+#### Prerequisitos
+
+Para poder ejecutar la aplicación necesitaremos:
+
+##### 1. Java JDK
+
+Se necesita tener instalado correctamente y configurado en las variables de entorno del sistema el JDK de Java.
+
+Para más información visita [Java JDK](http://www.oracle.com/technetwork/es/java/javase/downloads/index.html)
+
+##### 2. Maven
+
+Maven es una herramienta de software para la gestión y construcción de proyectos Java basado en un formato xml.
+Se debe tener instalado correctamente y configurado en las variables de entorno del sistema.
+
+Para más información visita [Maven](https://maven.apache.org/download.cgi)
+
+##### 3. Git
+
+Git se usará para poder descargar el proyecto, por lo que no es estríctamente necesario, pero sí recomendable, ya que mediante el uso de git nos aseguraremos de tener la última versión del proyecto.
+
+##### 4. Spring-Boot STS
+
+Al igual que Git, el entorno de desarrollo integrado [Spring Boot STS](https://spring.io/tools/sts/all) no es estríctamente necesario. Es el IDE que ofrece Spring para trabajar con el framework y es el que recomendamos.
+
+#### Lanzamiento
+
+El primer paso que debemos hacer es descargarnos el código fuente, para ello podemos hacerlo mediante git con el comando:
+
+```git
+$ git clone https://github.com/antonioalfa22/RedSocial-SDI.git
+```
+
+Si no tenemos instalado Git podemos descargarnos el código fuente en formato [zip](https://github.com/antonioalfa22/RedSocial-SDI/archive/master.zip)
+
+Para ejecutar la aplicación en Windows tenemos que iniciar el servidor HSQLDB jecutando el archivo: `db/bin/runDB.bat`
+
+Una vez levantada la base de datos ejecutamos el proyecto spring-boot, para ello podemos hacerlo de tres formas:
+
+1. Por línea de comandos:
+
+```bash
+$ mvn spring-boot:run
+```
+
+2. Ejecutando el archivo _run.bat_
+
+3. Mediante Spring-Boot STS, importamos el proyecto como un proyecto maven, y ejecutamos el mismo como "Spring boot Application"
+
+
+
 
 
