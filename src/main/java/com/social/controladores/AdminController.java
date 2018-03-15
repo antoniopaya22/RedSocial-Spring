@@ -17,10 +17,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.social.entidades.Publicacion;
 import com.social.entidades.Usuario;
+import com.social.servicios.RolesService;
+import com.social.servicios.SecurityService;
 import com.social.servicios.UsuarioService;
 
 /**
@@ -32,6 +35,10 @@ public class AdminController {
 
 	@Autowired 
 	private UsuarioService usersService;
+	@Autowired
+	private RolesService rolesService;
+	@Autowired
+	private SecurityService securityService;
 	
 	@RequestMapping("/admin/list")
 	public String getList(Model model, Pageable pageable, @RequestParam(value = "", required=false) String searchText)
@@ -65,5 +72,23 @@ public class AdminController {
 		model.addAttribute("usuarioActivo", activo);
 		return "redirect:/admin/list";
 	}
+	
+	@RequestMapping(value = "/admin/login", method = RequestMethod.GET)
+	public String login(Model model) {
+		return "/admin/login";
+	}
+	
+	@RequestMapping(value = "/admin/login", method = RequestMethod.POST)
+	public String login(Model model,@ModelAttribute Usuario u) {
+		String username = u.getUsername();
+		String passwd = u.getPassword();
+		Usuario intento = usersService.getUserByUsername(username);
+		if(intento == null || !intento.getRole().equals(rolesService.getRoles()[1]))
+			return "redirect:/admin/login";
+		securityService.autoLogin(username, passwd);
+		return "redirect:/";
+	}
+
+
 
 }
