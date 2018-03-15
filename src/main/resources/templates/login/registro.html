@@ -9,18 +9,18 @@
 
 	<section class="login-content">
 		<div class="logo">
-			<h1>Red Social</h1>
+			<h1 th:text="#{Nav.titulo}">Red Social</h1>
 		</div>
 
 		<div class="login-box">
 			<form class="login-form" method="post" action="/registro" th:object="${usuario}">
 				<h3 class="login-head">
-					<i class="fa fa-lg fa-fw fa-user"></i>RegÃ­strate
+					<i class="fa fa-lg fa-fw fa-user"></i><span th:text="#{Registro.titulo}">Regístrate</span>
 				</h3>
 
 				<div class="form-group">
-					<label class="control-label">Usuario</label> 
-					<input class="form-control" type="text" placeholder="Username" autofocus
+					<label class="control-label" th:text="#{Registro.usuario}">Usuario</label> 
+					<input class="form-control" type="text" id="usuario" th:placeholder="#{Registro.usuario}" autofocus
 						name="username" required="true">
 					<span
 						class="text-danger" th:if="${#fields.hasErrors('username')}"
@@ -29,7 +29,7 @@
 
 				<div class="form-group">
 					<label class="control-label">Email</label> 
-					<input class="form-control" type="text" placeholder="Email" autofocus
+					<input class="form-control" id="email" type="text" placeholder="Email" autofocus
 						name="email" required="true">
 					<span
 						class="text-danger" th:if="${#fields.hasErrors('email')}"
@@ -38,24 +38,23 @@
 
 				<div class="form-group">
 					<label class="control-label">Password</label> 
-					<input class="form-control" type="password" placeholder="Password"
+					<input class="form-control" id="pass" type="password" placeholder="Password"
 						name="password" required="true">
 					<span class="text-danger" th:if="${#fields.hasErrors('password')}"
 						th:errors="*{password}">
 				</div>
 
 				<div class="form-group">
-					<label class="control-label">Repite Password</label> 
-					<input class="form-control" type="password" placeholder="Password"
+					<label class="control-label" th:text="#{Registro.repPass}">Repite Password</label> 
+					<input class="form-control" id="rep_pass" type="password" placeholder="Password"
 						name="passwordConfirm" required="true">
 					<span class="text-danger" th:if="${#fields.hasErrors('passwordConfirm')}"
 						th:errors="*{passwordConfirm}">
 				</div>
 
 				<div class="form-group btn-container">
-					<button class="btn btn-primary btn-block" type="submit">
-						<i class="fa fa-sign-in fa-lg fa-fw"></i>Registro
-					</button>
+					<button id="registro" class="btn btn-primary btn-block" type="submit">
+						<i class="fa fa-sign-in fa-lg fa-fw"></i><span th:text="#{Registro.btnRegistro}">Registro</span></button>
 				</div>
 
 			</form>
