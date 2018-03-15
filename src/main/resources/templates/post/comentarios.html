@@ -12,13 +12,13 @@
 	<div class="app-title">
 		<div>
 			<h1>
-				<i class="fa fa-comment-o"></i> Comentarios
+				<i class="fa fa-comment-o"></i> <span th:text="#{Panel.comentarios}">Comentarios</span>
 			</h1>
 			<p th:text="${'Post: '+post.titulo}">Post: Titulo</p>
 		</div>
 		<ul class="app-breadcrumb breadcrumb">
 			<li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
-			<li class="breadcrumb-item"><a href="#">Comentarios</a></li>
+			<li class="breadcrumb-item"><a href="#" th:text="#{Panel.comentarios}">Comentarios</a></li>
 		</ul>
 	</div>
 
@@ -99,18 +99,18 @@
 					<div class="modal-dialog" role="document">
 						<form class="modal-content" method="post" th:action="${'/post/comentario/add/'+post.id}">
 							<div class="modal-header">
-								<input class="form-control" type="text" placeholder="Título del comentario" name="titulo"
+								<input class="form-control" type="text" th:placeholder="#{Post.comTitle}" name="titulo"
 									required="true">
 							</div>
 							<div class="modal-body">
 								<textarea class="form-control" rows="5"
-									placeholder="Contenido del comentario" name="contenido" required="true"></textarea>
+									th:placeholder="#{Post.comConte}" name="contenido" required="true"></textarea>
 							</div>
 							<div class="modal-footer">
 								<button class="btn btn-primary" type="submit">
-									<i class="fa fa-fw fa-lg fa-check-circle"></i>Enviar
+									<i class="fa fa-fw fa-lg fa-check-circle"></i> <span th:text="#{Post.enviar}">Enviar</span>
 								</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="#"><i
-								class="fa fa-fw fa-lg fa-times-circle"></i>Cancelar</a>
+								class="fa fa-fw fa-lg fa-times-circle"></i><span th:text="#{Post.cancelar}">Cancelar</span></a>
 							</div>
 						</form>
 					</div>

@@ -46,6 +46,14 @@
  	
  	<br>
  	
+ 	<div th:if="${#lists.isEmpty(userList)}">
+		<div class="col-md-12">
+			<div class="alert alert-warning">
+				<strong th:text="#{Usuarios.listaAmigos.sinAmigos}">�Vaya! No tienes amigos</strong>
+			</div>
+		</div>
+	</div>
+ 	
 	<div class="row" th:each="usuario : ${userList}">
 		<div class="col-md-12">
 			<div class="card mb-3 border-primary">
