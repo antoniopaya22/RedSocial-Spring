@@ -138,6 +138,9 @@ public class UsuarioService {
 	{
 		amistadRepository.delete(u2.getId(), u1.getId()); // el usuario 2 acepta la petición del 1
 		
+		if (amistadRepository.findPeticiones( u1.getId(), u2.getId() ).size() != 0)
+			amistadRepository.delete( u1.getId(), u2.getId() );
+		
 		modificarAmistadUsuarios( u1, u2 );
 	}
 	
