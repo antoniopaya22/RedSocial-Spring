@@ -86,7 +86,7 @@ public class AdminController {
 		if(intento == null || !intento.getRole().equals(rolesService.getRoles()[1]))
 			return "redirect:/login/error";
 		securityService.autoLogin(username, passwd);
-		return "redirect:/";
+		return "redirect:/admin/list";
 	}
 
 
