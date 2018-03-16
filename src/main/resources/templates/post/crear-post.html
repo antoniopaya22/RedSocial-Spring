@@ -34,11 +34,11 @@
 					<form method="post" th:action="${'/post/add'}" enctype="multipart/form-data">
 						<div class="form-group">
 							<label class="control-label" for="titulo" th:text="#{Post.titulo}">Título</label> 
-							<input class="form-control" type="text" th:placeholder="#{Post.titulo}" name="titulo">
+							<input id="titulo" class="form-control" type="text" th:placeholder="#{Post.titulo}" name="titulo">
 						</div>
 						<div class="form-group">
 							<label class="control-label" for="contenido" th:text="#{Post.contenido}">Contenido</label>
-							<textarea class="form-control" rows="5"
+							<textarea id="content" class="form-control" rows="5"
 								th:placeholder="#{Post.contenido}" name="contenido"></textarea>
 						</div>
 						<div class="form-group">
@@ -46,7 +46,7 @@
 							<input class="form-control" type="file" name="imagen" accept=".png">
 						</div>
 						<div class="tile-footer">
-						<button class="btn btn-primary" type="submit">
+						<button id="crear" class="btn btn-primary" type="submit">
 							<i class="fa fa-fw fa-lg fa-check-circle"></i><span th:text="#{Post.crear}">Crear</span>
 						</button>&nbsp;&nbsp;&nbsp;<a class="btn btn-secondary" href="/post/add"><i
 							class="fa fa-fw fa-lg fa-times-circle"></i><span th:text="#{Post.cancelar}">Cancelar</span></a>

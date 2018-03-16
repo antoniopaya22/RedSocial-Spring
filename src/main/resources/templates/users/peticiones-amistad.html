@@ -52,7 +52,7 @@
 							<a class="alert-link" th:href="${'/users/perfil/' + usuario.username}" 
 								th:text="${usuario.username}">Usuario</a> <span th:text="#{Usuarios.peticiones.quiereSer}"> quiere ser tu amig@</span></p>
 							<a class="alert-link" type="button" th:href="${'/users/aceptarPeticion/' + usuario.id}">
-								<button class="btn btn-success" type="button" th:text="#{Usuarios.peticiones.aceptar}">Aceptar
+								<button th:id="${usuario.username}"class="btn btn-success" type="button" th:text="#{Usuarios.peticiones.aceptar}">Aceptar
 									invitación</button>
 							</a>
 							<a class="alert-link" type="button" th:href="${'/users/rechazarPeticion/' + usuario.id}">
