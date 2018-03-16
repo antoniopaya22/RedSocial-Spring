@@ -30,11 +30,11 @@
 				<form class="navbar-form" action="/users/lista-usuarios">
 					<div class="sender row">
 						<div class="col-md-6">
-							<input name="searchText" type="text" class="form-control" size="80"
+							<input id="buscar" name="searchText" type="text" class="form-control" size="80"
 								th:placeholder="#{Usuarios.lista.buscarUsuariosCampo}">
 						</div>
                 		<div class="col-md-6">
-                			<button class="btn btn-primary" type="submit"><i class="fa fa-lg fa-fw fa fa-search"></i> 
+                			<button id="btn-buscar" class="btn btn-primary" type="submit"><i class="fa fa-lg fa-fw fa fa-search"></i> 
                 			<span th:text="#{Usuarios.lista.buscarBoton}">Buscar</span></button>
                 			<button class="btn btn-secondary" href="#" th:text="#{Usuarios.lista.resetBoton}">Resetear</button>
                 		</div>
@@ -67,7 +67,7 @@
 							
 							<!-- Cuando se ha enviado la peticiÃ³n de amistad -->
 							<div class="alert alert-dismissible alert-success" th:if="${usuariosPeticionesEnviadas.contains(usuario.id)}">
-								<strong th:text="#{Usuarios.lista.peticionYaEnviada}">Petición de amistad enviada</strong>
+								<strong th:id="${'enviada_' + usuario.username}" th:text="#{Usuarios.lista.peticionYaEnviada}">Petición de amistad enviada</strong>
 							</div>
 							
 							<!-- Cuando los dos usuarios no son amigos (o son el mismo) -->
@@ -76,7 +76,9 @@
 									&& !usuariosPeticionesEnviadas.contains(usuario.id)}" 
 							class="alert-link" type="button" 
 							id="enviarPeticion" th:href="${'/users/enviarAmistad/' + usuario.id}">
-								<button class="btn btn-outline-primary" th:text="#{Usuarios.lista.enviarPeticion}">Enviar petición de amistad
+								<button th:id="${usuario.username}" class="btn btn-outline-primary">
+								<span th:text="#{Usuarios.lista.enviarPeticion}">Enviar petición de amistad a </span> 
+								<span th:text="${usuario.username}">usuario</span>
 								</button>
 							</a>
 							

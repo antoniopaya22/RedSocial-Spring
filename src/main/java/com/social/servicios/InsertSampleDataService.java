@@ -146,6 +146,10 @@ public class InsertSampleDataService {
 		usuariosService.updateUsuario(usuario4);
 		usuariosService.updateUsuario(usuario5);
 		usuariosService.updateUsuario(usuario6);
+		
+		usuariosService.addPeticionAmistad(usuario6, usuario2);
+		usuariosService.addPeticionAmistad(usuario4, usuario2);
+		usuariosService.addPeticionAmistad(usuario5, usuario2);
 	}
 
 }
