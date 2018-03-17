@@ -75,6 +75,6 @@ $ mvn spring-boot:run
 
 ## Javadoc
 
-[Javadoc de RedSocial-SDI](Javadoc: https://antonioalfa22.github.io/RedSocial-SDI/)
+[Javadoc de RedSocial-SDI](https://antonioalfa22.github.io/RedSocial-SDI/)
 
 
