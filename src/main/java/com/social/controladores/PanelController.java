@@ -56,5 +56,10 @@ public class PanelController {
 		model.addAttribute("page", publicaciones);
 		return "/panel";
 	}
+	
+	@RequestMapping(value = "/error", method = RequestMethod.GET)
+	public String loginError(Model model) {
+		return "/error";
+	}
 
 }

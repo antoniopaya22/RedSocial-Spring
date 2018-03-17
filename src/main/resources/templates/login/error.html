@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head th:replace="fragments/head" />
+<body>
+	<div class="page-error">
+		<h1>
+			<i class="fa fa-exclamation-circle"></i> Login Error
+		</h1>
+		<p th:text="#{Error.falloLogin}">Error</p>
+		<p>
+			<a href="/registro">¿No tienes cuenta? Registrate aquí</a>
+		</p>
+		<p>
+			<a href="/login">¿Ha sido un error? Prueba a loguearte</a>
+		</p>
+	</div>
+</body>
+<!-- JS -->
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/plugins/pace.min.js"></script>
+
+</html>

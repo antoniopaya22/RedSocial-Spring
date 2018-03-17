@@ -3,8 +3,11 @@ package com.social.servicios;
 import org.springframework.stereotype.Service;
 
 /**
+ * <h1>RolesService</h1>
+ * Servicio encargado de proporcionar los roles de la aplicacion
  * 
  * @author Antonio Paya Gonzalez
+ * @author Pablo Diaz Rancaño
  *
  */
 @Service

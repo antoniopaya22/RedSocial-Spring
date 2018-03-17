@@ -42,14 +42,7 @@ public class Comentario {
 
 	public Comentario() {}
 
-	/**
-	 * Constructor principal de la clase
-	 * @param titulo
-	 * @param contenido
-	 * @param fecha
-	 * @param autor
-	 * @param post
-	 */
+
 	public Comentario(String titulo, String contenido, Date fecha, Usuario autor, Publicacion post) {
 		super();
 		this.titulo = titulo;

@@ -63,21 +63,7 @@ public class Usuario {
 		this.setFoto_perfil("https://ssl.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png");
 	}
 
-	/**
-	 * Constructor principal de la clase usuario
-	 * 
-	 * @param username
-	 * @param password
-	 * @param email
-	 * @param nombre
-	 * @param apellidos
-	 * @param descripcion
-	 * @param foto_perfil
-	 * @param foto_desc
-	 * @param amigos
-	 * @param post
-	 * @param comentarios
-	 */
+
 	public Usuario(String username, String password, String email, String nombre, String apellidos, String descripcion,
 			String foto_perfil, String foto_desc, Set<Usuario> amigos, Set<Publicacion> post,
 			Set<Comentario> comentarios, Set<Publicacion> likes) {

@@ -9,18 +9,18 @@
 
 	<section class="login-content">
 		<div class="logo">
-			<h1>Red Social</h1>
+			<h1 th:text="#{Nav.titulo}">Red Social</h1>
 		</div>
 
 		<div class="login-box">
 			<form class="login-form" method="post" th:action="@{/login}">
 				<h3 class="login-head">
-					<i class="fa fa-lg fa-fw fa-user"></i>Login
+					<i class="fa fa-lg fa-fw fa-user"></i><span th:text="#{Login.titulo}">Login</span>
 				</h3>
 
 				<div class="form-group">
-					<label class="control-label">Usuario o email</label> 
-					<input class="form-control" type="text" placeholder="Usuario"
+					<label class="control-label" th:text="#{Login.usuario}">Usuario o email</label> 
+					<input class="form-control" type="text" th:placeholder="#{Login.usuario}"
 						name="username" required="true" autofocus>
 				</div>
 
@@ -33,20 +33,21 @@
 				<div class="form-group">
 					<div class="utility">
 						<p class="semibold-text mb-2">
-							<a href="/registro" data-toggle="flip">Â¿No tienes cuenta?
-								Registrate aquÃ­</a>
+							<a id="registro" href="/registro" data-toggle="flip" th:text="#{Login.registro}">¿No tienes cuenta?
+								Registrate aquí</a>
 						</p>
 					</div>
 				</div>
 
 				<div class="form-group btn-container">
 					<button class="btn btn-primary btn-block" type="submit">
-						<i class="fa fa-sign-in fa-lg fa-fw"></i>Login
+						<i class="fa fa-sign-in fa-lg fa-fw"></i><span th:text="#{Login.titulo}">Login</span>
 					</button>
 				</div>
 
 				<input type="hidden" name="${_csrf.parameterName}"
 					value="${_csrf.token}" />
+
 			</form>
 
 		</div>

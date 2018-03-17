@@ -14,7 +14,12 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;;
 
 /**
+ * <h1>SecurityService</h1>
+ * Servicio encargado de proporcionar los metodos para permitir el 
+ * logueo en la aplicacion por medio de SpringSecurity
+ * 
  * @author Antonio Paya Gonzalez
+ * @author Pablo Diaz Rancaño
  *
  */
 @Service

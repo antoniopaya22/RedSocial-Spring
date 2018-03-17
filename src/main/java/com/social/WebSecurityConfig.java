@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
+ * @author Pablo Díaz Rancaño
  * @author Antonio Paya Gonzalez
  *
  */
@@ -31,12 +32,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests()
-				.antMatchers("/css/**", "/img/**", "/js/**", "/admin/login").permitAll()
+				.antMatchers("/css/**", "/img/**", "/js/**", "/admin/login", "/registro","/login/**").permitAll()
 				.antMatchers("/post/**").hasAuthority("ROLE_USUARIO")
 			    .antMatchers("/admin/**").hasAuthority("ROLE_ADMIN")
 				.anyRequest().authenticated()
 				.and()
-					.formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/")
+					.formLogin().loginPage("/login").permitAll().defaultSuccessUrl("/users/lista-usuarios")
+					.failureUrl("/login/error")
 				.and()
 					.logout().permitAll();
 	}

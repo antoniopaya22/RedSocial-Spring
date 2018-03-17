@@ -19,7 +19,7 @@ import com.social.validadores.RegistroValidator;
 
 /**
  * <h1>Login Controller</h1> Controlador que se encarga de dar respuesta a las
- * peticiones de Login, Register, Olvide mi contraseña, o parecidos.
+ * peticiones de Login y Register
  * 
  * @author Antonio Paya Gonzalez
  * @author Pablo Diaz Rancaño
@@ -41,7 +41,7 @@ public class LoginController {
 	@RequestMapping(value = "/registro", method = RequestMethod.GET)
 	public String registro(Model model) {
 		model.addAttribute("usuario", new Usuario());
-		return "/login/registro";
+		return "login/registro";
 	}
 	
 	@RequestMapping(value = "/registro", method = RequestMethod.POST)
@@ -50,7 +50,7 @@ public class LoginController {
 		if(result.hasErrors()) {
 			return "login/registro";
 		}
-		usuarioService.addUsuario(usuario);
+		usuarioService.addNuevoUsuario(usuario);
 		securityService.autoLogin(usuario.getUsername(), usuario.getPasswordConfirm());
 		model.addAttribute("usuarioActivo", usuarioService.getUsuarioActivo());
 		return "redirect:/";
@@ -62,4 +62,8 @@ public class LoginController {
 	}
 
 
+	@RequestMapping(value = "/login/error", method = RequestMethod.GET)
+	public String loginError(Model model) {
+		return "/login/error";
+	}
 }

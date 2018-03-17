@@ -65,7 +65,7 @@
 						</div>
 						<a class="alert-link" type="button" 
 							id="eliminarUsuario" th:href="${'/admin/eliminarUsuario/' + usuario.id}">
-						<button class="btn btn-danger">Eliminar usuario</button>
+						<button class="btn btn-danger" th:id="${usuario.username}">Eliminar usuario</button>
 						</a>
 					</div>
 				</div>
