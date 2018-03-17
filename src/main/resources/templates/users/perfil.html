@@ -46,7 +46,7 @@
 				<div class="tab-pane active" id="user-timeline">
 
 					<!-- POST 1-->
-					<div class="timeline-post" th:each="post : ${usuario.post}">
+					<div class="timeline-post" th:if="${usuarioActivo.esAmigo(usuario) || usuario.equals(usuarioActivo)}" th:each="post : ${usuario.post}">
 						<div class="post-media">
 							<a th:if="${post.autor.foto_perfil != null}" href="#"><img
 								th:src="${post.autor.foto_perfil}" width="48" height="48"></a>
