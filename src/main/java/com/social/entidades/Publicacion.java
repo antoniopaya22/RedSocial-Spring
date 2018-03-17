@@ -53,17 +53,6 @@ public class Publicacion {
 	public Publicacion() {}
 
 	
-	
-	/**
-	 * Constructor principal de la clase
-	 * @param autor
-	 * @param fecha
-	 * @param titulo
-	 * @param contenido
-	 * @param imagen
-	 * @param comentarios
-	 * @param likes
-	 */
 	public Publicacion(Usuario autor, Date fecha, String titulo, String contenido, String imagen,
 			Set<Comentario> comentarios, Set<Usuario> likes) {
 		super();

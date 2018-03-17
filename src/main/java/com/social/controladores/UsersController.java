@@ -17,6 +17,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.social.entidades.Usuario;
 import com.social.servicios.UsuarioService;
 
+/**
+ * <h1>Users Controller</h1> Controlador que se encarga de dar respuesta a las
+ * peticiones relacionadas con usuarios
+ * 
+ * @author Antonio Paya Gonzalez
+ * @author Pablo Diaz Rancaño
+ *
+ */
 @Controller
 public class UsersController 
 {

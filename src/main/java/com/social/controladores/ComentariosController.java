@@ -23,7 +23,11 @@ import com.social.servicios.PublicacionService;
 import com.social.servicios.UsuarioService;
 
 /**
+ * <h1>Comentarios Controller</h1> Controlador que se encarga de dar respuesta a las
+ * peticiones relacionadas con comentarios.
+ * 
  * @author Antonio Paya Gonzalez
+ * @author Pablo Diaz Rancaño
  *
  */
 @Controller

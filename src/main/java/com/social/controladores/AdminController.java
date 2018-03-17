@@ -27,7 +27,11 @@ import com.social.servicios.SecurityService;
 import com.social.servicios.UsuarioService;
 
 /**
- * @author Antonio Payá González
+ * <h1>Login Controller</h1> Controlador que se encarga de dar respuesta a las
+ * peticiones de Administrador
+ * 
+ * @author Antonio Paya Gonzalez
+ * @author Pablo Diaz Rancaño
  *
  */
 @Controller

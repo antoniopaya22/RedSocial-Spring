@@ -13,6 +13,13 @@ import org.springframework.data.repository.CrudRepository;
 import com.social.entidades.Amistad;
 import com.social.entidades.Usuario;
 
+/**
+ * <h1>PeticionAmistadRepository</h1>
+ * 
+ * @author Antonio Paya Gonzalez
+ * @author Pablo Diaz Rancaño
+ *
+ */
 public interface PeticionAmistadRepository extends CrudRepository<Amistad, Long>
 {
 	@Transactional

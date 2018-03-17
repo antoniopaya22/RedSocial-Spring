@@ -5,6 +5,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * <h1>Amistad</h1> Entidad que representa
+ * las peticiones de amistad entre usuarios
+ * 
+ * @author Antonio Paya Gonzalez
+ * @author Pablo Diaz Rancaño
+ *
+ */
 @Entity
 public class Amistad 
 {

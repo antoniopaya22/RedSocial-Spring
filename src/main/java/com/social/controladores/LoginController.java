@@ -19,7 +19,7 @@ import com.social.validadores.RegistroValidator;
 
 /**
  * <h1>Login Controller</h1> Controlador que se encarga de dar respuesta a las
- * peticiones de Login, Register, Olvide mi contraseña, o parecidos.
+ * peticiones de Login y Register
  * 
  * @author Antonio Paya Gonzalez
  * @author Pablo Diaz Rancaño

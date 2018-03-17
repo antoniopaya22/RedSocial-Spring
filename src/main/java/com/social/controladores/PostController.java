@@ -17,6 +17,14 @@ import com.social.entidades.Usuario;
 import com.social.servicios.PublicacionService;
 import com.social.servicios.UsuarioService;
 
+/**
+ * <h1>Post Controller</h1> Controlador que se encarga de dar respuesta a las
+ * peticiones de Publicaciones
+ * 
+ * @author Antonio Paya Gonzalez
+ * @author Pablo Diaz Rancaño
+ *
+ */
 @Controller
 public class PostController {
 	@Autowired
