@@ -50,8 +50,10 @@ public class PostController {
 		activo.addPost(post);
 		postService.addPublicacion(post);
 		usersService.addUsuario(activo);
-		String rutaImagen = postService.addImagen(imagen, post);
-		post.setImagen(rutaImagen);
+		if(!imagen.isEmpty()) {
+			String rutaImagen = postService.addImagen(imagen, post);
+			post.setImagen(rutaImagen);
+		}else post.setImagen(null);
 		postService.addPublicacion(post);
 		model.addAttribute("usuario", activo);
 		model.addAttribute("usuarioActivo", usersService.getUsuarioActivo());

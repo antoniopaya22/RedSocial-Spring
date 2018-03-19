@@ -75,11 +75,11 @@ public class PublicacionService {
 		String fileName = post.getId()+".png";
 		try {
 			InputStream is = imagen.getInputStream();
-			Files.copy(is, Paths.get("src/main/resources/static/img/post/"+fileName), StandardCopyOption.REPLACE_EXISTING);			
+			Files.copy(is, Paths.get("src/main/resources/static/img/post/"+fileName), StandardCopyOption.REPLACE_EXISTING);		
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return fileName;
+		return "/img/post/"+fileName;
 	}
 
 

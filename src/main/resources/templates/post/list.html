@@ -63,8 +63,9 @@
 				</div>
 				<img th:if="${post.imagen != null}"
 							style="height: 200px; width: 400px; display: block;"
-							th:src="${'../../img/post/'+post.imagen}"
-							alt="Imagen del post">
+							th:src="${'../../'+post.imagen}"
+							alt="Imagen del post"
+							th:id="${'img_'}">
 				<ul class="post-utility">
 					<li th:if="${!usuarioActivo.dioLike(post)}" class="likes"><a th:href="${'/post/like/'+post.id}"><i
 							class="fa fa-fw fa-lg fa-thumbs-o-up"></i>Like</a></li>
