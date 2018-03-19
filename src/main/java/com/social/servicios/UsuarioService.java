@@ -135,18 +135,29 @@ public class UsuarioService {
 	
 	public void addPeticionAmistad(Usuario u1, Usuario u2)
 	{
-		amistadRepository.save( new Amistad( u1.getId(), u2.getId()) );
+		if ( procedeAEnviarPeticion(u1, u2) 
+				&& amistadRepository.findPeticiones(u1.getId(), u2.getId()).size() == 0)
+			amistadRepository.save( new Amistad( u1.getId(), u2.getId()) );
+	}
+	
+	
+	private boolean procedeAEnviarPeticion(Usuario u1, Usuario u2)
+	{
+		return ( !u1.esAmigo(u2) && !u1.getUsername().equals( u2.getUsername() )) ? true : false;
 	}
 	
 	
 	public void aceptarPeticionAmistad(Usuario u1, Usuario u2)
 	{
-		amistadRepository.delete(u2.getId(), u1.getId()); // el usuario 2 acepta la petición del 1
-		
-		if (amistadRepository.findPeticiones( u1.getId(), u2.getId() ).size() != 0)
-			amistadRepository.delete( u1.getId(), u2.getId() );
-		
-		modificarAmistadUsuarios( u1, u2 );
+		if (amistadRepository.findPeticiones(u2.getId(), u1.getId()).size() != 0) // para evitar usuarios fraudulentos,
+		{																		  // compruebo que de verdad ha enviado petición
+			amistadRepository.delete(u2.getId(), u1.getId()); // el usuario 2 acepta la petición del 1
+			
+			if (amistadRepository.findPeticiones( u1.getId(), u2.getId() ).size() != 0)
+				amistadRepository.delete( u1.getId(), u2.getId() );
+			
+			modificarAmistadUsuarios( u1, u2 );
+		}
 	}
 	
 	private void modificarAmistadUsuarios( Usuario u1, Usuario u2 )
